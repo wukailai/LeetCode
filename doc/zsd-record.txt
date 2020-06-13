@@ -49,3 +49,5 @@ RabbitMQ；
 HBase；
 MongoDB；
 Cassandra；
+设计模式；
+负载均衡；
