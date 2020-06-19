@@ -6,12 +6,22 @@ jstat：查看堆使用和回收情况；
 在Daemon线程中产生的新线程也是Daemon的；
 synchronized是可重入的非公平锁，系统自动解锁；
 处于Contention List、Entry List、Wait List里面的线程都处于阻塞状态，阻塞操作是由操作系统完成的；
+！Owner：当前释放锁的线程；
+safe point：这个时间点没有其他字节码正在执行；
+偏向锁：只有第一次获得锁的时候才需要CAS，后续只需向Lock Record插入一个空的Displace Mark Word即可；
+对象头信息：Mark Word，记录了锁相关信息，锁标志位（00（轻量级），10（重量级），01（无锁或者偏向锁），11（GC））、是否可偏向（0，1）、线程ID；
+轻量级锁：栈帧创建Lock Record，用于存放Mark Word的拷贝，每次加锁，拷贝Mark Word到Lock Record（Displace Mark Word的owner和对象头的stack pointer相互指向）；
+轻量级锁升级为重量级锁：后来的线程CAS自旋失败，修改了对象头的Mark Word（00 -> 10），Owner占有锁的时候进行升级操作；
+锁粗化使用场景：循环内部加锁 --> 直接在循环外部加锁；
 synchronized非公平体现：1）线程在进入Contention List之前会先尝试自旋获取锁，获取失败才进入Contention List、2）成为OnDeck线程的随机性；
-synchronized加锁就是在竞争对象监视器，重量级操作（需要在用户态和系统态之间切换，依赖于操作系统 Mutex Lock），需要调用系统相关接口；
-AtomicReference<V>：将一个对象的所有操作转化成原子操作；
+synchronized加锁就是在竞争对象监视器，重量级操作（需要在用户态和系统态之间切换，依赖于操作系统Mutex Lock），需要调用系统相关接口；
+AtomicReference<V>：将一个对象的所有操作转化成原子操作；AtomicStampedReference；
 AtomicStampedReference<V>：可以解决ABA问题；
+onDeck线程由释放锁的线程从Entry List中指定，onDeck线程只是拥有竞争锁的权利；
 锁的状态总共有四种：无锁状态、
-					偏向锁（偏向锁的目的是在某个线程获得锁之后，消除这个线程锁重入（CAS）的开销，看起来让这个线程得到了偏护，只有一个线程竞争锁的时候用到）、
+					偏向锁（偏向锁的目的是在某个线程获得锁之后，消除这个线程锁重入（CAS）的开销，看起来让这个线程得到了偏护，只有一个线程竞争锁的时候用到，
+					如果有两个或者两个以上的线程在竞争同一把锁，则会在safe point（stop world并挂起owner）执行偏向锁撤销操作，
+					偏向锁也会升级为轻量级锁（释放owner），进行CAS竞争锁）、
 					轻量级锁（依赖CAS）、
 					重量级锁；
 wait() -> 线程进入WAITING状态、sleep() -> 线程进入TIMED_WAITING状态；
@@ -44,9 +54,13 @@ Redis分布式锁：set key value（随机UUID，可识别锁），并expire设�
 垂直切分：数据库表（访问频率一致的一起、经常一起访问的一起）部署到不同数据库上；
 水平切分：数据量太大时，将数据记录按照一定规则（比如散列）分配到相同结构不同表、甚至不同库上；
 红黑树：一种特殊的二叉查找树，节点区分红黑两种节点；
+jvm对synchronize优化：
+    1）适应性自旋（由CPUs负载+上一次自旋时间+锁拥有者状态决定，默认一个线程切换上下文时间）；
+    2）
 
 
 IO、NIO、poll、epoll不熟；
+CAS底层实现；
 java对synchronized优化；
 	java1.6：有适应自旋、锁消除、锁粗化、轻量级锁及偏向锁等；
 	java1.7和1.8：关键字的实现机理做了优化。引入了偏向锁和轻量级锁。都是在对象头中有标记位，不需要经过操作系统加锁；
