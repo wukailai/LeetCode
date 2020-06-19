@@ -7,12 +7,15 @@ jstat：查看堆使用和回收情况；
 synchronized是可重入的非公平锁，系统自动解锁；
 处于Contention List、Entry List、Wait List里面的线程都处于阻塞状态，阻塞操作是由操作系统完成的；
 ！Owner：当前释放锁的线程；
+分锁机制优化synchronize；
 safe point：这个时间点没有其他字节码正在执行；
 偏向锁：只有第一次获得锁的时候才需要CAS，后续只需向Lock Record插入一个空的Displace Mark Word即可；
 对象头信息：Mark Word，记录了锁相关信息，锁标志位（00（轻量级），10（重量级），01（无锁或者偏向锁），11（GC））、是否可偏向（0，1）、线程ID；
 轻量级锁：栈帧创建Lock Record，用于存放Mark Word的拷贝，每次加锁，拷贝Mark Word到Lock Record（Displace Mark Word的owner和对象头的stack pointer相互指向）；
-轻量级锁升级为重量级锁：后来的线程CAS自旋失败，修改了对象头的Mark Word（00 -> 10），Owner占有锁的时候进行升级操作；
+轻量级锁升级为重量级锁：后来的线程CAS+有次数的自旋失败，修改了对象头的Mark Word（00 -> 10），Owner占有锁的时候进行升级操作；
 锁粗化使用场景：循环内部加锁 --> 直接在循环外部加锁；
+重量级锁：指向互斥量的指针；
+偏向锁只有在出现撤销偏向锁时才会执行释放锁操作；
 synchronized非公平体现：1）线程在进入Contention List之前会先尝试自旋获取锁，获取失败才进入Contention List、2）成为OnDeck线程的随机性；
 synchronized加锁就是在竞争对象监视器，重量级操作（需要在用户态和系统态之间切换，依赖于操作系统Mutex Lock），需要调用系统相关接口；
 AtomicReference<V>：将一个对象的所有操作转化成原子操作；AtomicStampedReference；
@@ -57,6 +60,8 @@ Redis分布式锁：set key value（随机UUID，可识别锁），并expire设�
 jvm对synchronize优化：
     1）适应性自旋（由CPUs负载+上一次自旋时间+锁拥有者状态决定，默认一个线程切换上下文时间）；
     2）
+数组对象对象头会存储数组长度；
+对象头=Mark Word + 类型指针（指向对象的类元数据，jvm根据类型指针确定对象是哪个类的实例）
 
 
 IO、NIO、poll、epoll不熟；
