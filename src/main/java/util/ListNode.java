@@ -27,4 +27,10 @@ public class ListNode {
     public void setNext(ListNode next) {
         this.next = next;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        ListNode node = (ListNode) obj;
+        return val == node.getVal();
+    }
 }

@@ -1,6 +1,5 @@
 package tree;
 
-import com.sun.xml.internal.xsom.XSUnionSimpleType;
 import util.BinaryNode;
 import util.GeneratorUtil;
 

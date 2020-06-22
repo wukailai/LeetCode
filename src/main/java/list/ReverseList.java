@@ -1,6 +1,5 @@
 package list;
 
-import sun.rmi.rmic.Generator;
 import util.GeneratorUtil;
 import util.ListNode;
 import util.PrinterUtil;
