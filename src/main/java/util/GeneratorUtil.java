@@ -37,8 +37,8 @@ public class GeneratorUtil {
     public static ListNode newList2() {
         ListNode head = new ListNode(1);
         head.setNext(new ListNode(2));
-        head.getNext().setNext(new ListNode(2));
-        head.getNext().getNext().setNext(new ListNode(4));
+        head.getNext().setNext(new ListNode(3));
+        head.getNext().getNext().setNext(new ListNode(2));
         head.getNext().getNext().getNext().setNext(new ListNode(1));
         return head;
     }
