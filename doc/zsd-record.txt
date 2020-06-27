@@ -90,6 +90,9 @@ CAS缺点：1）aba；2）占用cpu，自旋等待时间不好确定；3）只�
 不可重入锁可能会引起线程死锁；
 常见垃圾回收器：a）串行、b）并行、c）吞吐量优先；d）CMS；e）G1；
 modCount字段主要用来记录HashMap内部结构发生变化（put覆盖新值不算）的次数，主要用于迭代的快速失败；
+kafka：
+    leader、follower主从设计保证了高可用性，leader一旦挂掉即执行Reblance操作；
+    partition对应一个日志目录，目录里面包含.log、.index后缀文件，.index采用稀疏索引的方式（为了减少占用内存，间隔性存储索引）；
 
 IO、NIO、poll、epoll不熟；
 特殊的阻塞队列；
