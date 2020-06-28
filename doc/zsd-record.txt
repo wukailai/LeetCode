@@ -93,6 +93,7 @@ modCount字段主要用来记录HashMap内部结构发生变化（put覆盖新�
 kafka：
     leader、follower主从设计保证了高可用性，leader一旦挂掉即执行Reblance操作；
     partition对应一个日志目录，目录里面包含.log、.index后缀文件，.index采用稀疏索引的方式（为了减少占用内存，间隔性存储索引）；
+MySQL底层是通过数据页存储的，一条记录占用空间过大（表中字段过多）会导致跨页，造成额外的性能开销；
 
 IO、NIO、poll、epoll不熟；
 特殊的阻塞队列；
