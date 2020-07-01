@@ -13,7 +13,7 @@ LinkedBlockingQueue：count字段为AtomicInteger，且有takeLock、putLock两�
 BigDecimal.valueOf()代替new BigDecimal()，后者有精度损失风险；
 常量放在前面做equals；
 GC Root：虚拟机栈引用、方法区静态属性应用、方法区常量应用、JNI应用的对象；
-线程调用start()方式之后，线程处于Runnable状态，获取cpu执行时间才处于runnning状态；
+线程调用start()方式之后，线程处于Runnable状态，获取cpu执行时间才处于running状态；
 在Daemon线程中产生的新线程也是Daemon的；
 synchronized是可重入的非公平锁，系统自动解锁；
 处于Contention List、Entry List、Wait List里面的线程都处于阻塞状态，阻塞操作是由操作系统完成的；
@@ -95,7 +95,7 @@ Tair：理论上可以无限扩容；
 解决缓存穿透问题：null也做缓存；
 解决缓存击穿问题：改到期自动淘汰为自动刷新（仅针对热点数据），或者加分布式锁，保证获得锁的线程执行完数据库查询 + 填充缓存操作，其他线程采取重试机制；
 解决缓存雪崩问题：多级缓存，不同级别缓存过期时间不一致，过期时间随机性；
-IO、NIO区别：IO read不到数据，阻塞，NIO read不到数据立马返回-1，并且errno被设为EAGAIN（缺点：等待重试时间不好控制）；
+IO、NIO区别：IO read不到数据，阻塞，NIO read不到数据立马返回；
 同步队列：没有什么任务应该被缓存下来，所以适用于对响应速度要求高的场景；
 有界队列：并行执行大批次任务，提升吞吐量；
 线程池支持在运行状态修改线程池参数；
@@ -114,7 +114,7 @@ MySQL底层是通过数据页存储的，一条记录占用空间过大（表中
 4）limit、order by问题；5）全局主键问题；6）扩容问题；
 数据库常见优化：升级网络、升级硬件、读写分离、索引优化、合理的表设计、分表技术；
 fullyRelease、acquireQueued失败节点会被取消；
-ThreadLocalMap value在调用get、set的时候可能会被清除；
+ThreadLocalMap的value在调用get、set的时候可能会被清除；
 读写锁锁降级：指把持住（当前拥有的）写锁，再获取到读锁，随后释放（先前拥有的）写锁的过程；
 读写锁锁降级的必要性：如果不锁降级，另外一个写线程获取锁并修改，最新数据无法被读线程感知；
 事务传播：Service之间的嵌套；事务传播行为：事务嵌套如何处理 （单独创建、加入事务、没有事务抛异常、单独创建并挂起已存在事务、非事务运行并挂起已经存在的事务、
