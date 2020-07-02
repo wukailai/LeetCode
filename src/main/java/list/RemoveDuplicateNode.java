@@ -29,15 +29,15 @@ public class RemoveDuplicateNode {
         }
         Set<Integer> set = new HashSet();
         set.add(head.getVal());
-        ListNode pre = head;
+        ListNode node = head;
         ListNode next = head.getNext();
         while (next != null) {
             if (set.contains(next.getVal())) {
                 next = next.getNext();
-                pre.setNext(next);
+                node.setNext(next);
             } else {
                 set.add(next.getVal());
-                pre = next;
+                node = next;
                 next = next.getNext();
             }
         }
