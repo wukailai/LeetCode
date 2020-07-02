@@ -17,12 +17,11 @@ public class HeapSort {
     }
 
      private static void adjustHeap(int[] a, int i, int len) {
-        int temp = a[i];
         for (int j = 2 * i + 1; j < len; j = 2 * j + 1) {
             if (j + 1 < len && a[j + 1] > a[j]) {
                 j++;
             }
-            if (temp >= a[j]) {
+            if (a[i] >= a[j]) {
                 break;
             }
             CommonUtil.swapIntArray(a, i, j);
