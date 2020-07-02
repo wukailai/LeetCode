@@ -18,14 +18,12 @@ public class RemoveDuplicateArray {
             return 1;
         }
         int count = 1;
-        int start = a[0];
-        int end;
+        int index = a[0];
         for (int i = 1; i < a.length; i++) {
-            end = a[i];
-            if (start == end) {
+            if (index == a[i]) {
                 continue;
             }
-            start = end;
+            index = a[i];
             count++;
         }
         return count;

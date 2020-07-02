@@ -11,15 +11,15 @@ public class CompressString {
 
     private static String compressString(String s) {
         StringBuilder sb = new StringBuilder();
-        Character last = null;
+        Character index = null;
         int num = 1;
         for (char c : s.toCharArray()) {
-            if (null == last) {
-                last = c;
-            } else if (c != last) {
-                sb.append(last);
+            if (null == index) {
+                index = c;
+            } else if (c != index) {
+                sb.append(index);
                 sb.append(num);
-                last = c;
+                index = c;
                 num = 1;
             } else {
                 num++;
