@@ -18,8 +18,8 @@ public class HeapSort {
 
      private static void adjustHeap(int[] a, int i, int len) {
         int temp = a[i];
-        for (int j = 2 * i; j < len; j = 2 * j) {
-            if (a[j + 1] > a[j]) {
+        for (int j = 2 * i + 1; j < len; j = 2 * j + 1) {
+            if (j + 1 < len && a[j + 1] > a[j]) {
                 j++;
             }
             if (temp >= a[j]) {
@@ -32,10 +32,12 @@ public class HeapSort {
      }
 
      private static void heapSort(int[] a) {
+        // 从第一个非叶子节点开始构建大顶推
         for (int i = a.length / 2 - 1; i >= 0; i--) {
-            adjustHeap(a, i, a.length - 1);
+            adjustHeap(a, i, a.length);
         }
         for (int i = a.length - 1; i >= 0; i--) {
+            //只调整0位置即可
             CommonUtil.swapIntArray(a, 0, i);
             adjustHeap(a, 0, i - 1);
         }
