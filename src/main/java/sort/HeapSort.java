@@ -25,10 +25,9 @@ public class HeapSort {
             if (temp >= a[j]) {
                 break;
             }
-            a[i] = a[j];
+            CommonUtil.swapIntArray(a, i, j);
             i = j;
         }
-        a[i] = temp;
      }
 
      private static void heapSort(int[] a) {
@@ -39,7 +38,7 @@ public class HeapSort {
         for (int i = a.length - 1; i >= 0; i--) {
             //只调整0位置即可
             CommonUtil.swapIntArray(a, 0, i);
-            adjustHeap(a, 0, i - 1);
+            adjustHeap(a, 0, i);
         }
      }
 }
