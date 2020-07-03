@@ -2,6 +2,9 @@ jps：查看java进程状态信息；
 jstack：查看线程堆栈情况，可检查死锁；
 jmap：查看堆内存使用情况；
 jstat：查看堆使用和回收情况；
+sql注入：程序没有对用户输入参数进行合法性校验（包括类型、合法规则）；
+数据库最左匹配原则：联合索引(a, b)，a是有序的，b是无序的，但是a相等的情况下b是有序的，所以a如果是范围，b的索引就会失效；
+finalize：执行垃圾回收之前调用的函数，不会确保一定会被执行，因为被分配执行finalize的线程优先级很低；
 FutureTask（waiters，阻塞节点放在waiters前面）的COMPLETING状态：任务已经执行完或者发生异常，只是执行结果还没有保存到outcome里面；
 future.get(long, TimeUnit)超时获取不到会抛TimeoutException；
 FutureTask的awaitDone方法返回的是state；
@@ -133,11 +136,12 @@ Filter可以拿到请求、响应信息；
 Interceptor（afterCompletion类似于finally，可以处理异常）可以拿到请求、响应信息、方法相关信息，但是拿不到方法参数值；
 Aspect可以拿到方法参数值；
 redis提供丰富的数据结构并且提供对他们的原子操作，支持事务，提供自动过期时间；
-redis持久化机制：RDB（定时持久化文件）、AOF（每一次操作就记录到AOF文件中）；
+redis持久化机制：RDB（定时持久化文件，物理备份）、AOF（每一次操作就记录到AOF文件中，逻辑备份）；
 redis删除策略：定时删除、惰性删除、定期删除；
 redis淘汰策略：主键空间/设置了过期时间的键空间 LRU、Random淘汰，内存达到阈值，申请内存指令会报错，设置了过期时间的键空间，删除更早过期key；
 redis使用setnx来争抢锁，设置过期时间保证锁一定会被释放；
 hashmap1.8扩容：扩容后的位置 = 原位置 or 原位置 + 旧容量；1.7扩容：rehash（头插入）；
+ThreadLocalMap通过线性探测法（hashIndex冲突则hashIndex++，到了尾部循环到首部）来实现hash冲突；
 
 IO、NIO、poll、epoll不熟；
 特殊的阻塞队列；
@@ -154,6 +158,8 @@ Cassandra；
 设计模式；
 负载均衡；
 基于Redis分布式锁；
+redis分布式实现方式；
+redis；
 两段提交协议；
 三阶段提交协议；
 柔性事务；
