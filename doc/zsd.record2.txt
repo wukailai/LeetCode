@@ -1,0 +1,9 @@
+查看linux平均负载：uptime；
+top命令：查看cpu和内存占有率；
+mysql什么时候加锁：insert、delete、update语句自动加拍他锁，select语句默认不加锁，但是可以显示加锁：
+select * from table lock in share mode；
+mysql事务隔离是通过锁来实现的：
+a）读未提交：不加锁；
+b）读已提交：每次执行语句时创建一次快照；
+c）可重复读：仅在事务开始时创建一次快照；
+d）串行化：单线程执行，读加共享锁，写加排他锁；
