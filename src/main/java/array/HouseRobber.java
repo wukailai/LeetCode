@@ -3,7 +3,7 @@ package array;
 /**
  * @author wukailai
  * @date 2020/07/05 17:07
- * @description 抢劫房屋，连续两个房屋被抢会触发警报，典型的动态规划问题
+ * @description 抢劫房屋，连续两个房屋被抢会触发警报，典型的动态规划问题，均为正数，需要记录两个状态
  */
 public class HouseRobber {
     public static void main(String[] args) {
