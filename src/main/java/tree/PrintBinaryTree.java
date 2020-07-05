@@ -26,7 +26,7 @@ public class PrintBinaryTree {
     /**
      * 前序打印
      */
-    private static void prePrint(BinaryNode root) {
+    public static void prePrint(BinaryNode root) {
         if (null == root) {
             return;
         }
@@ -38,7 +38,7 @@ public class PrintBinaryTree {
     /**
      * 中序打印
      */
-    private static void midPrint(BinaryNode root) {
+    public static void midPrint(BinaryNode root) {
         if (null == root) {
             return;
         }
@@ -50,7 +50,7 @@ public class PrintBinaryTree {
     /**
      * 中序打印
      */
-    private static void postPrint(BinaryNode root) {
+    public static void postPrint(BinaryNode root) {
         if (null == root) {
             return;
         }
@@ -62,7 +62,7 @@ public class PrintBinaryTree {
     /**
      * 按层打印
      */
-    private static void layerPrint(BinaryNode root) {
+    public static void layerPrint(BinaryNode root) {
         List<BinaryNode> list = new ArrayList();
         list.add(root);
         BinaryNode lastNode = root;
