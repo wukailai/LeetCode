@@ -23,8 +23,8 @@ public class TwoStackOneQueue {
 }
 
 class Queue {
-    Stack<Integer> in = new Stack();
-    Stack<Integer> out = new Stack();
+    private Stack<Integer> in = new Stack();
+    private Stack<Integer> out = new Stack();
 
     public int take() {
         if (out.isEmpty()) {
