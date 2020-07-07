@@ -7,3 +7,7 @@ a）读未提交：不加锁；
 b）读已提交：每次执行语句时创建一次快照；
 c）可重复读：仅在事务开始时创建一次快照；
 d）串行化：单线程执行，读加共享锁，写加排他锁；
+FutureTask：finally做的工作：runner置为null；如果被中断，处理中断（处理方式：调用Thread.yield()让出CPU执行时间）；
+FutureTask：set()、setException()、cancel(true/false)执行完后都会执行finishCompletion()，该方法是唤醒所有等待在waiters(WaitNode)
+上面的线程，注意：节点是首节点插入，但是唤醒是从首节点开始的，所以唤醒满足后进先唤醒原则；
+cancel(true/false)：只要状态不为NEW或者CAS NEW状态失败，就返回false；
