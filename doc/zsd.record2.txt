@@ -18,3 +18,9 @@ hash算法好坏评判标准：
     3）分散性；
     4）负载；
 一致性hash算法：0-2^32-1环形空间；
+NIO也阻塞，只不过相比较于BIO，NIO是select方法阻塞，BIO则是read、write阻塞；
+epoll：
+    a）epoll_create（创建epoll对象）；
+    b）epoll_ctl（socket添加epoll对象红黑树，注册回调函数，回调函数用于将就绪事件添加到双向链表）；
+    c）epoll_wait（就绪事件的连接添加到双向链表里面）；
+epoll两种模式：LT（事件没处理完，重复进双向链表）；ET（只进一次双向链表）；
