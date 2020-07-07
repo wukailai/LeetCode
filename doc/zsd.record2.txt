@@ -11,3 +11,4 @@ FutureTask：finally做的工作：runner置为null；如果被中断，处理�
 FutureTask：set()、setException()、cancel(true/false)执行完后都会执行finishCompletion()，该方法是唤醒所有等待在waiters(WaitNode)
 上面的线程，注意：节点是首节点插入，但是唤醒是从首节点开始的，所以唤醒满足后进先唤醒原则；
 cancel(true/false)：只要状态不为NEW或者CAS NEW状态失败，就返回false；
+解决数据库跨库查询方法：1）聚合服务封装查询；2）多数据源查询（就是一个微服务配置多个数据源）；3）My Cat；4）数据库中间件Sharding-Shpere；
