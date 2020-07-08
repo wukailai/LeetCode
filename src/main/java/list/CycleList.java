@@ -36,7 +36,7 @@ public class CycleList {
         int count = 0;
         int len = 0;
         while (count < 2 && fast != null && fast.getNext() != null) {
-            if (count > 0) {
+            if (count == 1) {
                 len++;
             }
             slow = slow.getNext();
