@@ -16,7 +16,7 @@ FutureTask的awaitDone方法返回的是state；
 LinkedBlockingQueue：count字段为AtomicInteger，且有takeLock、putLock两把锁；
 BigDecimal.valueOf()代替new BigDecimal()，后者有精度损失风险；
 常量放在前面做equals；
-GC Root：虚拟机栈引用、方法区静态属性应用、方法区常量应用、JNI应用的对象；
+GC Root：虚拟机栈引用、方法区静态属性引用、方法区常量引用、JNI引用的对象；
 线程调用start()方式之后，线程处于Runnable状态，获取cpu执行时间才处于running状态；
 在Daemon线程中产生的新线程也是Daemon的；
 synchronized是可重入的非公平锁，系统自动解锁；
@@ -46,7 +46,6 @@ onDeck线程由释放锁的线程从Entry List中指定，onDeck线程只是拥�
 wait() -> 线程进入WAITING状态、sleep() -> 线程进入TIMED_WAITING状态；
 ArrayBlockingQueue区分公平性和非公平性，具体体现在ReentrantLock成本变量身上；
 CyclicBarrier一般用于一组线程互相等待至某个状态；
-底层实现不一样，synchronized是同步阻塞，使用的是悲观并发策略，lock是同步非阻塞，采用的是乐观并发策略；
 让出CPU：a）yield、b）IO阻塞；c）线程执行结束；
 动态语言，是指程序在运行时可以改变其结构；
 java中的反射机制是指在运行状态中，对于任意一个类都能够知道这个类所有的属性和方法。并且对于任意一个对象，都能够调用它的任意一个方法；
@@ -159,8 +158,9 @@ redis内存碎片问题：1）修改redis内存分配器（内存分配器：有
 缓存雪崩解决方案：1）redis高可用；2）redis流量降级（比如加锁 + 队列）；3）redis随机设置过期时间；
 hashmap1.8扩容：扩容后的位置 = 原位置 or 原位置 + 旧容量；1.7扩容：rehash（头插入）；
 ThreadLocalMap通过线性探测法（hashIndex冲突则hashIndex++，到了尾部循环到首部）来实现hash冲突；
-数据库分库分表主键生成策略：a）UUID（不需要中央控制系统来分配，UUID在分布式系统里面唯一，缺点：太长，占空间）；
-b）全局表（tableName和nextId字段），该表会成为性能瓶颈，单点问题；
+数据库分库分表主键生成策略：
+    a）UUID（不需要中央控制系统来分配，UUID在分布式系统里面唯一，缺点：太长，占空间）；
+    b）全局表（tableName和nextId字段），该表会成为性能瓶颈，单点问题；
 linux第一个进程：init进程，所有其它进程的父进程，引导用户空间服务；
 
 IO、NIO、poll、epoll不熟；
