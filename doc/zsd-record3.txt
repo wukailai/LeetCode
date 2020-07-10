@@ -57,3 +57,14 @@ Kafka：
 正向代理代理客户端（VPN），反向代理代理服务器（负载均衡）；
 TCC（Try-Confirm-Cancel）分布式事务：设置中间状态 + ConfirmService（确认） + CancelService（回滚），Confirm、Cancel一直不成功会一直重试；
 TTC事务活动日志（存数据库或者磁盘文件）会记录事务运行阶段和状态；
+mysql自增ID用完，会停止自增，所以会报主键冲突错误；
+mysql事务原理：事务开启之后，所有的操作都会临时保存到事务日志中，事务日志只有在得到commit命令才会同步到数据表中，
+其他任何情况都会清空事务日志(rollback、断开连接两种情况)；
+Myisam：批量插入速度比INNODB要快；
+sql小技巧：
+    a）避免使用select *，如果非得使用select *，可以先进行索引定位；
+    b）between代替in；
+    c）join好于where，因为不需要创建临时表；
+    d）group单独使用会排序（影响性能），在group by后面增加order by null就可以防止排序；
+mysql使用主从服务器来实现读写分离，主服务器负责写，从服务器负责读；
+java +连接符是通过StringBuilder的append + toString6在堆里重新创建一个对象实现的；
