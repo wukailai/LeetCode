@@ -8,9 +8,11 @@ public class GetLongestUnDuplicatedLength {
         String s1 = "abcabcbb";
         String s2 = "bbbbb";
         String s3 = "pwwkew";
+        String s4 = "ppwikej";
         System.out.println(getMaxLen(s1));
         System.out.println(getMaxLen(s2));
         System.out.println(getMaxLen(s3));
+        System.out.println(getMaxLen(s4));
     }
 
     /**
@@ -20,15 +22,15 @@ public class GetLongestUnDuplicatedLength {
         int result = 0;
         Set<Character> set = new HashSet();
         int end = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (i != 0) {
-                set.remove(s.charAt(i - 1));
+        for (int start = 0; start < s.length(); start++) {
+            if (start != 0) {
+                set.remove(s.charAt(start - 1));
             }
             while (end < s.length() && !set.contains(s.charAt(end))) {
                 set.add(s.charAt(end));
                 end++;
             }
-            result = Math.max(result, end - i);
+            result = Math.max(result, end - start);
         }
         return result;
     }
