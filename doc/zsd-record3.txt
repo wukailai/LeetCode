@@ -90,3 +90,6 @@ B+树三层大概可以放2000万条数据：一个页大小16KB，16*1024个字
 ，二层B+树可以保存数据行数（假设一行占1KB）=1170*(16KB/1KB)=18720，二层B+树可以保存数据行数=1170*1170*16=21902400；
 回表操作：不能直接从索引获取最终查找结果，需要返回到主键聚集索引里面获取字段，常见于SELECT *；覆盖索引：可以直接从索引获取最终查找结果；
 mysql为什么用B+树不用B树，B树非叶子节点还存放数据，导致非叶子节点存放的指针就少，指针少又要保存大量数据就只能通过增加树的高度来解决；
+jsoncode（$.json.b.www，如果仅使用某一个或几个字段，或是包括一些基本的运算，jsoncode有很大优势）便捷于fastjson；
+当limit offset rows中的offset很大时，会出现效率问题，示例：select * from test where val=4 limit 300000,5。
+优化：select * from test a inner join (select id from test where val=4 limit 300000,5) b on a.id=b.id;
