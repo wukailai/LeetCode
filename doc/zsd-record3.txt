@@ -66,5 +66,18 @@ sql小技巧：
     b）between代替in；
     c）join好于where，因为不需要创建临时表；
     d）group单独使用会排序（影响性能），在group by后面增加order by null就可以防止排序；
+    e）判断记录是否存在用SELECT 1 ... LIMIT 1 代替SELECT * ...；
 mysql使用主从服务器来实现读写分离，主服务器负责写，从服务器负责读；
 java +连接符是通过StringBuilder的append + toString6在堆里重新创建一个对象实现的；
+Nginx用途：Web服务器、反向代理、负载均衡、限流（使用漏桶算法）；
+redis支持的数据类型：string、hash、list、set、zset；
+redis架构模式：
+    1）主从同步：master、slave数据相同，主从服务器之间保持数据连接，主服务器负责数据同步。读写分离，主服务器负责写，从服务器负责读；
+    2）哨兵模式：哨兵（独立进程）负责监控主从服务器状态，master宕机，通过算法指派一台salve成为master，同时通知其他slave修改master配置；
+    3）集群：
+        a）proxy型：客户端和redis之间新增代理服务器；
+        b）直连型：所有redis服务器之间相互连接组成集群；
+redis中的list实现异步队列：
+    1）rpush/lpop、lpush/rpop（队列为空时，空转）；
+    2）rpush/blpop、lpush/brpop，队列为空时阻塞，数据一旦放入队列，从阻塞立马醒来，几乎没有延时；
+redis使用单线程却可以支撑高并发的原因：IO多路复用技术；
