@@ -61,12 +61,26 @@ mysql自增ID用完，会停止自增，所以会报主键冲突错误；
 mysql事务原理：事务开启之后，所有的操作都会临时保存到事务日志中，事务日志只有在得到commit命令才会同步到数据表中，
 其他任何情况都会清空事务日志(rollback、断开连接两种情况)；
 Myisam：批量插入速度比INNODB要快；
-sql小技巧：
+sql优化（大方向）：
+    a）用好索引；
+    b）适当冗余，空间换时间；
+    c）避免适应外键，程序约束；
+    d）数据库语句避免使用函数，程序处理；
+    e）大事务尽量拆分为小事务；
+
+sql小技巧（具体）：
     a）避免使用select *，如果非得使用select *，可以先进行索引定位；
     b）between代替in；
     c）join好于where，因为不需要创建临时表；
     d）group单独使用会排序（影响性能），在group by后面增加order by null就可以防止排序；
     e）判断记录是否存在用SELECT 1 ... LIMIT 1 代替SELECT * ...；
+    f）避免使用NULL；
+    g）数据类型选用；
+    h）text类型单独分表；
+    i）!=、<>替换为> UNION ALL <；
+    j）条件1 or 条件2替换为 条件1 union 条件2；
+    k）不做列运算；
+    l）LIKE关键字前面有%不会用到索引；
 mysql使用主从服务器来实现读写分离，主服务器负责写，从服务器负责读；
 java +连接符是通过StringBuilder的append + toString6在堆里重新创建一个对象实现的；
 Nginx用途：Web服务器、反向代理、负载均衡、限流（使用漏桶算法）；
@@ -88,8 +102,11 @@ IO密集任务，创建线程个数：1 + IO耗时 / CPU耗时；如果多个CPU
 mysql页目录优化单页数据查询；
 B+树三层大概可以放2000万条数据：一个页大小16KB，16*1024个字节，int主键8个字节，指针大小6个字节，所以一个页可以存放指针数目16*1024/(6+8)=1170
 ，二层B+树可以保存数据行数（假设一行占1KB）=1170*(16KB/1KB)=18720，二层B+树可以保存数据行数=1170*1170*16=21902400；
+分页查询很重要，如果查询数据量超过30%，MYSQL不会使用索引；
 回表操作：不能直接从索引获取最终查找结果，需要返回到主键聚集索引里面获取字段，常见于SELECT *；覆盖索引：可以直接从索引获取最终查找结果；
 mysql为什么用B+树不用B树，B树非叶子节点还存放数据，导致非叶子节点存放的指针就少，指针少又要保存大量数据就只能通过增加树的高度来解决；
 jsoncode（$.json.b.www，如果仅使用某一个或几个字段，或是包括一些基本的运算，jsoncode有很大优势）便捷于fastjson；
 当limit offset rows中的offset很大时，会出现效率问题，示例：select * from test where val=4 limit 300000,5。
 优化：select * from test a inner join (select id from test where val=4 limit 300000,5) b on a.id=b.id;
+java8流式处理：转换成流（集合流、数组流、文件流） + 中间操作（filter、distinct、limit、sorted、skip、map等操作） +
+终端操作（collect、count、allMatch、anyMatch、noneMathch、findFirst、findAny、forEach等操作）；
