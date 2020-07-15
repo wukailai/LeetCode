@@ -28,7 +28,12 @@ select/poll的几大缺点：
     5、select的触发方式是水平触发，应用程序如果没有完成对一个已经就绪的文件描述符进行IO操作，那么之后每次select调用还是会将这些文件描述符通知进程；
 mybatis缓存：
     a）一级缓存：
-        SqlSession级别，每个SqlSession类的实例对象中有一个数据结构（HashMap）可以用来存储缓存数据；
+        1）SqlSession（数据库会话）级别，每个SqlSession类的实例对象中有一个数据结构（HashMap，SqlSession->Executor->PerpetualCache）
+        可以用来存储缓存数据；
+        2）如果sql和参数完全一致，直接从SqlSession对象读取缓存结果（缓存有实效性）；
+        3)SqlSession执行了一个修改操作（update/delete/insert），SqlSession会清空PerpetualCache；
     b）二级缓存；
-        mapper级别，多个SqlSession类的实例对象可以共用二级缓存，二级缓存是跨SqlSession的，一个Mapper有一个自己的二级缓存区域
-        （按照namespace划分），两个Mapper的namespace如果相同，那么这两个Mapper执行的sql查询会被缓存在同一个二级缓存中；
+        1）mapper级别，SqlSessionFactory对象的缓存，多个SqlSession类的实例对象可以共用二级缓存，二级缓存是跨SqlSession的，一个Mapper
+        有一个自己的二级缓存区域（按照namespace划分），两个Mapper的namespace如果相同，那么这两个Mapper执行的sql查询会被缓存在同一个二级缓存中；
+        2）要求POJO必须可序列化，即实现Serializable接口；
+        3）默认LRU算法更新缓存；
