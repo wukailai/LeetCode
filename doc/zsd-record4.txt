@@ -26,3 +26,9 @@ select/poll的几大缺点：
     3、针对select支持的文件描述符数量太小了，默认是1024；
     4、select返回的是含有整个句柄的数组，应用程序需要遍历整个数组才能发现哪些句柄发生了事件；
     5、select的触发方式是水平触发，应用程序如果没有完成对一个已经就绪的文件描述符进行IO操作，那么之后每次select调用还是会将这些文件描述符通知进程；
+mybatis缓存：
+    a）一级缓存：
+        SqlSession级别，每个SqlSession类的实例对象中有一个数据结构（HashMap）可以用来存储缓存数据；
+    b）二级缓存；
+        mapper级别，多个SqlSession类的实例对象可以共用二级缓存，二级缓存是跨SqlSession的，一个Mapper有一个自己的二级缓存区域
+        （按照namespace划分），两个Mapper的namespace如果相同，那么这两个Mapper执行的sql查询会被缓存在同一个二级缓存中；
