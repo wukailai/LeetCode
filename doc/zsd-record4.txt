@@ -4,6 +4,7 @@ netty实现了零拷贝：在堆之外开辟一块内存，数据直接从IO读�
 普通的拷贝：磁盘需要先拷贝到页缓冲区，网络需要先拷贝到socket缓冲区；
 IO多路复用技术实现：select、poll、kqueue、epoll；
 redis的IO复用默认是基于epoll实现的，但同时也提供了kqueue和select的实现；
+闭锁：CountDownLatch；
 epoll特点：
     a）epoll没有最大并发连接的限制，上限是最大可以打开文件的数目；
     b）效率提升，epoll最大的优点就在于它只管活跃的连接，而跟连接总数无关；
@@ -25,3 +26,7 @@ select/poll的几大缺点：
     3、针对select支持的文件描述符数量太小了，默认是1024；
     4、select返回的是含有整个句柄的数组，应用程序需要遍历整个数组才能发现哪些句柄发生了事件；
     5、select的触发方式是水平触发，应用程序如果没有完成对一个已经就绪的文件描述符进行IO操作，那么之后每次select调用还是会将这些文件描述符通知进程；
+Spring Bean循环依赖如何解决的
+MyBatis⼆级缓存如何实现的
+Redis Cluster集群如何选主的
+Sentinel 哨兵模式是如何选主的
