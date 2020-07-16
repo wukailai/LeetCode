@@ -12,7 +12,7 @@ mysql优化方式之一：使用先使用范围查询定位id（或者索引）�
     c）锁分离；
     d）锁降级；
     e）锁粗化：减少加锁、释放锁次数；
-    f）所消除；
+    f）锁消除；
 常见的消息模式：
     a）消息队列模式；
         i）实现生产者与消费者之间的解耦；
@@ -108,4 +108,4 @@ jsoncode（$.json.b.www，如果仅使用某一个或几个字段，或是包括
 当limit offset rows中的offset很大时，会出现效率问题，示例：select * from test where val=4 limit 300000,5。
 优化：select * from test a inner join (select id from test where val=4 limit 300000,5) b on a.id=b.id;
 java8流式处理：转换成流（集合流、数组流、文件流） + 中间操作（filter、distinct、limit、sorted、skip、map等操作） +
-终端操作（collect、count、allMatch、anyMatch、noneMathch、findFirst、findAny、forEach等操作）；
+终端操作（collect、count、allMatch、anyMatch、noneMatch、findFirst、findAny、forEach等操作）；
