@@ -23,13 +23,11 @@ public class GetLongestUnDuplicatedLength {
         Set<Character> set = new HashSet();
         int end = 0;
         for (int start = 0; start < s.length(); start++) {
-            if (start != 0) {
-                set.remove(s.charAt(start - 1));
-            }
             while (end < s.length() && !set.contains(s.charAt(end))) {
                 set.add(s.charAt(end));
                 end++;
             }
+            set.remove(s.charAt(start));
             result = Math.max(result, end - start);
         }
         return result;
