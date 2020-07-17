@@ -49,3 +49,9 @@ Class的类加载机制实现线程安全单例，比如new一个对象就是一
     e）redis的incr命令实现ID的原子性自增，redis采用RDB持久化机制会有风险；
     f）雪花算法模式，可以保证在一毫秒内生成4096个ID；
     g）百度的uid-generator（基于雪花算法，与数据库配合使用）、美团的Leaf（同时支持雪花算法和号段模式）、滴滴的Tinyid（类似于Leaf）；
+NIO基于管道+缓冲区来实现数据处理；
+NIO默认阻塞模式，设置为非阻塞模式需要显示调用；
+NIO读写切换（position、limit重新定位）：flip写切换为读，clear读切换为写；
+OP_WRITE：当底层缓冲区有空闲空间的情况下，因为写缓冲区在绝大部分时候都是有空闲空间的；
+OP_ACCEPT：服务端等待客户端的连接请求，ServerSocketChannel的有效事件；
+OP_CONNECT：SocketChannel的有效事件；
