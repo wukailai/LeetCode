@@ -13,7 +13,7 @@ public class FindAllPermutations {
     private static List<List<Integer>> result = new ArrayList();
 
     public static void main(String[] args) {
-        Integer[] arr = new Integer[] {1, 2, 3};
+        Integer[] arr = new Integer[] {1, 2, 3, 4};
         findAllPermutations(arr.length, Arrays.asList(arr), 0);
         System.out.println(result);
     }
@@ -24,8 +24,10 @@ public class FindAllPermutations {
             return;
         }
         for (int i = first; i < len; i++) {
+            //维护动态数组
             Collections.swap(trace, i , first);
             findAllPermutations(len, trace, first + 1);
+            //撤销操作
             Collections.swap(trace, i , first);
         }
     }
