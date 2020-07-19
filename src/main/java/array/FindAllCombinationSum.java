@@ -8,7 +8,7 @@ import java.util.List;
  * 找出数组之和为target的所有组合
  */
 
-public class CombinationSum2 {
+public class FindAllCombinationSum {
     private static List<List<Integer>> result = new ArrayList();
 
     public static void main(String[] args) {
