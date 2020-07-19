@@ -56,3 +56,5 @@ NIO读写切换（position、limit重新定位）：flip写切换为读，clear�
 OP_WRITE：当底层缓冲区有空闲空间的情况下，因为写缓冲区在绝大部分时候都是有空闲空间的；
 OP_ACCEPT：服务端等待客户端的连接请求，ServerSocketChannel的有效事件；
 OP_CONNECT：SocketChannel的有效事件；
+HashSet的底层是基于HashMap来实现的，HashSet存放的数据实际就是hashMap的key；
+HashMap的value存放的是一个静态的final对象PERSENT（new Object()）；
