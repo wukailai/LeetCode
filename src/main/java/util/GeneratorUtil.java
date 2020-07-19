@@ -68,9 +68,9 @@ public class GeneratorUtil {
         BinaryNode root = new BinaryNode(1);
         root.setLeft(new BinaryNode(2));
         root.setRight(new BinaryNode(3));
-        root.getLeft().setLeft(new BinaryNode(4));
+        root.getLeft().setLeft(new BinaryNode(1));
         root.getLeft().setRight(new BinaryNode(5));
-        root.getRight().setLeft(new BinaryNode(6));
+        root.getRight().setLeft(new BinaryNode(2));
         root.getRight().setRight(new BinaryNode(7));
         return root;
     }
