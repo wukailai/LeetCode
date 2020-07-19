@@ -17,17 +17,17 @@ public class FindAllSubSets {
         System.out.println(result);
     }
 
-    private static void findAllSubSets(int i, int len, int[] a, List<Integer> trace) {
-        if (i == len) {
+    private static void findAllSubSets(int index, int len, int[] a, List<Integer> trace) {
+        if (index == len) {
             return;
         }
-        for (int j = i; j < len; j++) {
-            if (j > i && a[j - 1] == a[j]) {
+        for (int j = index; j < len; j++) {
+            if (j > index && a[j - 1] == a[j]) {
                 continue;
             }
-            trace.add(a[i]);
+            trace.add(a[index]);
             result.add(new ArrayList(trace));
-            findAllSubSets(i + 1, len, a, trace);
+            findAllSubSets(index + 1, len, a, trace);
             trace.remove(trace.size() - 1);
         }
     }

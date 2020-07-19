@@ -14,21 +14,21 @@ public class FindAllPermutations {
 
     public static void main(String[] args) {
         Integer[] arr = new Integer[] {1, 2, 3, 4};
-        findAllPermutations(arr.length, Arrays.asList(arr), 0);
+        findAllPermutations(0, arr.length, Arrays.asList(arr));
         System.out.println(result);
     }
 
-    private static void findAllPermutations(int len, List<Integer> trace, int first) {
-        if (first == len) {
+    private static void findAllPermutations(int index, int len, List<Integer> trace) {
+        if (index == len) {
             result.add(new ArrayList(trace));
             return;
         }
-        for (int i = first; i < len; i++) {
+        for (int i = index; i < len; i++) {
             //维护动态数组
-            Collections.swap(trace, i , first);
-            findAllPermutations(len, trace, first + 1);
+            Collections.swap(trace, i , index);
+            findAllPermutations(index + 1, len, trace);
             //撤销操作
-            Collections.swap(trace, i , first);
+            Collections.swap(trace, i , index);
         }
     }
 }
