@@ -19,12 +19,12 @@ public class FindAllSubSets {
 
     private static void findAllSubSets(int index, int[] a, List<Integer> trace) {
         result.add(new ArrayList(trace));
-        for (int j = index; j < a.length; j++) {
-            if (j > index && a[j - 1] == a[j]) {
+        for (int i = index; i < a.length; i++) {
+            if (i > index && a[i - 1] == a[i]) {
                 continue;
             }
-            trace.add(a[j]);
-            findAllSubSets(j + 1, a, trace);
+            trace.add(a[i]);
+            findAllSubSets(i + 1, a, trace);
             trace.remove(trace.size() - 1);
         }
     }
