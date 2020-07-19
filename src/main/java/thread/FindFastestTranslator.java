@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- *  找出最快的翻译器
+ * 找出最快的翻译器
  */
 
 public class FindFastestTranslator {

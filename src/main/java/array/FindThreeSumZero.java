@@ -36,7 +36,7 @@ public class FindThreeSumZero {
             while (start < end) {
                 if (a[start] + a[end] == target) {
                     list.add(new int[] {a[i], a[start], a[end]});
-                    while (a[start] == a[start + 1]) {
+                    while (a[start] == a[start + 1] && start < end) {
                         start++;
                     }
                     while (a[end] == a[end - 1] && start < end) {
