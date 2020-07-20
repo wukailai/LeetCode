@@ -3,6 +3,10 @@ package string;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 获取最长不重复子字符串
+ */
+
 public class GetLongestUnDuplicatedLength {
     public static void main(String[] args) {
         String s1 = "abcabcbb";
