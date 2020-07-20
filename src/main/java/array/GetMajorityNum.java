@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class GetMajorityNum {
     public static void main(String[] args) {
-        int[] arr = new int[] {5, 3, 7, 3, 1, 3, 3};
+        int[] arr = new int[] {5, 3, 7, 3, 1, 3, 3, 3, 2};
         System.out.println(getMaxNum(arr));
         int[] arr2 = new int[] {5, 4, 5, 3, 5, 3, 3};
         System.out.println(getMaxNum2(arr2));
@@ -24,10 +24,8 @@ public class GetMajorityNum {
         int result = -1;
         int count = 0;
         for (Integer i : a) {
-            if (count == 0) {
+            if (result == i || count == 0) {
                 result = i;
-            }
-            if (result == i) {
                 count++;
             } else {
                 count--;
