@@ -22,7 +22,7 @@ public class GetLongestPalindromeSubString {
                 if (len == 1) {
                     dp[i][j] = true;
                 } else if (len == 2) {
-                    dp[i][j] = (s.charAt(i) == s.charAt(j));
+                    dp[i][j] = s.charAt(i) == s.charAt(j);
                 } else {
                     dp[i][j] = (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]);
                 }
