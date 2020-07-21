@@ -58,3 +58,15 @@ OP_ACCEPT：服务端等待客户端的连接请求，ServerSocketChannel的有�
 OP_CONNECT：SocketChannel的有效事件；
 HashSet的底层是基于HashMap来实现的，HashSet存放的数据实际就是hashMap的key；
 HashMap的value存放的是一个静态的final对象PERSENT（new Object()）；
+redis数据结构：
+    1）string，三种编码方式：int（对应long数据结构，整数）、raw（超过44字节，对应SDS数据结构（简单动态字符串），内存分配或者释放两次）
+    、embstr（不超过44字节，对应SDS数据结构（简单动态字符串），内存分配或者释放一次）；
+    2）list，两种编码方式：ziplist（压缩链表，限制：所有字符串长度小于64字节，元素数量小于512）和linkedlist（双向链表）；
+    3）hash：ziplist（压缩链表，限制：所有字符串长度小于64字节，元素数量小于512）、hashtable（dict字典）；
+    4）set：intset编码（整数集合）、hashtable编码（dict字典）；
+    5）zset：ziplist编码（压缩链表）、skiplist编码（跳表+字典）；
+压缩链表优势：节约空间、减少内存碎片、增删改查时间复杂度O(N)；
+AOF利用rewrite压缩来避免命令重复写入AOF文件里面；
+mysql语句实现乐观锁：
+    1）select version from table where id=#{id}；
+    2）update table set status=2, version=version+1 where id=#{id} and version=#{version};
