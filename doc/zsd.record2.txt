@@ -1,7 +1,7 @@
 查看linux平均负载：uptime；
 top命令：查看cpu和内存占有率；
-mysql什么时候加锁：insert、delete、update语句自动加拍他锁，select语句默认不加锁，但是可以显示加锁：
-select * from table lock in share mode；
+mysql什么时候加锁：insert、delete、update语句自动加排他锁，select语句默认不加锁，但是可以显示加锁：
+select * from table lock in share mode or select * from table for update；
 幂等函数：执行一次和执行多次结果一样，如getId()、setTrue()；
 幂等接口设计：
     a）天然的幂等操作，查询操作，如select；

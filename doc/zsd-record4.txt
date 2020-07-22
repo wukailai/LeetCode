@@ -70,3 +70,5 @@ AOF利用rewrite压缩来避免命令重复写入AOF文件里面；
 mysql语句实现乐观锁：
     1）select version from table where id=#{id}；
     2）update table set status=2, version=version+1 where id=#{id} and version=#{version};
+？表示类型不确定，只能用于声明变量或者形参上；
+使用FOR UPDATE和LOCK IN SHARE MODE在SELECT语句上加锁；
