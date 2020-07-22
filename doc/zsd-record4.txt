@@ -72,3 +72,15 @@ mysql语句实现乐观锁：
     2）update table set status=2, version=version+1 where id=#{id} and version=#{version};
 ？表示类型不确定，只能用于声明变量或者形参上；
 使用FOR UPDATE和LOCK IN SHARE MODE在SELECT语句上加锁；
+CPU占用率高问题排查：
+    1）top指令查看哪些进程CPU占用率高；
+    2）top -H -p pid来查看该进程中有哪些线程CPU过高；
+    4）十进制数转换成十六进制数；
+    3）jstack pid > jstack.log查看java线程信息；
+GC频繁：
+    jstat查看gc信息；
+    Minor GC还是FULL GC频繁？
+    jmap查看哪种类占用内存多；
+    对象创建多、对象太大、集合太多、主动掉System.gc()、内存泄漏都有可能导致频繁GC；
+    dump日志查询；
+    JVM参数调优；

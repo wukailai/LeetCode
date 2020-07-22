@@ -5,6 +5,7 @@ import util.GeneratorUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 打印二叉树
@@ -16,7 +17,11 @@ public class PrintBinaryTree {
         BinaryNode root = GeneratorUtil.newBinary();
         prePrint(root);
         System.out.println();
+        prePrint2(root);
+        System.out.println();
         midPrint(root);
+        System.out.println();
+        midPrint2(root);
         System.out.println();
         postPrint(root);
         System.out.println();
@@ -36,6 +41,27 @@ public class PrintBinaryTree {
     }
 
     /**
+     * 前序打印-非递归实现
+     */
+    private static void prePrint2(BinaryNode root) {
+        if (null == root) {
+            return;
+        }
+        Stack<BinaryNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            BinaryNode node = stack.pop();
+            System.out.print(node.getVal() + " > ");
+            if (node.getRight() != null) {
+                stack.push(node.getRight());
+            }
+            if (node.getLeft() != null) {
+                stack.push(node.getLeft());
+            }
+        }
+    }
+
+    /**
      * 中序打印
      */
     public static void midPrint(BinaryNode root) {
@@ -48,7 +74,30 @@ public class PrintBinaryTree {
     }
 
     /**
-     * 中序打印
+     * 中序打印-非递归实现
+     */
+    public static void midPrint2(BinaryNode root) {
+        if (null == root) {
+            return;
+        }
+        Stack<BinaryNode> stack = new Stack();
+        BinaryNode cur = root;
+        while (!stack.isEmpty() || cur != null) {
+            //压左子树
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.getLeft();
+            }
+            BinaryNode node = stack.pop();
+            System.out.print(node.getVal() + " > ");
+            if (node.getRight() != null) {
+                cur = node.getRight();
+            }
+        }
+    }
+
+    /**
+     * 后序打印
      */
     public static void postPrint(BinaryNode root) {
         if (null == root) {
@@ -57,6 +106,15 @@ public class PrintBinaryTree {
         postPrint(root.getLeft());
         postPrint(root.getRight());
         System.out.print(root.getVal() + " > ");
+    }
+
+    /**
+     * 后序打印-非递归实现
+     */
+    public static void postPrint2(BinaryNode root) {
+        if (null == root) {
+            return;
+        }
     }
 
     /**
