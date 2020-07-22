@@ -61,7 +61,7 @@ HashMap的value存放的是一个静态的final对象PERSENT（new Object()）�
 redis数据结构：
     1）string，三种编码方式：int（对应long数据结构，整数）、raw（超过44字节，对应SDS数据结构（简单动态字符串），内存分配或者释放两次）
     、embstr（不超过44字节，对应SDS数据结构（简单动态字符串），内存分配或者释放一次）；
-    2）list，两种编码方式：ziplist（压缩链表，限制：所有字符串长度小于64字节，元素数量小于512）和linkedlist（双向链表）；
+    2）list，两种编码方式：ziplist（压缩链表，限制：所有字符串长度小于64字节，元素数量小于512）和linkedlist（双端链表）；
     3）hash：ziplist（压缩链表，限制：所有字符串长度小于64字节，元素数量小于512）、hashtable（dict字典）；
     4）set：intset编码（整数集合）、hashtable编码（dict字典）；
     5）zset：ziplist编码（压缩链表）、skiplist编码（跳表+字典）；
