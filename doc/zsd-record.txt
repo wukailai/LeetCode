@@ -22,7 +22,7 @@ GC Root：虚拟机栈引用、方法区静态属性引用、方法区常量引�
 synchronized是可重入的非公平锁，系统自动解锁；
 处于Contention List、Entry List、Wait List里面的线程都处于阻塞状态，阻塞操作是由操作系统完成的；
 !Owner：当前释放锁的线程；
-分锁机制优化synchronize；
+分锁机制 + 自适应性自旋优化synchronize；
 safe point：这个时间点没有其他字节码正在执行；
 偏向锁：只有第一次获得锁的时候才需要CAS（CAS的是偏向线程ID，同时修改是否为偏向锁0 -> 1），后续重入只需要向Lock Record插入一个空的Displace Mark Word即可；
 对象头信息：Mark Word，记录了锁相关信息，锁标志位（00（轻量级），10（重量级），01（无锁或者偏向锁），11（GC））、是否可偏向（0，1）、偏向线程ID、HashCode、GC年龄；
