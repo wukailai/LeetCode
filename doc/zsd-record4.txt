@@ -76,7 +76,7 @@ CPU占用率高问题排查：
     1）top指令查看哪些进程CPU占用率高；
     2）top -H -p pid来查看该进程中有哪些线程CPU过高；
     4）十进制数转换成十六进制数；
-    3）jstack pid > jstack.log查看java线程信息；
+    3）jstack tid > jstack.log查看java线程信息；
 GC频繁：
     jstat查看gc信息；
     Minor GC还是FULL GC频繁？
