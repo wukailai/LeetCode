@@ -22,7 +22,7 @@ public class RemoveAppointNode {
        }
        ListNode node = head;
        ListNode next = node.getNext();
-       while (node != null && next != null) {
+       while (next != null) {
            if (next.getVal() == target) {
                next = next.getNext();
                node.setNext(next);
