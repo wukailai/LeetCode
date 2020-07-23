@@ -1,0 +1,6 @@
+spring boot约定优先于配置，帮助开发者快速、高效地开发；
+spring boot四大特点：自动配置、起步依赖、Actuator（监控管理应用程序）、命令行界面(CLI)（可选）；
+IoC容器实现控制反转；BeanDefinition BeanDefinitionRegistry BeanFactory；
+IoC容器的两种实现BeanFactory、ApplicationContext，后者实现了前者，更高级，提供了事件监听机制和国际化支持；
+JavaConfig基于Java代码和Annotation注解来描述bean之间的依赖绑定关系；
+spring中的bean不是线程安全的；
