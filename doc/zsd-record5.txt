@@ -1,3 +1,12 @@
 元数据空间取消永久代之后，不会再有java.lang.OutOfMemoryError: PermGen问题，元数据空间只受可用的本地内存限制；
 元数据空间不必像之前那样设置死，JVM运行时可以动态调整；
 元数据空间不必与JVM连续，而是分配在本地内存里面，本地内存是供JVM自身进程使用的；
+TreeMap基于红黑树实现，key都要实现Comparable接口（或者TreeMap给定一个Comparator实现），默认升序排序；
+TreeMap实现降序，加一个负号即可：return -param1.compareTo(param2);
+数据库字段不用NULL的原因：
+    a）NOT IN、!= 等负向条件查询在有NULL值的情况下返回永远为空结果，查询容易出错；
+    b）索引列不要出现null；
+    c）a + b字段拼接只要a、b任意一个为null，拼接结果都为null；
+    d）null不会参与count函数的统计；
+    e）=null判断会查询不到结果，需要用is null来判断；
+    f）null需要额外的存储空间：是否为null标识位；
