@@ -27,11 +27,11 @@ public class FindTwoSumZeroIndexSorted {
             }
             if (a[start] + a[end] == 0) {
                 list.add(new int[] {start, end});
-                while (a[end] == a[end - 1]) {
+                while (a[end] == a[end - 1] && start < end - 1) {
                     list.add(new int[] {start, end - 1});
                     end--;
                 }
-                while (a[start] == a[start + 1]) {
+                while (a[start] == a[start + 1] && start + 1 < end) {
                     list.add(new int[] {start + 1, end});
                     start++;
                 }
