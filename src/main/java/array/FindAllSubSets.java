@@ -13,18 +13,18 @@ public class FindAllSubSets {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 2, 2};
         Arrays.sort(arr);
-        findAllSubSets(0, arr, new ArrayList());
+        findAllSubSets(arr, 0, new ArrayList());
         System.out.println(result);
     }
 
-    private static void findAllSubSets(int index, int[] a, List<Integer> trace) {
+    private static void findAllSubSets(int[] a, int index, List<Integer> trace) {
         result.add(new ArrayList(trace));
         for (int i = index; i < a.length; i++) {
             if (i > index && a[i - 1] == a[i]) {
                 continue;
             }
             trace.add(a[i]);
-            findAllSubSets(i + 1, a, trace);
+            findAllSubSets(a, i + 1, trace);
             trace.remove(trace.size() - 1);
         }
     }

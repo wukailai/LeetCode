@@ -15,11 +15,11 @@ public class FindAllCombinationSum {
         int[] arr = new int[] {2, 5, 2, 1, 2};
         Arrays.sort(arr);
         int target = 5;
-        findCombinations(arr, target, 0, new ArrayList());
+        findCombinations(arr, 0, target, new ArrayList());
         System.out.println(result);
     }
 
-    private static void findCombinations(int[] candidates, int target, int index, List<Integer> trace) {
+    private static void findCombinations(int[] candidates, int index, int target, List<Integer> trace) {
         if (target == 0) {
             result.add(new ArrayList(trace));
             return;
@@ -31,7 +31,7 @@ public class FindAllCombinationSum {
                 }
                 //作出选择
                 trace.add(candidates[i]);
-                findCombinations(candidates, target - candidates[i], i + 1, trace);
+                findCombinations(candidates, i + 1, target - candidates[i], trace);
                 //撤销选择
                 trace.remove(trace.size() - 1);
             }
