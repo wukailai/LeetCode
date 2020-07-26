@@ -22,7 +22,7 @@ public class FindTwoSumZeroIndexSorted {
         int start = 0;
         int end = a.length - 1;
         while (start < end) {
-            if (a[start] > 0) {
+            if (a[start] > 0 || a[end] < 0) {
                 break;
             }
             if (a[start] + a[end] == 0) {
