@@ -13,11 +13,11 @@ public class FindLargestKNum {
     public static void main(String[] args) {
         int[] arr = GeneratorUtil.newIntArray();
         int k = 3;
-        int[] result = getLLargestK(arr, k);
+        int[] result = getLargestK(arr, k);
         System.out.println(Arrays.toString(result));
     }
 
-    private static int[] getLLargestK(int[] a, int k) {
+    private static int[] getLargestK(int[] a, int k) {
         // 构建小顶堆
         for (int i = k / 2 - 1; i >= 0; i--) {
             adjustHeap(a, i, k);
