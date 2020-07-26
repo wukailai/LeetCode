@@ -17,14 +17,14 @@ public class AddReduceTotalNum {
     /**
      * 数组之和（可正可负）等于target
      */
-    private static void calculate(int[] a, int i, int curTotal, int target) {
-        if (i == a.length) {
+    private static void calculate(int[] a, int index, int curTotal, int target) {
+        if (index == a.length) {
             if (curTotal == target) {
                 count++;
             }
         } else {
-            calculate(a, i + 1, curTotal + a[i], target);
-            calculate(a, i + 1, curTotal - a[i], target);
+            calculate(a, index + 1, curTotal + a[index], target);
+            calculate(a, index + 1, curTotal - a[index], target);
         }
     }
 }
