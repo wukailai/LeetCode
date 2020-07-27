@@ -10,3 +10,16 @@ TreeMap实现降序，加一个负号即可：return -param1.compareTo(param2);
     d）null不会参与count函数的统计；
     e）=null判断会查询不到结果，需要用is null来判断；
     f）null需要额外的存储空间：是否为null标识位；
+java1.7将常量池从方法区移到了堆中；
+intern()方法：java1.6把字符串放入方法区常量池并返回地址；java1.7把字符串放入堆常量池，并返回首次创建时候的堆内存的地址；
+同步非阻塞NIO：服务器每次去轮询fd集合，没有数据立刻返回；
+IO多路复用：通过select、poll、epoll来获取fd列表，遍历有事件的fd进行accept/recv/send，使其能支持更多的并发连接请求；
+select缺点：1）处理FD数量有上限、2）每次select，fd集合从用户态拷贝到内核态；3）轮询效率低，返回的是所有fd列表；
+poll缺点：除了没有FD数量上限，其他和select一样；
+epoll缺点：只能在linux环境下运行；
+数据结构：select：bitmap；poll：数组；epoll：红黑树+双向链表；
+解决分布式session问题：使用redis或者mysql来解决；
+LinkedList底层：双向链表，不可随机访问，即没有实现RandomAccess接口；
+TreeMap底层：红黑树；
+WeakHashMap、ThreadLocalMap：键都是弱引用对象；
+ES倒排索引：根据文本关键字集合找ID；
