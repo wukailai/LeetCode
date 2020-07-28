@@ -23,3 +23,4 @@ LinkedList底层：双向链表，不可随机访问，即没有实现RandomAcce
 TreeMap底层：红黑树；
 WeakHashMap、ThreadLocalMap：键都是弱引用对象；
 ES倒排索引：根据文本关键字集合找ID；
+LinkedBlockingQueue的head（对应尾节点last）节点也是一个空节点；
