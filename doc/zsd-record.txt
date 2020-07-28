@@ -1,7 +1,7 @@
 jps：查看java进程状态信息； 
 jstack：查看线程堆栈情况，可检查死锁；
 jmap：查看堆内存使用情况；
-jstat：查看堆使用和回收情况；
+jstat：查看堆使用和GC信息；
 linux：软链接间接指向源文件（类似于windows快捷方式），硬链接直接指向源文件；
 sql注入：程序没有对用户输入参数进行合法性校验（包括类型、合法规则）；
 数据库最左匹配原则：联合索引(a, b)，a是有序的，b是无序的，但是a相等的情况下b是有序的，所以a如果是范围，b的索引就会失效；
@@ -13,7 +13,7 @@ FutureTask的awaitDone方法返回的是state；
 线程池重要变量（非构造参数）：allowCoreThreadTimeOut；
 在SHUTDOWN还能addWork的条件：1）command为null；2）队列不为空；
 线程池有一个ReentrantLock类型的mainLock变量，往HashSet增删的时候加锁处理；
-LinkedBlockingQueue：count字段为AtomicInteger，且有takeLock、putLock两把锁；
+LinkedBlockingQueue：count字段为AtomicInteger，且有takeLock（对应notEmpty）、putLock（对应notFull）两把锁；
 BigDecimal.valueOf()代替new BigDecimal()，后者有精度损失风险；
 常量放在前面做equals；
 GC Root：虚拟机栈引用、方法区静态属性引用、方法区常量引用、java本地方法栈引用的对象；
