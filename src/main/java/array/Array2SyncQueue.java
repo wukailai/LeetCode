@@ -26,6 +26,7 @@ public class Array2SyncQueue<T> {
             if (takeIndex == items.length) {
                 takeIndex = 0;
             }
+            count--;
             isFull.signal();
             return t;
         } finally {
@@ -43,6 +44,7 @@ public class Array2SyncQueue<T> {
             if (putIndex == items.length) {
                 putIndex = 0;
             }
+            count++;
             isEmpty.signal();
         } finally {
             lock.unlock();
