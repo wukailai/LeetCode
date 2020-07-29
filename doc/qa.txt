@@ -1,5 +1,4 @@
 Spring Bean循环依赖如何解决的
 Redis Cluster集群如何选主的
 Sentinel 哨兵模式是如何选主的
-mysql间隙锁
-mysql汉字占几个字节、text最大长度；
+IO设计模式相关；
