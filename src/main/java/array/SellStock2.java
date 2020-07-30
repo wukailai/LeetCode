@@ -13,18 +13,16 @@ public class SellStock2 {
 
     private static int getMaxProfit(int[] a) {
         int maxProfit = 0;
-        int down;
-        int up;
         int i = 0;
         while (i < a.length - 1) {
             while (i < a.length - 1 && a[i] >= a[i + 1]) {
                 i++;
             }
-            down = a[i];
+            int down = a[i];
             while (i < a.length - 1 && a[i] <= a[i + 1]) {
                 i++;
             }
-            up = a[i];
+            int up = a[i];
             maxProfit += up - down;
         }
         return maxProfit;
