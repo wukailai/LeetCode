@@ -25,6 +25,8 @@ public class CompressString {
                 num++;
             }
         }
+        sb.append(index);
+        sb.append(num);
         return sb.toString();
     }
 }
