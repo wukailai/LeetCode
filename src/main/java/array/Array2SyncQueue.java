@@ -8,6 +8,10 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 
 public class Array2SyncQueue<T> {
+    public static void main(String[] args) {
+
+    }
+
     private Object[] items = new Object[10];
     private int count;
     private int takeIndex;
