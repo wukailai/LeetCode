@@ -4,3 +4,5 @@ IoC容器实现控制反转；BeanDefinition BeanDefinitionRegistry BeanFactory�
 IoC容器的两种实现BeanFactory、ApplicationContext，后者实现了前者，更高级，提供了事件监听机制和国际化支持；
 JavaConfig基于Java代码和Annotation注解来描述bean之间的依赖绑定关系；
 spring中的bean不是线程安全的；
+spring生命周期问题；
+spring循环依赖问题；
