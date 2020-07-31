@@ -32,7 +32,7 @@ safe point：这个时间点没有其他字节码正在执行；
 重量级锁：指向互斥量的指针；
 偏向锁只有在出现撤销偏向锁时才会执行释放锁操作；
 轻量级锁有两种：自旋锁；适应性自旋锁；
-synchronized非公平体现：1）线程在进入Contention List之前会先尝试自旋获取锁，获取失败才进入Contention List、2）成为OnDeck线程的随机性；
+synchronized非公平体现：1）线程在进入Contention List之前会先尝试CAS自旋获取锁，获取失败才进入Contention List、2）成为OnDeck线程的随机性；
 synchronized加锁就是在竞争对象监视器，重量级操作（需要在用户态和系统态之间切换，依赖于操作系统Mutex Lock），需要调用系统相关接口；
 AtomicReference<V>：将一个对象的所有操作转化成原子操作；AtomicStampedReference；
 AtomicStampedReference<V>：可以解决ABA问题；
