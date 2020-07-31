@@ -26,7 +26,7 @@ public class ShortestPath {
         //动态规划
         for (int i = 1; i < a.length; i++) {
             for (int j = 1; j < a[0].length; j++) {
-                dp[i][j] = Math.min(dp[i - 1][j] + a[i][j], dp[i][j - 1] + a[i][j]);
+                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + a[i][j];
             }
         }
         System.out.println("=================================");
