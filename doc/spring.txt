@@ -4,5 +4,15 @@ IoC容器实现控制反转；BeanDefinition BeanDefinitionRegistry BeanFactory�
 IoC容器的两种实现BeanFactory、ApplicationContext，后者实现了前者，更高级，提供了事件监听机制和国际化支持；
 JavaConfig基于Java代码和Annotation注解来描述bean之间的依赖绑定关系；
 spring中的bean不是线程安全的；
-spring生命周期问题；
-spring循环依赖问题；
+Spring MVC：基于Servlet的一个MVC框架，主要解决WEB开发的问题；
+Spring DI：工厂模式；Spring AOP：代理模式；
+Spring start：整合了很多样板代码；
+Spring boot：自动配置、内置了tomcat，提供了服务监控系统；
+Spring Bean生命周期：
+    1）实例化；
+    2）设置属性；
+    3）调用BeanNameAware的setBeanName方法和BeanFactoryAware的setBeanFactory方法；
+    4）预初始化、初始化、后初始化；
+    5）destroy方法
+    6）定制的销毁方法；
+spring循环依赖：field属性循环依赖可解决（三级缓存），构造器循环依赖不可解决；
