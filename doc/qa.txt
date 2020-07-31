@@ -1,4 +1,2 @@
-Spring Bean循环依赖如何解决的
 Redis Cluster集群如何选主的
 Sentinel 哨兵模式是如何选主的
-IO设计模式相关；

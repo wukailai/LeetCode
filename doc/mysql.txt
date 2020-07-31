@@ -2,7 +2,7 @@ Mysql锁分类：
     1）共享锁、排他锁；
     2）表锁、行锁、间隙锁、页锁；
     3）表锁中又分为意向锁；
-for update锁定某行数据；
+for update、lock in share mode锁定某行数据；
 当我们用范围条件而不是相等条件检索数据，并请求共享或排他锁时，InnoDB会给符合条件的已有数据记录的索引项加锁；对于键值在条件范围内但不存在的记录，
 叫做“间隙(GAP)”，InnoDB也会对这个“间隙”加锁，这种锁机制就是所谓的间隙锁(NEXT-KEY)锁；
 触发间隙索引：select * from table where id > 0 and id < 5 for update；注意：因为命中了索引，所以加的是行锁；
