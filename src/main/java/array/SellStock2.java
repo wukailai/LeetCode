@@ -7,23 +7,24 @@ package array;
  */
 public class SellStock2 {
     public static void main(String[] args) {
-        int[] arr = new int[] {7, 1, 5, 3, 6, 4};
+        int[] arr = new int[] {7, 1, 5, 3, 6, 4, 5};
         System.out.println(getMaxProfit(arr));
     }
 
     private static int getMaxProfit(int[] a) {
         int maxProfit = 0;
         int i = 0;
-        while (i < a.length - 1) {
-            while (i < a.length - 1 && a[i] >= a[i + 1]) {
+        while (i < a.length) {
+            while (i + 1 < a.length && a[i] >= a[i + 1]) {
                 i++;
             }
             int down = a[i];
-            while (i < a.length - 1 && a[i] <= a[i + 1]) {
+            while (i + 1 < a.length && a[i] <= a[i + 1]) {
                 i++;
             }
             int up = a[i];
             maxProfit += up - down;
+            i++;
         }
         return maxProfit;
     }
