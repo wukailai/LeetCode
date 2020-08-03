@@ -23,6 +23,7 @@ public class Array2SyncQueue<T> {
     public T take() throws Exception {
         try {
             lock.lock();
+            //注意：这里用while不用if
             while (count == 0) {
                 isEmpty.await();
             }
@@ -41,6 +42,7 @@ public class Array2SyncQueue<T> {
     public void put(T t) throws Exception {
         try {
             lock.lock();
+            //注意：这里用while不用if
             while (count == items.length) {
                 isFull.await();
             }
