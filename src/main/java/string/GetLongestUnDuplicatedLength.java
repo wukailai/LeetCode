@@ -25,14 +25,16 @@ public class GetLongestUnDuplicatedLength {
     private static int getMaxLen(String s) {
         int result = 0;
         Set<Character> set = new HashSet();
+        int start = 0;
         int end = 0;
-        for (int start = 0; start < s.length(); start++) {
+        while (end < s.length()) {
             while (end < s.length() && !set.contains(s.charAt(end))) {
                 set.add(s.charAt(end));
+                result = Math.max(result, end - start + 1);
                 end++;
             }
             set.remove(s.charAt(start));
-            result = Math.max(result, end - start);
+            start++;
         }
         return result;
     }
