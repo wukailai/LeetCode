@@ -22,9 +22,9 @@ public class AddReduceTotalNum {
             if (curTotal == target) {
                 count++;
             }
-        } else {
-            calculate(a, index + 1, curTotal + a[index], target);
-            calculate(a, index + 1, curTotal - a[index], target);
+            return;
         }
+        calculate(a, index + 1, curTotal + a[index], target);
+        calculate(a, index + 1, curTotal - a[index], target);
     }
 }
