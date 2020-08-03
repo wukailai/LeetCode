@@ -32,7 +32,7 @@ public class ReverseInt {
         }
         int result = 0;
         int temp = target;
-        while (temp != 0) {
+        while (temp > 0) {
             int remain = temp % 10;
             result += remain * Math.pow(10, --len);
             temp = temp / 10;
