@@ -87,7 +87,7 @@ redis支持的数据类型：string、hash、list、set、zset；
 redis架构模式：
     1）主从同步：master、slave数据相同，主从服务器之间保持数据连接，主服务器负责数据同步。读写分离，主服务器负责写，从服务器负责读；
     2）哨兵模式：哨兵（独立进程）负责监控主从服务器状态，master宕机，通过算法指派一台salve成为master，同时通知其他slave修改master配置；
-    3）集群：
+    3）集群（分布式存储的概念）：
         a）proxy型：客户端和redis之间新增代理服务器；
         b）直连型：所有redis服务器之间相互连接组成集群；
 redis中的list实现异步队列：
