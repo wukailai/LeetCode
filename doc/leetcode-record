@@ -11,3 +11,5 @@ leetcode刷题记录：
 Redis Cluster集群如何选主的
 Sentinel 哨兵模式是如何选主的
 java注解实现原理
+redis扩容问题
+redis分布式算法
