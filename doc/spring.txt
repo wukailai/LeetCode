@@ -13,6 +13,6 @@ Spring Bean生命周期：
     2）设置属性；
     3）调用BeanNameAware的setBeanName方法和BeanFactoryAware的setBeanFactory方法；
     4）预初始化、初始化、后初始化；
-    5）destroy方法
+    5）destroy方法；
     6）定制的销毁方法；
 spring循环依赖：field属性循环依赖可解决（三级缓存），构造器循环依赖不可解决；

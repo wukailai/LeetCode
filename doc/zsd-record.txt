@@ -7,7 +7,7 @@ sql注入：程序没有对用户输入参数进行合法性校验（包括类�
 数据库最左匹配原则：联合索引(a, b)，a是有序的，b是无序的，但是a相等的情况下b是有序的，所以a如果是范围，b的索引就会失效；
 finalize：执行垃圾回收之前调用的函数，不会确保一定会被执行，因为被分配执行finalize的线程优先级很低；
 FutureTask（waiters，阻塞节点放在waiters前面）的COMPLETING状态：任务已经执行完或者发生异常，只是执行结果还没有保存到outcome里面；
-future.get(long, TimeUnit)超时获取不到会抛TimeoutException；
+future.get(long, TimeUnit)超时获取不到会抛TimeoutException，重复调用不阻塞；
 FutureTask的awaitDone方法返回的是state；
 线程池五个状态：RUNNING、SHUTDOWN、STOP、TIDYING、TERMINATED；
 线程池重要变量（非构造参数）：allowCoreThreadTimeOut；
@@ -143,7 +143,7 @@ redis持久化机制：RDB（默认，半持久化，以写时复制异步定时
 AOF（全持久化，每一次写操作就记录到AOF文件中，逻辑备份，启动时加载AOF文件到内存，数据不能容许丢失选择AOF）；
 redis允许同时开启RDB和AOF，RDB备份快，AOF安全；
 redis删除策略：定时删除、惰性删除、定期删除；
-redis淘汰策略：主键空间/设置了过期时间的键空间 LRU、Random淘汰，内存达到阈值，申请内存指令会报错，设置了过期时间的键空间，删除更早过期key；
+redis淘汰策略：主键空间/设置了过期时间的键空间LRU、Random淘汰，内存达到阈值，申请内存指令会报错，设置了过期时间的键空间，删除更早过期key；
 redis使用setnx来争抢锁，设置过期时间保证锁一定会被释放；
 redis数据恢复：主从同步实现数据恢复，从服务器需要配置slaveof master-ip master-port；
 redis可以让主服务器只负责写，从服务器只负责读来实现读写分离，也可以禁止主服务器进行持久化（耗时），让从服务器执行持久化操作；
