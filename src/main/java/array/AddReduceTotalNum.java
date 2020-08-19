@@ -1,7 +1,7 @@
 package array;
 
 /**
- * 数组添加正负号使得计算之和等于目标值的次数123
+ * 数组添加正负号使得计算之和等于目标值的次数
  */
 
 public class AddReduceTotalNum {
