@@ -1,3 +1,4 @@
 FindAllCombinationSum
 FindAllPermutations
 FindAllSubSets
+找出超过1/3的majority
