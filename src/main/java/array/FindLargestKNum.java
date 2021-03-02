@@ -18,8 +18,9 @@ public class FindLargestKNum {
     }
 
     private static int[] getLargestK(int[] a, int k) {
-        // 构建小顶堆
-        for (int i = k / 2 - 1; i >= 0; i--) {
+        // 构建小顶堆，从最后一个节点的父节点开始
+        // 节点i的子节点2*i + 1、2*i + 2，父节点(i - 1) / 2；
+        for (int i = (k - 1 - 1) / 2; i >= 0; i--) {
             adjustHeap(a, i, k);
         }
         for (int i = k; i < a.length; i++) {
