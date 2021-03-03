@@ -28,6 +28,19 @@ public class CycleList {
     }
 
     /**
+     * 判断两个链表是否相交
+     */
+    private static boolean isIntersect(ListNode head1, ListNode head2) {
+        while (head1 != null && head1.getNext() != null) {
+            head1 = head1.getNext();
+        }
+        while (head2 != null && head2.getNext() != null) {
+            head2 = head2.getNext();
+        }
+        return head1 == head2;
+    }
+
+    /**
      * 计算环长
      */
     private static int calCycleLength(ListNode head) {
