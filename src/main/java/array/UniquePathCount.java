@@ -1,7 +1,7 @@
 package array;
 
 /**
- * 达到终点路径计数
+ * 达到终点所有路径计数
  */
 
 public class UniquePathCount {
