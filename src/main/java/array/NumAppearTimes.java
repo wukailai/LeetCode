@@ -33,7 +33,7 @@ public class NumAppearTimes {
 
     private static int getIndex(int[] a, int start, int end, int target) {
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             if (a[mid] == target) {
                 return mid;
             }
@@ -48,7 +48,7 @@ public class NumAppearTimes {
 
     private static int getLeft(int[] a, int start, int end, int target) {
         while (start < end) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             if (a[mid] == target) {
                 end = mid;
             } else {
@@ -61,7 +61,7 @@ public class NumAppearTimes {
     private static int getRight(int[] a, int start, int end, int target) {
         while (start < end) {
             //这个地方为什么+1无法理解
-            int mid = (start + end + 1) / 2;
+            int mid = (end + 1 - start) / 2 + start;
             if (a[mid] == target) {
                 start = mid;
             } else {
@@ -93,7 +93,7 @@ public class NumAppearTimes {
 
     private static int getIndex(int[] a, int start, int end, float target) {
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             if (a[mid] > target) {
                 end = mid - 1;
             } else {

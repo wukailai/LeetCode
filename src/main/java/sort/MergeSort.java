@@ -16,7 +16,7 @@ public class MergeSort {
 
     private static void mergeSort(int[] a, int start, int end) {
         if (start < end) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             mergeSort(a, start, mid);
             mergeSort(a, mid + 1, end);
             merge(a, start, mid, end);

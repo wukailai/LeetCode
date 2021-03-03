@@ -33,7 +33,7 @@ public class TwoArrayMinGap {
 
     private static int getPosition(int[] a, int start, int end, int target) {
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             if (target == a[mid]) {
                 return mid;
             }

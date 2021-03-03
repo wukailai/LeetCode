@@ -15,7 +15,7 @@ public class MovedArraySearch {
         int start = 0;
         int end = a.length - 1;
         while (end >= start) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             if (a[mid] == target) {
                 return mid;
             }
