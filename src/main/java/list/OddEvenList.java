@@ -12,13 +12,12 @@ public class OddEvenList {
     public static void main(String[] args) {
         ListNode head = GeneratorUtil.newList();
         PrinterUtil.printList(head);
-        sort(head);
-        PrinterUtil.printList(head);
+        PrinterUtil.printList(sort(head));
     }
 
-    private static void sort(ListNode head) {
+    private static ListNode sort(ListNode head) {
         if (null == head || null == head.getNext()) {
-            return;
+            return head;
         }
         ListNode odd = head;
         ListNode even = head.getNext();
@@ -30,5 +29,6 @@ public class OddEvenList {
             even = even.getNext();
         }
         odd.setNext(evenHead);
+        return head;
     }
 }

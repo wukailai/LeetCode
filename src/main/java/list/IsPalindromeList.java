@@ -5,10 +5,10 @@ import util.ListNode;
 import util.PrinterUtil;
 
 /**
- *  是否为回文链表
+ * 是否为回文链表
  */
 
-public class IsPalindrome {
+public class IsPalindromeList {
     public static void main(String[] args) {
         ListNode node = GeneratorUtil.newList2();
         System.out.println(isPalindrome(node));

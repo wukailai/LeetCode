@@ -5,3 +5,4 @@ FindAllSubSets
 JumpGame
 SubArraySumMinLen
 计算循环链表环长
+IsPalindrome
