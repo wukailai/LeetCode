@@ -13,7 +13,7 @@ public class SellStock {
 
     private static int getMaxProfit(int[] a) {
         int profit = 0;
-        int min = a[0];
+        int min = Integer.MAX_VALUE;
         for (Integer i : a) {
             if (i < min) {
                 min = i;

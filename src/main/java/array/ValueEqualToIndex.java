@@ -14,13 +14,15 @@ public class ValueEqualToIndex {
         int start = 0;
         int end = a.length - 1;
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = (end - start) / 2 + start;
             if (a[mid] == mid) {
                 return mid;
             }
+            //说明一定在左边
             if (a[mid] > mid) {
                 end = mid - 1;
-            } else {
+            }
+            else { //否则一定在右边
                 start = mid + 1;
             }
         }

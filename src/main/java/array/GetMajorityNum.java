@@ -21,17 +21,20 @@ public class GetMajorityNum {
      * 摩尔投票，查找超过二分之一的数，最多一个
      */
     private static int getMaxNum(int[] a) {
-        int result = -1;
-        int count = 0;
-        for (Integer i : a) {
-            if (result == i || count == 0) {
-                result = i;
+        int major = a[0];
+        int count = 1;
+        for (int i = 1; i < a.length; i++) {
+            if (count == 0) {
+                major = a[i];
+                count = 1;
+            }
+            if (a[i] == major) {
                 count++;
             } else {
                 count--;
             }
         }
-        return result;
+        return major;
     }
 
     /**

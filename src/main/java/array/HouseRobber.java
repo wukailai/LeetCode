@@ -33,7 +33,7 @@ public class HouseRobber {
     }
 
     /**
-     * 数组实现
+     * 动态规划实现
      */
     private static int getMaxMoney2(int[] a) {
         if (a.length == 0) {
