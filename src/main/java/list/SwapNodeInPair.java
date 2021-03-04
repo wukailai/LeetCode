@@ -32,4 +32,23 @@ public class SwapNodeInPair {
         second.setNext(first);
         return second;
     }
+
+    /**
+     * 更容易理解的一种方式
+     */
+    private static ListNode swap2(ListNode head) {
+        if (null == head || null == head.getNext()) {
+            return head;
+        }
+        ListNode first = head;
+        ListNode second = head.getNext();
+        while (first != null && second != null) {
+            int temp = first.getVal();
+            first.setVal(second.getVal());
+            second.setVal(temp);
+            first = second.getNext();
+            second = first.getNext();
+        }
+        return head;
+    }
 }
