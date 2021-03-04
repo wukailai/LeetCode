@@ -9,7 +9,7 @@ public class GeneratorUtil {
      * 新建一个数组
      */
     public static int[] newIntArray() {
-        return new int[] {1, 3, 6, 4, 5, 2};
+        return new int[] {1, 3, 6, 4, 5, 2, 2, 2};
     }
 
     /**
