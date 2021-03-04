@@ -10,8 +10,10 @@ import java.util.List;
 
 public class PowerOperation {
     public static void main(String[] args) {
-        System.out.println(power(2, 7));
+        System.out.println(power(2, 8));
+        System.out.println(power2(2, 8));
         System.out.println(get(13));
+        System.out.println(Decimal2Binary(8));
     }
 
     private static int power(int base, int power) {
@@ -27,6 +29,41 @@ public class PowerOperation {
         return result;
     }
 
+    /**
+     * 递归实现
+     * 特别好理解
+     */
+    private static int power2(int base, int power) {
+        if (power == 0) {
+            return 1;
+        }
+        if (power == 1) {
+            return base;
+        }
+        int t = power2(base, power / 2);
+        if (power % 2 == 0) {
+            return t * t;
+        } else {
+            return t * t * base;
+        }
+    }
+
+    /**
+     * 十进制转二进制
+     */
+    private static String Decimal2Binary(int n) {
+        String result = "";
+        while (n != 0) {
+            //注意连接顺序
+            result = n % 2 + result;
+            n = n / 2;
+        }
+        return result;
+    }
+
+    /**
+     * 根据十进制转二进制思想，很容易
+     */
     private static List<Integer> get(int n) {
         List<Integer> list = new ArrayList();
         int temp = 1;
@@ -34,7 +71,7 @@ public class PowerOperation {
             if (n % 2 == 1) {
                 list.add(temp);
             }
-            temp += temp;
+            temp = 2 * temp;
             n = n / 2;
         }
         return list;
