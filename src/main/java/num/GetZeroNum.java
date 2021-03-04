@@ -10,6 +10,11 @@ public class GetZeroNum {
         System.out.println(getZeroNum(12));
     }
 
+    /**
+     * N/5会得到所有5*1, 5*2, 5*3......的个数
+     * N/25会得到所有25*1, 25*2, 25*3.....的个数
+     * N/125会得到所有125*1, 125*2, 125*3.......的个数
+     */
     private static int getZeroNum(int n) {
         int result = 0;
         while (n != 0) {
