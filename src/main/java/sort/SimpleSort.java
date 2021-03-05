@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class SimpleSort {
     public static void main(String[] args) {
-        int[] arr = new int[] {1, 3, 2, 6, 5, 4, 7, 9};
+        int[] arr = new int[] {1, 3, 2, 6, -1, 4, 7, 9};
         insertSort(arr);
         //selectSort(arr);
         //bubbleSort(arr);
@@ -23,17 +23,30 @@ public class SimpleSort {
      */
     private static void insertSort(int[] a) {
         for (int i = 1; i < a.length; i++) {
-            int temp = a[i];
-            boolean flag = false;
-            int j;
-            for (j = i - 1; j >= 0 && a[j] > a[i]; j--) {
-                a[j + 1] = a[j];
-                flag = true;
+            if (a[i] >= a[i - 1]) {
+                continue;
             }
-            if (flag) {
-                a[j] = temp;
+            int temp = a[i];
+            int index = getIndex(a, 0, i - 1, a[i]);
+            for (int j = i; j > index; j--) {
+                a[j] = a[j - 1];
+            }
+            a[index] = temp;
+        }
+    }
+
+    private static int getIndex(int[] a, int start, int end, int target) {
+        while (start <= end) {
+            int mid = (end - start) / 2 + start;
+            if (a[mid] == target) {
+                return mid;
+            } else if (a[mid] > target) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
             }
         }
+        return start;
     }
 
     /**
