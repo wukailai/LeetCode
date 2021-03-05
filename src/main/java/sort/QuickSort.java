@@ -27,10 +27,10 @@ public class QuickSort {
         int i = start;
         int j = end;
         while (i < j) {
-            while (a[j] >= temp && i < j) {
+            while (i < j && a[j] >= temp) {
                 j--;
             }
-            while (a[i] <= temp && i < j) {
+            while (i < j && a[i] <= temp) {
                 i++;
             }
             CommonUtil.swapIntArray(a, i, j);
@@ -72,10 +72,10 @@ public class QuickSort {
         int i = start;
         int j = end;
         while (i < j) {
-            while (a[j] >= temp && i < j) {
+            while (i < j && a[j] >= temp) {
                 j--;
             }
-            while (a[i] <= temp && i < j) {
+            while (i < j && a[i] <= temp) {
                 i++;
             }
             CommonUtil.swapIntArray(a, i, j);
