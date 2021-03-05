@@ -15,6 +15,7 @@ public class SimpleSort {
         insertSort(arr);
         //selectSort(arr);
         //bubbleSort(arr);
+        insertSort2(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -32,6 +33,21 @@ public class SimpleSort {
                 a[j] = a[j - 1];
             }
             a[index] = temp;
+        }
+    }
+    private static void insertSort2(int[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] >= a[i - 1]) {
+                continue;
+            }
+            for (int j = i; j >= 0; j--) {
+                if (a[j] > a[i]) {
+                    a[j] = a[j - 1];
+                } else {
+                    a[j] = a[i];
+                    break;
+                }
+            }
         }
     }
 
