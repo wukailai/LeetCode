@@ -35,6 +35,10 @@ public class SimpleSort {
             a[index] = temp;
         }
     }
+
+    /**
+     * 插入排序第二种解法
+     */
     private static void insertSort2(int[] a) {
         for (int i = 1; i < a.length; i++) {
             if (a[i] >= a[i - 1]) {
