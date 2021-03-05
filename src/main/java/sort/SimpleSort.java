@@ -12,9 +12,9 @@ import java.util.Arrays;
 public class SimpleSort {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 3, 2, 6, 5, 4, 7, 9};
-        //insertSort(arr);
+        insertSort(arr);
         //selectSort(arr);
-        bubbleSort(arr);
+        //bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -23,10 +23,15 @@ public class SimpleSort {
      */
     private static void insertSort(int[] a) {
         for (int i = 1; i < a.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (a[j] < a[j - 1]) {
-                    CommonUtil.swapIntArray(a, j - 1, j);
-                }
+            int temp = a[i];
+            boolean flag = false;
+            int j;
+            for (j = i - 1; j >= 0 && a[j] > a[i]; j--) {
+                a[j + 1] = a[j];
+                flag = true;
+            }
+            if (flag) {
+                a[j] = temp;
             }
         }
     }
@@ -48,10 +53,10 @@ public class SimpleSort {
      * 冒泡排序
      */
     private static void bubbleSort(int[] a) {
-        for (int i = 0; i < a.length - 1; i++) {
-            for (int j = i; j < a.length - 1; j++) {
-                if (a[j + 1] < a[j]) {
-                    CommonUtil.swapIntArray(a, j, j + 1);
+        for (int j = 0; j < a.length - 1; j++) {
+            for (int i = 0; i < a.length - j - 1; i++) {
+                if (a[i] > a[i + 1]) {
+                    CommonUtil.swapIntArray(a, i , i + 1);
                 }
             }
         }
