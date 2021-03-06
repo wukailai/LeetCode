@@ -16,13 +16,14 @@ public class MinStack {
         stack.push(-2);
         stack.push(0);
         stack.push(-3);
-        System.out.println(stack.getMin());
+        stack.push(-3);
         stack.pop();
+        System.out.println(stack.getMin());
         System.out.println(stack.getMin());
     }
 
     public void push(int i) {
-        if (min.isEmpty() || i < min.peek()) {
+        if (min.isEmpty() || i <= min.peek()) {
             min.push(i);
         }
         stack.push(i);
