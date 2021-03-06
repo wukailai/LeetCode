@@ -22,11 +22,11 @@ public class TwoStackOneQueue {
     }
 }
 
-class Queue {
-    private Stack<Integer> in = new Stack();
-    private Stack<Integer> out = new Stack();
+class Queue<T> {
+    private Stack<T> in = new Stack();
+    private Stack<T> out = new Stack();
 
-    public int take() {
+    public T take() {
         if (out.isEmpty()) {
             while (!in.isEmpty()) {
                 out.push(in.pop());
@@ -35,8 +35,8 @@ class Queue {
         return out.pop();
     }
 
-    public void put(int i) {
-        in.push(i);
+    public void put(T t) {
+        in.push(t);
     }
 
     public boolean isEmpty() {
