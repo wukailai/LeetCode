@@ -7,3 +7,4 @@ SubArraySumMinLen
 计算循环链表环长
 IsPalindrome
 归并排序
+GetLongestPalindromeSubString

@@ -38,4 +38,24 @@ public class GetLongestUnDuplicatedLength {
         }
         return result;
     }
+
+    /**
+     * 滑动窗口-更容易理解
+     */
+    private static String getUnDuplicatedSubString(String s) {
+        String result = "";
+        String cur = "";
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (cur.indexOf(c) == -1) {
+                cur = cur + c;
+                if (result.length() < cur.length()) {
+                    result = cur;
+                }
+            } else {
+                cur = cur.substring(1);
+            }
+        }
+        return result;
+    }
 }
