@@ -7,12 +7,13 @@ import java.util.Stack;
  * @date 2020/07/05 16:09
  * @description 最小栈
  */
-public class MinStack {
-    private Stack<Integer> stack = new Stack();
-    private Stack<Integer> min = new Stack();
+public class MinStack<T extends Comparable> {
+    private Stack<T> stack = new Stack();
+    private Stack<T> min = new Stack();
 
     public static void main(String[] args) {
-        MinStack stack = new MinStack();
+        MinStack<Integer> stack = new MinStack();
+        System.out.println(stack.pop());
         stack.push(-2);
         stack.push(0);
         stack.push(-3);
@@ -22,21 +23,27 @@ public class MinStack {
         System.out.println(stack.getMin());
     }
 
-    public void push(int i) {
-        if (min.isEmpty() || i <= min.peek()) {
-            min.push(i);
+    private void push(T t) {
+        if (min.isEmpty() || t.compareTo(min.peek()) <= 0) {
+            min.push(t);
         }
-        stack.push(i);
+        stack.push(t);
     }
 
-    public int pop() {
-        if (stack.peek() == min.peek()) {
+    private T pop() {
+        if (stack.isEmpty()) {
+            return null;
+        }
+        if (min.peek().compareTo(stack.peek()) == 0) {
             min.pop();
         }
         return stack.pop();
     }
 
-    public int getMin() {
+    private T getMin() {
+        if (stack.isEmpty()) {
+            return null;
+        }
         return min.peek();
     }
 }
