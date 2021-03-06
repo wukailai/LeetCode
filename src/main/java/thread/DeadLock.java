@@ -8,43 +8,41 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 
 public class DeadLock {
-    Lock lock1 = new ReentrantLock();
-    Lock lock2 = new ReentrantLock();
-
-    private void deadLock() {
-        new Thread(
-                new Runnable() {
-                    public void run() {
-                        System.out.println("线程1开始执行");
-                        lock1.lock();
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        lock2.lock();
-                        System.out.println("线程1结束执行");
-                    }
-                }
-        ).start();
-        new Thread(
-                new Runnable() {
-                    public void run() {
-                        System.out.println("线程2开始执行");
-                        lock2.lock();
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        lock1.lock();
-                        System.out.println("线程2结束执行");
-                    }
-                }
-        ).start();
-    }
+    private static Lock lock1 = new ReentrantLock();
+    private static Lock lock2 = new ReentrantLock();
 
     public static void main(String[] args) {
-        new DeadLock().deadLock();
+        new Thread(
+                () -> {
+                    try {
+                        lock1.lock();
+                        System.out.println(Thread.currentThread().getName() + "拿到了lock1锁");
+                        Thread.sleep(1000);
+                        lock2.lock();
+                        System.out.println(Thread.currentThread().getName() + "拿到了lock2锁");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        lock1.unlock();
+                        lock2.unlock();
+                    }
+                }, "线程1"
+        ).start();
+        new Thread(
+                () -> {
+                    try {
+                        lock2.lock();
+                        System.out.println(Thread.currentThread().getName() + "拿到了lock2锁");
+                        Thread.sleep(1000);
+                        lock1.lock();
+                        System.out.println(Thread.currentThread().getName() + "拿到了lock1锁");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        lock2.unlock();
+                        lock1.unlock();
+                    }
+                }, "线程2"
+        ).start();
     }
 }
