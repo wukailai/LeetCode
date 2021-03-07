@@ -74,4 +74,20 @@ public class GeneratorUtil {
         root.getRight().setRight(new BinaryNode(7));
         return root;
     }
+
+    /**
+     * 创建一颗二叉搜索树
+     */
+    public static BinaryNode newSortBinary() {
+        BinaryNode root = new BinaryNode(12);
+        root.setLeft(new BinaryNode(5));
+        root.setRight(new BinaryNode(18));
+        root.getLeft().setLeft(new BinaryNode(2));
+        root.getLeft().setRight(new BinaryNode(9));
+        root.getRight().setLeft(new BinaryNode(15));
+        root.getRight().setRight(new BinaryNode(19));
+        root.getRight().getLeft().setRight(new BinaryNode(17));
+        root.getRight().getLeft().getRight().setLeft(new BinaryNode(16));
+        return root;
+    }
 }
