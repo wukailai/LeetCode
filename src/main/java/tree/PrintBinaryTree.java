@@ -3,8 +3,7 @@ package tree;
 import util.BinaryNode;
 import util.GeneratorUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -118,29 +117,20 @@ public class PrintBinaryTree {
     }
 
     /**
-     * 按层打印
+     * 按层打印，简单好理解
      */
     public static void layerPrint(BinaryNode root) {
-        List<BinaryNode> list = new ArrayList();
+        LinkedList<BinaryNode> list = new LinkedList();
         list.add(root);
-        BinaryNode lastNode = root;
-        BinaryNode last = root;
+        BinaryNode cur;
         while (!list.isEmpty()) {
-            BinaryNode node = list.remove(0);
-            if (node.getLeft() != null) {
-                list.add(node.getLeft());
-                lastNode = node.getLeft();
+            cur = list.poll();
+            System.out.print(cur.getVal() + " ");
+            if (cur.getLeft() != null) {
+                list.add(cur.getLeft());
             }
-            if (node.getRight() != null) {
-                list.add(node.getRight());
-                lastNode = node.getRight();
-            }
-            System.out.print(node.getVal());
-            if (node == last) {
-                System.out.println();
-                last = lastNode;
-            } else {
-                System.out.print(" ");
+            if (cur.getRight() != null) {
+                list.add(cur.getRight());
             }
         }
     }
