@@ -20,10 +20,12 @@ public class BinarySearchTree {
         while (node != null) {
             if (node.getVal() == target) {
                 return node.getVal();
-            } else if (target < node.getVal()) {
-                node = node.getLeft();
-            } else {
+            }
+            while (node != null && node.getVal() < target) {
                 node = node.getRight();
+            }
+            while (node != null && node.getVal() > target) {
+                node = node.getLeft();
             }
         }
         return -1;

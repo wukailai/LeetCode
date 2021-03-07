@@ -2,7 +2,6 @@ package tree;
 
 import util.BinaryNode;
 import util.GeneratorUtil;
-import util.PrinterUtil;
 
 /**
  * 二叉搜索树校验
@@ -13,6 +12,10 @@ public class BinaryTreeValidate {
         BinaryNode root = GeneratorUtil.newBinary();
         PrintBinaryTree.layerPrint(root);
         System.out.println(validate(root));
+        BinaryNode root1 = GeneratorUtil.newSortBinary();
+        PrintBinaryTree.layerPrint(root1);
+        System.out.println(validate(root1));
+
     }
 
     private static boolean validate(BinaryNode root) {

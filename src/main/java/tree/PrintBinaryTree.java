@@ -3,7 +3,9 @@ package tree;
 import util.BinaryNode;
 import util.GeneratorUtil;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -25,6 +27,8 @@ public class PrintBinaryTree {
         postPrint(root);
         System.out.println();
         layerPrint(root);
+        System.out.println();
+        layerPrint2(root);
     }
 
     /**
@@ -132,6 +136,31 @@ public class PrintBinaryTree {
             }
             if (cur.getRight() != null) {
                 list.add(cur.getRight());
+            }
+        }
+    }
+
+    public static void layerPrint2(BinaryNode root) {
+        List<BinaryNode> list = new ArrayList();
+        list.add(root);
+        BinaryNode last = root;
+        BinaryNode lastNode = root;
+        while (!list.isEmpty()) {
+            BinaryNode node = list.remove(0);
+            System.out.print(node.getVal());
+            if (node.getLeft() != null) {
+                list.add(node.getLeft());
+                lastNode = node.getLeft();
+            }
+            if (node.getRight() != null) {
+                list.add(node.getRight());
+                lastNode = node.getRight();
+            }
+            if (node == last) {
+                last = lastNode;
+                System.out.println();
+            } else {
+                System.out.print(" ");
             }
         }
     }
