@@ -87,6 +87,7 @@ public class PrintBinaryTree {
                 stack.push(cur);
                 cur = cur.getLeft();
             }
+            //压完一波左子树就可以输出了
             BinaryNode node = stack.pop();
             System.out.print(node.getVal() + " > ");
             if (node.getRight() != null) {
