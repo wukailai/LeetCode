@@ -1,7 +1,7 @@
 package array;
 
 /**
- * 子数组之和大于给定值的最小长度
+ * 子数组之和大于等于给定值的最小长度
  */
 
 public class SubArraySumMinLen {
