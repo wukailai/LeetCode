@@ -12,11 +12,11 @@ public class GetLongestUnDuplicatedLength {
         String s1 = "abcabcbb";
         String s2 = "bbbbb";
         String s3 = "pwwkew";
-        String s4 = "ppwikej";
+        String s4 = "abccccdf";
         System.out.println(getMaxLen(s1));
         System.out.println(getMaxLen(s2));
-        System.out.println(getMaxLen(s3));
-        System.out.println(getMaxLen(s4));
+        System.out.println(getUnDuplicatedSubString(s3));
+        System.out.println(getUnDuplicatedSubString(s4));
     }
 
     /**
@@ -53,7 +53,7 @@ public class GetLongestUnDuplicatedLength {
                     result = cur;
                 }
             } else {
-                cur = cur.substring(1);
+                cur = "" + c;
             }
         }
         return result;
