@@ -17,22 +17,22 @@ public class Array2SyncQueue<T> {
     private int takeIndex;
     private int putIndex;
     private ReentrantLock lock = new ReentrantLock();
-    private Condition isEmpty = lock.newCondition();
-    private Condition isFull = lock.newCondition();
+    private Condition takeCondition = lock.newCondition();
+    private Condition putCondition = lock.newCondition();
 
     public T take() throws Exception {
         try {
             lock.lock();
             //注意：这里用while不用if
             while (count == 0) {
-                isEmpty.await();
+                takeCondition.await();
             }
             T t = (T) items[takeIndex++];
             if (takeIndex == items.length) {
                 takeIndex = 0;
             }
             count--;
-            isFull.signal();
+            putCondition.signal();
             return t;
         } finally {
             lock.unlock();
@@ -44,14 +44,14 @@ public class Array2SyncQueue<T> {
             lock.lock();
             //注意：这里用while不用if
             while (count == items.length) {
-                isFull.await();
+                putCondition.await();
             }
             items[putIndex++] = t;
             if (putIndex == items.length) {
                 putIndex = 0;
             }
             count++;
-            isEmpty.signal();
+            takeCondition.signal();
         } finally {
             lock.unlock();
         }
