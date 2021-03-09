@@ -31,7 +31,7 @@ public class MoveZeros {
     private static void move2(int[] a) {
         int i = 0;
         for (int j = 0; j < a.length; j++) {
-            if (a[j] != 0) {
+            if (a[j] != 0 && i != j) {
                 int temp = a[j];
                 a[j] = a[i];
                 a[i] = temp;

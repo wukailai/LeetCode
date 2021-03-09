@@ -16,7 +16,7 @@ public class RemoveAppointArray {
     private static int remove(int[] a, int target) {
         int count = 0;
         for (int i = 0; i < a.length; i++) {
-            if (a[i] != target) {
+            if (a[i] != target && i != count) {
                 int temp = a[i];
                 a[i] = a[count];
                 a[count] = temp;

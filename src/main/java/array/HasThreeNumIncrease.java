@@ -1,7 +1,7 @@
 package array;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 判断数组中是否有三个升序数字
@@ -9,8 +9,9 @@ import java.util.Set;
 
 public class HasThreeNumIncrease {
     public static void main(String[] args) {
-        int[] arr = new int[] {1, 2, 3, 4, 5};
+        int[] arr = new int[] {1, 2, 5, 4, 5};
         System.out.println(exist(arr));
+        System.out.println(exist2(arr, 3));
     }
 
     private static boolean exist(int[] a) {
@@ -35,13 +36,13 @@ public class HasThreeNumIncrease {
      * 滑动窗口解法
      */
     private static boolean exist2(int[] a, int k) {
-        Set<Integer> set = new HashSet();
+        List<Integer> list = new ArrayList();
         for (int i = 0; i < a.length; i++) {
-            if (set.size() > 0 && a[i] <= a[i - 1]) {
-                set.clear();
+            if (list.size() > 0 && a[i] <= a[i - 1]) {
+                list.clear();
             }
-            set.add(a[i]);
-            if (set.size() >= k) {
+            list.add(a[i]);
+            if (list.size() >= k) {
                 return true;
             }
         }

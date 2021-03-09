@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 找出数组中最小的K个值
  */
 
-public class FindSmallKNum {
+public class FindSmallestKNum {
     public static void main(String[] args) {
         int[] arr = GeneratorUtil.newIntArray();
         int k = 3;
