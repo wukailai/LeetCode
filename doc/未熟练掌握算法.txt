@@ -3,6 +3,7 @@ FindAllPermutations
 FindAllSubSets
 找出超过1/3的majority
 SubArraySumMinLen
+IsPalindromeList
 计算循环链表环长
 归并排序
 二叉树后续遍历非递归实现
