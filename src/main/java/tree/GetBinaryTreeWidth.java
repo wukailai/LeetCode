@@ -21,7 +21,7 @@ public class GetBinaryTreeWidth {
         list.add(root);
         BinaryNode lastNode = root;
         BinaryNode last = root;
-        int width = 1;
+        int width = Integer.MIN_VALUE;
         int temp = 0;
         while (!list.isEmpty()) {
             BinaryNode node = list.remove(0);
