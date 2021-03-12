@@ -41,7 +41,7 @@ public class TwoNumSumSearch {
         Arrays.sort(a);
         int start = 0;
         int end = a.length - 1;
-        while (start <= end) {
+        while (start < end) {
             if (a[start] + a[end] == target) {
                 return new int[] {start, end};
             }
