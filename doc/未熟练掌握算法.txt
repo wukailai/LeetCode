@@ -11,7 +11,6 @@ IsPalindromeList
 Intersection of Two Linked Lists
 Course Schedule
 Product of Array Except Self
-Find the Duplicate Number
 Coin Change
 Counting Bits
 Decode String
