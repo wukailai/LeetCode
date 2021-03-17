@@ -15,7 +15,7 @@ public class FindDuplicateNumber {
     private static int find(int[] a) {
         int start = 0;
         int end = a.length - 1;
-        while (start <= end) {
+        while (start < end) {
             int mid = (end - start) / 2 + start;
             int count = 0;
             for (int i = 0; i < a.length; i++) {
@@ -24,7 +24,7 @@ public class FindDuplicateNumber {
                 }
             }
             if (count > mid) {
-                end = mid - 1;
+                end = mid;
             } else {
                 start = mid + 1;
             }
