@@ -8,7 +8,6 @@ IsPalindromeList
 归并排序
 二叉树后续遍历非递归实现
 
-Maximum Product Subarray
 Intersection of Two Linked Lists
 Course Schedule
 Product of Array Except Self
