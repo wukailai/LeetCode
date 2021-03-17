@@ -1,5 +1,9 @@
 package array;
 
+/**
+ * 最大连续乘积
+ */
+
 public class MaxProduct {
     public static void main(String[] args) {
         int[] arr = new int[] {2, 3, -2, -2, -3, 4};
