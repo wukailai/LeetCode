@@ -2,7 +2,7 @@ package array;
 
 public class MaxProduct {
     public static void main(String[] args) {
-        int[] arr = new int[] {2, 3, -2, 4, 5};
+        int[] arr = new int[] {2, 3, -2, -2, -3, 4};
         System.out.println(getMax(arr));
     }
 
@@ -13,12 +13,15 @@ public class MaxProduct {
         if (null == a || a.length == 0) {
             return 0;
         }
-        int[] dp = new int[a.length];
-        dp[0] = a[0];
+        int[] dp_max = new int[a.length];
+        int[] dp_min = new int[a.length];
+        dp_max[0] = a[0];
+        dp_min[0] = a[0];
         int max = a[0];
         for (int i = 1; i < a.length; i++) {
-            dp[i] = Math.max(dp[i - 1] * a[i], a[i]);
-            max = Math.max(max, dp[i]);
+            dp_min[i] = Math.min(Math.min(dp_max[i - 1] * a[i], dp_min[i - 1] * a[i]), a[i]);
+            dp_max[i] = Math.max(Math.max(dp_max[i - 1] * a[i], dp_min[i - 1] * a[i]), a[i]);
+            max = Math.max(dp_max[i], max);
         }
         return max;
     }
