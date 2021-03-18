@@ -10,10 +10,7 @@ IsPalindromeList
 
 Path Sum III
 Convert BST to Greater Tree
-Diameter of Binary Tree
 Subtree of Another Tree
-Merge Two Binary Trees
-
 Decode String
 Course Schedule
 Hamming Distance
