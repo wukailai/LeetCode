@@ -13,7 +13,7 @@ public class FindDuplicateNumber {
     }
 
     private static int find(int[] a) {
-        int start = 0;
+        int start = 1;
         int end = a.length - 1;
         while (start < end) {
             int mid = (end - start) / 2 + start;
@@ -23,9 +23,11 @@ public class FindDuplicateNumber {
                     count++;
                 }
             }
+            // 说明重复的值一定在1~mid之间
             if (count > mid) {
+                // 这里end = mid，所以while条件一定是小于，不能是小于等于，否则会出现死循环
                 end = mid;
-            } else {
+            } else { // 这里其实只有count == mid这一种情况
                 start = mid + 1;
             }
         }
