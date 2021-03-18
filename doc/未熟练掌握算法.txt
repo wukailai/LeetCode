@@ -12,7 +12,6 @@ Course Schedule
 Counting Bits
 Decode String
 Path Sum III
-Find All Numbers Disappeared in an Array
 Hamming Distance
 Convert BST to Greater Tree
 Diameter of Binary Tree
