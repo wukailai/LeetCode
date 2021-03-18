@@ -12,14 +12,13 @@ Course Schedule
 Counting Bits
 Decode String
 Path Sum III
-Hamming Distance
 Convert BST to Greater Tree
 Diameter of Binary Tree
 Subtree of Another Tree
-Shortest Unsorted Continuous Subarray
 Merge Two Binary Trees
 Jewels and Stones
 
+Hamming Distance
 Median of Two Sorted Arrays
 Regular Expression Matching
 Letter Combinations of a Phone Number
