@@ -18,7 +18,6 @@ Median of Two Sorted Arrays
 Regular Expression Matching
 Letter Combinations of a Phone Number
 Generate Parentheses
-Merge k Sorted Lists
 Next Permutation
 Trapping Rain Water
 Rotate Image

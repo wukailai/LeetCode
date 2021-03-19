@@ -44,6 +44,30 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一个链表
+     */
+    public static ListNode newList3() {
+        ListNode head = new ListNode(1);
+        head.setNext(new ListNode(3));
+        head.getNext().setNext(new ListNode(5));
+        head.getNext().getNext().setNext(new ListNode(7));
+        head.getNext().getNext().getNext().setNext(new ListNode(8));
+        return head;
+    }
+
+    /**
+     * 创建一个链表
+     */
+    public static ListNode newList4() {
+        ListNode head = new ListNode(2);
+        head.setNext(new ListNode(4));
+        head.getNext().setNext(new ListNode(6));
+        head.getNext().getNext().setNext(new ListNode(9));
+        head.getNext().getNext().getNext().setNext(new ListNode(10));
+        return head;
+    }
+
+    /**
      * 创建一个有序链表
      */
     public static ListNode newSortedList(int num) {
