@@ -100,6 +100,34 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary2() {
+        BinaryNode root = new BinaryNode(1);
+        root.setLeft(new BinaryNode(2));
+        root.setRight(new BinaryNode(3));
+        root.getLeft().setLeft(new BinaryNode(4));
+        root.getLeft().setRight(new BinaryNode(5));
+        root.getRight().setLeft(new BinaryNode(6));
+        root.getRight().setRight(new BinaryNode(7));
+        return root;
+    }
+
+    /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary3() {
+        BinaryNode root = new BinaryNode(1);
+        root.setLeft(new BinaryNode(3));
+        root.setRight(new BinaryNode(2));
+        root.getLeft().setLeft(new BinaryNode(7));
+        root.getLeft().setRight(new BinaryNode(6));
+        root.getRight().setLeft(new BinaryNode(5));
+        root.getRight().setRight(new BinaryNode(4));
+        return root;
+    }
+
+    /**
      * 创建一颗二叉搜索树
      */
     public static BinaryNode newSortBinary() {
