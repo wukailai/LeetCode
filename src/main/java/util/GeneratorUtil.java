@@ -44,6 +44,30 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一个链表
+     */
+    public static ListNode newList3() {
+        ListNode head = new ListNode(1);
+        head.setNext(new ListNode(3));
+        head.getNext().setNext(new ListNode(5));
+        head.getNext().getNext().setNext(new ListNode(7));
+        head.getNext().getNext().getNext().setNext(new ListNode(8));
+        return head;
+    }
+
+    /**
+     * 创建一个链表
+     */
+    public static ListNode newList4() {
+        ListNode head = new ListNode(2);
+        head.setNext(new ListNode(4));
+        head.getNext().setNext(new ListNode(6));
+        head.getNext().getNext().setNext(new ListNode(9));
+        head.getNext().getNext().getNext().setNext(new ListNode(10));
+        return head;
+    }
+
+    /**
      * 创建一个有序链表
      */
     public static ListNode newSortedList(int num) {
@@ -72,6 +96,34 @@ public class GeneratorUtil {
         root.getLeft().setRight(new BinaryNode(5));
         root.getRight().setLeft(new BinaryNode(2));
         root.getRight().setRight(new BinaryNode(7));
+        return root;
+    }
+
+    /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary2() {
+        BinaryNode root = new BinaryNode(1);
+        root.setLeft(new BinaryNode(2));
+        root.setRight(new BinaryNode(3));
+        root.getLeft().setLeft(new BinaryNode(4));
+        root.getLeft().setRight(new BinaryNode(5));
+        root.getRight().setLeft(new BinaryNode(6));
+        root.getRight().setRight(new BinaryNode(7));
+        return root;
+    }
+
+    /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary3() {
+        BinaryNode root = new BinaryNode(1);
+        root.setLeft(new BinaryNode(3));
+        root.setRight(new BinaryNode(2));
+        root.getLeft().setLeft(new BinaryNode(7));
+        root.getLeft().setRight(new BinaryNode(6));
+        root.getRight().setLeft(new BinaryNode(5));
+        root.getRight().setRight(new BinaryNode(4));
         return root;
     }
 

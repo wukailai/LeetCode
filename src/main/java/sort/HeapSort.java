@@ -31,7 +31,7 @@ public class HeapSort {
 
      private static void heapSort(int[] a) {
         // 从第一个非叶子节点开始构建大顶推
-        for (int i = a.length / 2 - 1; i >= 0; i--) {
+        for (int i = (a.length - 1 - 1) / 2; i >= 0; i--) {
             adjustHeap(a, i, a.length);
         }
         for (int i = a.length - 1; i >= 0; i--) {
