@@ -3,6 +3,10 @@ package string;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 忽略顺序相同的字符串分组
+ */
+
 public class GroupAnagrams {
     public static void main(String[] args) {
         List<String> strList = new ArrayList();
