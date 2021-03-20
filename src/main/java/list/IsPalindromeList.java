@@ -45,7 +45,7 @@ public class IsPalindromeList {
     private static ListNode findMid(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+        while (fast != null && fast.getNext() != null && fast.getNext().getNext() != null) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
         }
