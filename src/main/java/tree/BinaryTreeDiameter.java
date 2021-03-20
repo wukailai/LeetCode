@@ -20,10 +20,10 @@ public class BinaryTreeDiameter {
      * 3）右子树直径；
      */
     private static int getDiameter(BinaryNode root) {
-        int diameter = 0;
         if (null == root) {
             return 0;
         }
+        int diameter = 0;
         diameter = Math.max(diameter, getHeight(root.getLeft()) + getHeight(root.getRight()));
         diameter = Math.max(diameter, getDiameter(root.getLeft()));
         diameter = Math.max(diameter, getDiameter(root.getRight()));
