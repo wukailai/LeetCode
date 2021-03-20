@@ -41,14 +41,12 @@ public class SimpleSort {
      */
     private static void insertSort2(int[] a) {
         for (int i = 1; i < a.length; i++) {
-            if (a[i] >= a[i - 1]) {
-                continue;
-            }
-            for (int j = i; j >= 0; j--) {
-                if (a[j] > a[i]) {
-                    a[j] = a[j - 1];
+            for (int j = i; j >= 1; j--) {
+                if (a[j] < a[j - 1]) {
+                    int temp = a[j - 1];
+                    a[j - 1] = a[j];
+                    a[j] = temp;
                 } else {
-                    a[j] = a[i];
                     break;
                 }
             }
