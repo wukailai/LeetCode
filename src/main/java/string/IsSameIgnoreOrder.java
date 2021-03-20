@@ -10,7 +10,7 @@ public class IsSameIgnoreOrder {
         System.out.println(isSame("adbc", "abbd"));
     }
 
-    private static boolean isSame(String s1, String s2) {
+    public static boolean isSame(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
         }
