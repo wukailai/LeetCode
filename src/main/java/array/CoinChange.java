@@ -14,13 +14,12 @@ public class CoinChange {
         int[] dp = new int[target + 1];
         dp[0] = 0;
         for (int i = 1; i <= target; i++) {
-            int min = Integer.MAX_VALUE;
+            dp[i] = Integer.MAX_VALUE;
             for (int j = 0; j < a.length; j++) {
-                if (i >= a[j] && dp[i] < min) {
-                    min = dp[i - a[j]] + 1;
+                if (i >= a[j]) {
+                    dp[i] = Math.min(dp[i], dp[i - a[j]] + 1);
                 }
             }
-            dp[i] = min;
         }
         return dp[target] == Integer.MAX_VALUE ? -1 : dp[target];
     }
