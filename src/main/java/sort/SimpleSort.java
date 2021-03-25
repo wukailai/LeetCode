@@ -43,9 +43,7 @@ public class SimpleSort {
         for (int i = 1; i < a.length; i++) {
             for (int j = i; j >= 1; j--) {
                 if (a[j] < a[j - 1]) {
-                    int temp = a[j - 1];
-                    a[j - 1] = a[j];
-                    a[j] = temp;
+                    CommonUtil.swapIntArray(a, j, j - 1);
                 } else {
                     break;
                 }

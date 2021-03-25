@@ -3,6 +3,10 @@ package string;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 找出所有不考虑顺序相同字符串起始位置
+ */
+
 public class FindAllAnagrams {
     public static void main(String[] args) {
         System.out.println(find("cbaebabacd", "abc"));
