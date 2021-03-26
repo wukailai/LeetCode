@@ -8,7 +8,7 @@ import util.ArrayUtil;
 
 public class BuildCircleArray {
     public static void main(String[] args) {
-        int[][] result = build(5);
+        int[][] result = build(18);
         ArrayUtil.print(result);
     }
 
