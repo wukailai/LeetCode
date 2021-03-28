@@ -12,8 +12,8 @@ public class GenerateParentheses {
     private static String[] arr = new String[] {"(", ")"};
     public static void main(String[] args) {
 //        generate(2, "");
-        generate(2, new StringBuilder());
-        //generate(2, "", 0, 0);
+//        generate(2, new StringBuilder());
+        generate(2, "", 0, 0);
         for (String s : result) {
             System.out.print(s + " ");
         }
