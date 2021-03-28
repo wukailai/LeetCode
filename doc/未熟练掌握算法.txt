@@ -17,27 +17,27 @@ Queue Reconstruction by Height
 Partition Equal Subset Sum
 Task Scheduler
 
-*LRU Cache
+Course Schedule
+Hamming Distance
+Word Break
+=Maximal Square
+=Number of Islands
+=Word Search
 ^Path Sum III
 ^Convert BST to Greater Tree
 ^Subtree of Another Tree
-Course Schedule
-Hamming Distance
+^Unique Binary Search Trees
+^Flatten Binary Tree to Linked List
+^Implement Trie (Prefix Tree)
+^Lowest Common Ancestor of a Binary Tree
+^Serialize and Deserialize Binary Tree
+^*Binary Tree Maximum Path Sum
+*LRU Cache
+*Maximal Rectangle
+*Longest Consecutive Sequence
+*Remove Invalid Parentheses
+*Burst Balloons
 *Regular Expression Matching
 *Trapping Rain Water
 *Edit Distance
 *Minimum Window Substring
-=Word Search
-*Maximal Rectangle
-^Unique Binary Search Trees
-^Flatten Binary Tree to Linked List
-^*Binary Tree Maximum Path Sum
-*Longest Consecutive Sequence
-Word Break
-=Number of Islands
-^Implement Trie (Prefix Tree)
-=Maximal Square
-^Lowest Common Ancestor of a Binary Tree
-^Serialize and Deserialize Binary Tree
-*Remove Invalid Parentheses
-*Burst Balloons
