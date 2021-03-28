@@ -14,7 +14,6 @@ Hamming Distance
 Median of Two Sorted Arrays
 Regular Expression Matching
 
-Generate Parentheses
 Next Permutation
 Trapping Rain Water
 Rotate Image
