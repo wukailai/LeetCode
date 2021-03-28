@@ -4,7 +4,6 @@ SubArraySumMinLen
 计算循环链表环长
 归并排序
 二叉树后续遍历非递归实现
-
 LRU Cache
 Path Sum III
 Convert BST to Greater Tree
@@ -13,9 +12,7 @@ Course Schedule
 Hamming Distance
 Median of Two Sorted Arrays
 Regular Expression Matching
-
-Next Permutation
-Trapping Rain Water
+*Trapping Rain Water
 Rotate Image
 Edit Distance
 Minimum Window Substring
