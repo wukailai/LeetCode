@@ -13,7 +13,7 @@ Course Schedule
 Hamming Distance
 Median of Two Sorted Arrays
 Regular Expression Matching
-Letter Combinations of a Phone Number
+
 Generate Parentheses
 Next Permutation
 Trapping Rain Water
