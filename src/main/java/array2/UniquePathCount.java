@@ -1,4 +1,4 @@
-package array;
+package array2;
 
 /**
  * 达到终点所有路径计数
