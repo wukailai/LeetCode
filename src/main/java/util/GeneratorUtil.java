@@ -68,6 +68,18 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一个链表
+     */
+    public static ListNode newList5() {
+        ListNode head = new ListNode(6);
+        head.setNext(new ListNode(4));
+        head.getNext().setNext(new ListNode(6));
+        head.getNext().getNext().setNext(new ListNode(2));
+        head.getNext().getNext().getNext().setNext(new ListNode(3));
+        return head;
+    }
+
+    /**
      * 创建一个有序链表
      */
     public static ListNode newSortedList(int num) {
