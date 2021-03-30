@@ -23,4 +23,10 @@ public class ArrayUtil {
                 {18, 21, 23, 26, 30}
         };
     }
+
+    public static void swap(int[][] a, int i1, int j1, int i2, int j2) {
+        int temp = a[i1][j1];
+        a[i1][j1] = a[i2][j2];
+        a[i2][j2] = temp;
+    }
 }

@@ -7,7 +7,7 @@ import util.ArrayUtil;
  * 二维数组特点：1）从左至右，依次变大；2）从上至下，依次变大；
  */
 
-public class searchInMatrix {
+public class SearchInMatrix {
     public static void main(String[] args) {
         int[][] arr = ArrayUtil.buildSearchMatrix();
         System.out.println(find(arr, 5));
