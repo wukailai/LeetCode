@@ -3,7 +3,7 @@ package array2;
 import util.ArrayUtil;
 
 /**
- * 旋转二位数组
+ * 旋转二维数组
  */
 
 public class RotateImage {
