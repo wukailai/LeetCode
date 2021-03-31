@@ -19,7 +19,7 @@ Word Break
 ^Flatten Binary Tree to Linked List
 ^Implement Trie (Prefix Tree)
 ^Lowest Common Ancestor of a Binary Tree
-^Serialize and Deserialize Binary Tree
+^*Serialize and Deserialize Binary Tree
 ^*Binary Tree Maximum Path Sum
 *Median of Two Sorted Arrays
 *LRU Cache
