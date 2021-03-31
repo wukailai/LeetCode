@@ -1,6 +1,5 @@
 FindAllCombinationSumPath Sum III
 找出超过1/3的majority
-SubArraySumMinLen
 计算循环链表环长
 归并排序
 二叉树后续遍历非递归实现
@@ -13,11 +12,11 @@ Word Break
 =Maximal Square
 =Number of Islands
 =Word Search
-^Convert BST to Greater Tree
 ^Unique Binary Search Trees
 ^Flatten Binary Tree to Linked List
 ^Implement Trie (Prefix Tree)
 ^Lowest Common Ancestor of a Binary Tree
+*SubArraySumMinLen
 ^*Serialize and Deserialize Binary Tree
 ^*Binary Tree Maximum Path Sum
 *Median of Two Sorted Arrays
