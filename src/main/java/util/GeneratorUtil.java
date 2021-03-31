@@ -140,6 +140,41 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary4() {
+        BinaryNode root = new BinaryNode(3);
+        root.setLeft(new BinaryNode(4));
+        root.setRight(new BinaryNode(5));
+        root.getLeft().setLeft(new BinaryNode(1));
+        root.getLeft().setRight(new BinaryNode(2));
+        return root;
+    }
+
+    /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary5() {
+        BinaryNode root = new BinaryNode(3);
+        root.setLeft(new BinaryNode(4));
+        root.setRight(new BinaryNode(5));
+        root.getLeft().setLeft(new BinaryNode(1));
+        root.getLeft().setRight(new BinaryNode(2));
+        root.getLeft().getRight().setLeft(new BinaryNode(0));
+        return root;
+    }
+
+    /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary6() {
+        BinaryNode root = new BinaryNode(4);
+        root.setLeft(new BinaryNode(1));
+        root.setRight(new BinaryNode(2));
+        return root;
+    }
+
+    /**
      * 创建一颗二叉搜索树
      */
     public static BinaryNode newSortBinary() {
