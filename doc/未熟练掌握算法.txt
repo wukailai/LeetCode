@@ -12,7 +12,6 @@ Word Break
 =Maximal Square
 =Number of Islands
 =Word Search
-^Flatten Binary Tree to Linked List
 ^Implement Trie (Prefix Tree)
 *SubArraySumMinLen
 ^*Serialize and Deserialize Binary Tree
