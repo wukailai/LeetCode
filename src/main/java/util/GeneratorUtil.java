@@ -175,6 +175,22 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary7() {
+        BinaryNode root = new BinaryNode(10);
+        root.setLeft(new BinaryNode(5));
+        root.setRight(new BinaryNode(-3));
+        root.getLeft().setLeft(new BinaryNode(3));
+        root.getLeft().setRight(new BinaryNode(2));
+        root.getRight().setRight(new BinaryNode(8));
+        root.getLeft().getLeft().setLeft(new BinaryNode(-3));
+        root.getLeft().getLeft().setRight(new BinaryNode(-2));
+        root.getLeft().getRight().setRight(new BinaryNode(1));
+        return root;
+    }
+
+    /**
      * 创建一颗二叉搜索树
      */
     public static BinaryNode newSortBinary() {

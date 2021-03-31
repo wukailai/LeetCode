@@ -1,4 +1,4 @@
-FindAllCombinationSum
+FindAllCombinationSumPath Sum III
 找出超过1/3的majority
 SubArraySumMinLen
 计算循环链表环长
@@ -13,7 +13,6 @@ Word Break
 =Maximal Square
 =Number of Islands
 =Word Search
-^Path Sum III
 ^Convert BST to Greater Tree
 ^Unique Binary Search Trees
 ^Flatten Binary Tree to Linked List
