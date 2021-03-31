@@ -15,7 +15,6 @@ Word Break
 =Word Search
 ^Path Sum III
 ^Convert BST to Greater Tree
-^Subtree of Another Tree
 ^Unique Binary Search Trees
 ^Flatten Binary Tree to Linked List
 ^Implement Trie (Prefix Tree)
