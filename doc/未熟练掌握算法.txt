@@ -12,7 +12,6 @@ Word Break
 =Maximal Square
 =Number of Islands
 =Word Search
-^Unique Binary Search Trees
 ^Flatten Binary Tree to Linked List
 ^Implement Trie (Prefix Tree)
 ^Lowest Common Ancestor of a Binary Tree
