@@ -14,7 +14,6 @@ Word Break
 =Word Search
 ^Flatten Binary Tree to Linked List
 ^Implement Trie (Prefix Tree)
-^Lowest Common Ancestor of a Binary Tree
 *SubArraySumMinLen
 ^*Serialize and Deserialize Binary Tree
 ^*Binary Tree Maximum Path Sum
