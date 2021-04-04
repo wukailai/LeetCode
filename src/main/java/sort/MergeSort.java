@@ -26,12 +26,12 @@ public class MergeSort {
     /**
      * 合并
      */
-    private static void merge(int[] a, int left, int mid, int right) {
+    private static void merge(int[] a, int start, int mid, int end) {
         int[] temp = new int[a.length];
-        int p1 = left;
+        int p1 = start;
         int p2 = mid + 1;
-        int k = left;
-        while (p1 <= mid && p2 <= right) {
+        int k = start;
+        while (p1 <= mid && p2 <= end) {
             if (a[p1] < a[p2]) {
                 temp[k++] = a[p1++];
             } else {
@@ -41,10 +41,10 @@ public class MergeSort {
         while (p1 <= mid) {
             temp[k++] = a[p1++];
         }
-        while (p2 <= right) {
+        while (p2 <= end) {
             temp[k++] = a[p2++];
         }
-        for (int i = left; i <= right; i++) {
+        for (int i = start; i <= end; i++) {
             a[i] = temp[i];
         }
     }
