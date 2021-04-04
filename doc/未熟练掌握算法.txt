@@ -8,7 +8,6 @@ Partition Equal Subset Sum
 Course Schedule
 Hamming Distance
 Word Break
-=Maximal Square
 =Number of Islands
 =Word Search
 ^Implement Trie (Prefix Tree)

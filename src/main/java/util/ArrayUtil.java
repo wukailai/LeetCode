@@ -16,11 +16,20 @@ public class ArrayUtil {
 
     public static int[][] buildSearchMatrix() {
         return new int[][] {
-                {1,   4,  7, 11, 15},
-                {2,   5,  8, 12, 19},
-                {3,   6,  9, 16, 22},
+                {1, 4, 7, 11, 15},
+                {2, 5, 8, 12, 19},
+                {3, 6, 9, 16, 22},
                 {10, 13, 14, 17, 24},
                 {18, 21, 23, 26, 30}
+        };
+    }
+
+    public static int[][] buildArray() {
+        return new int[][] {
+                {1, 0, 1, 0, 0},
+                {1, 0, 1, 0, 1},
+                {1, 1, 1, 1, 1},
+                {1, 0, 0, 0, 0}
         };
     }
 
