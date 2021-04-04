@@ -8,7 +8,6 @@ Partition Equal Subset Sum
 Course Schedule
 Hamming Distance
 Word Break
-=Number of Islands
 =Word Search
 ^Implement Trie (Prefix Tree)
 *SubArraySumMinLen
