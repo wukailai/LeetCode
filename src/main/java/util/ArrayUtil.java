@@ -33,6 +33,14 @@ public class ArrayUtil {
         };
     }
 
+    public static char[][] buildCharArray() {
+        return new char[][] {
+                {'A', 'B', 'C', 'E'},
+                {'S', 'F', 'C', 'S'},
+                {'A', 'D', 'E', 'E'}
+        };
+    }
+
     public static void swap(int[][] a, int i1, int j1, int i2, int j2) {
         int temp = a[i1][j1];
         a[i1][j1] = a[i2][j2];

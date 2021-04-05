@@ -8,7 +8,6 @@ Partition Equal Subset Sum
 Course Schedule
 Hamming Distance
 Word Break
-=Word Search
 ^Implement Trie (Prefix Tree)
 *SubArraySumMinLen
 ^*Serialize and Deserialize Binary Tree
