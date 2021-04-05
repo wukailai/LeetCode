@@ -20,21 +20,24 @@ public class FindAllCombinationSum {
     }
 
     private static void findCombinations(int[] candidates, int index, int target, List<Integer> trace) {
+        // 剪枝
+        if (target < 0) {
+            return;
+        }
         if (target == 0) {
             result.add(new ArrayList(trace));
             return;
         }
-        if (target > 0) {
-            for (int i = index; i < candidates.length; i++) {
-                if (i > index && candidates[i - 1] == candidates[i]) {
-                    continue;
-                }
-                //作出选择
-                trace.add(candidates[i]);
-                findCombinations(candidates, i + 1, target - candidates[i], trace);
-                //撤销选择
-                trace.remove(trace.size() - 1);
+        for (int i = index; i < candidates.length; i++) {
+            // 考虑数组有重复元素的情况
+            if (i > index && candidates[i - 1] == candidates[i]) {
+                continue;
             }
+            //作出选择
+            trace.add(candidates[i]);
+            findCombinations(candidates, i + 1, target - candidates[i], trace);
+            //撤销选择
+            trace.remove(trace.size() - 1);
         }
     }
 }
