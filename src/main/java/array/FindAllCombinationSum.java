@@ -13,12 +13,17 @@ public class FindAllCombinationSum {
 
     public static void main(String[] args) {
         int[] arr = new int[] {2, 5, 2, 1, 2};
+//        int[] arr = new int[] {2, 5, 1};
         Arrays.sort(arr);
         int target = 5;
         findCombinations(arr, 0, target, new ArrayList());
+//        findCombinations2(arr, 0, target, new ArrayList());
         System.out.println(result);
     }
 
+    /**
+     * 元素不可重复使用
+     */
     private static void findCombinations(int[] candidates, int index, int target, List<Integer> trace) {
         // 剪枝
         if (target < 0) {
@@ -36,6 +41,27 @@ public class FindAllCombinationSum {
             //作出选择
             trace.add(candidates[i]);
             findCombinations(candidates, i + 1, target - candidates[i], trace);
+            //撤销选择
+            trace.remove(trace.size() - 1);
+        }
+    }
+
+    /**
+     * 元素可以重复使用
+     */
+    private static void findCombinations2(int[] candidates, int index, int target, List<Integer> trace) {
+        // 剪枝
+        if (target < 0) {
+            return;
+        }
+        if (target == 0) {
+            result.add(new ArrayList(trace));
+            return;
+        }
+        for (int i = index; i < candidates.length; i++) {
+            //作出选择
+            trace.add(candidates[i]);
+            findCombinations2(candidates, i, target - candidates[i], trace);
             //撤销选择
             trace.remove(trace.size() - 1);
         }
