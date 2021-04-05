@@ -41,21 +41,33 @@ public class GetMajorityNum {
      * 摩尔投票，查找超过三分之一的数，最多一个
      */
     private static List<Integer> getMaxNum2(int[] arr) {
-        int a = 0;
-        int b = 0;
+        int a = arr[0];
+        int b = arr[0];
         int an = 0;
         int bn = 0;
         for (Integer i : arr) {
-            if (an == 0 || a == i) {
+            if (a == i) {
                 an++;
                 a = i;
-            } else if (bn == 0 || b == i) {
+                continue;
+            }
+            if (b == i) {
                 bn++;
                 b = i;
-            } else {
-                bn--;
-                an--;
+                continue;
             }
+            if (an == 0) {
+                an++;
+                a = i;
+                continue;
+            }
+            if (bn == 0) {
+                bn++;
+                b = i;
+                continue;
+            }
+            bn--;
+            an--;
         }
         an = 0;
         bn = 0;
