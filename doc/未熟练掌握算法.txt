@@ -1,6 +1,5 @@
 计算循环链表环长
 二叉树后续遍历非递归实现
-^Implement Trie (Prefix Tree)
 Best Time to Buy and Sell Stock with Cooldown
 Course Schedule
 Task Scheduler
