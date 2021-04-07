@@ -3,16 +3,16 @@
 Best Time to Buy and Sell Stock with Cooldown
 Course Schedule
 Task Scheduler
-*SubArraySumMinLen
-^*Serialize and Deserialize Binary Tree
+LRU Cache
 ^*Binary Tree Maximum Path Sum
+*SubArraySumMinLen
 *Median of Two Sorted Arrays
-*LRU Cache
-*Maximal Rectangle
+^*Serialize and Deserialize Binary Tree
 *Longest Consecutive Sequence
-*Remove Invalid Parentheses
-*Burst Balloons
 *Regular Expression Matching
 *Trapping Rain Water
+*Maximal Rectangle
+*Remove Invalid Parentheses
+*Burst Balloons
 *Edit Distance
 *Minimum Window Substring
