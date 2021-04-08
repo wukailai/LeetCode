@@ -32,7 +32,9 @@ public class EqualSubset {
                     result[i][j] = true;
                     continue;
                 }
-                result[i][j] = result[i - 1][j] || result[i - 1][target - a[i]];
+                if (j >= a[i]) {
+                    result[i][j] = result[i - 1][j] || result[i - 1][j - a[i]];
+                }
             }
         }
         return result[a.length - 1][target];
