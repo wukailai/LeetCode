@@ -35,6 +35,7 @@ public class MaxSquare {
         for (int i = 1; i < a.length - 1; i++) {
             for (int j = 1; j < a[0].length - 1; j++) {
                 if (a[i][j] == 1) {
+                    // 这个地方得理解
                     dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
                     result = Math.max(result, dp[i][j]);
                 }
