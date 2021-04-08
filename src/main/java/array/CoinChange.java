@@ -1,7 +1,8 @@
 package array;
 
 /**
- * 硬币兑换
+ * 硬币兑换（硬币可以复用）
+ * 典型的01背包问题
  */
 
 public class CoinChange {
