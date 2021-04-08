@@ -1,6 +1,7 @@
 package array2;
 
 import util.ArrayUtil;
+import util.PrinterUtil;
 
 /**
  * 旋转二维数组
@@ -9,11 +10,11 @@ import util.ArrayUtil;
 public class RotateImage {
     public static void main(String[] args) {
         int[][] arr = ArrayUtil.buildSearchMatrix();
-        ArrayUtil.print(arr);
+        PrinterUtil.printArray(arr);
         System.out.println("================");
         // clockWise(arr);
         antiClockWise(arr);
-        ArrayUtil.print(arr);
+        PrinterUtil.printArray(arr);
     }
 
     /**

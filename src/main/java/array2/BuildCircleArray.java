@@ -1,6 +1,6 @@
 package array2;
 
-import util.ArrayUtil;
+import util.PrinterUtil;
 
 /**
  * 构建同心圆二维数组
@@ -9,7 +9,7 @@ import util.ArrayUtil;
 public class BuildCircleArray {
     public static void main(String[] args) {
         int[][] result = build(18);
-        ArrayUtil.print(result);
+        PrinterUtil.printArray(result);
     }
 
     private static int[][] build(int n) {
