@@ -12,6 +12,7 @@ public class DuplicateInK {
     public static void main(String[] args) {
         int[] arr = new int[] {1 ,2, 3, 1};
         System.out.println(hasSame(arr, 2));
+        System.out.println(hasSame(arr, 3));
     }
 
     /**
@@ -20,10 +21,9 @@ public class DuplicateInK {
     private static boolean hasSame(int[] a, int k) {
         Set<Integer> set = new HashSet();
         for (int i = 0; i < a.length; i++) {
-            if (set.contains(a[i])) {
+            if (!set.add(a[i])) {
                 return true;
             }
-            set.add(a[i]);
             if (set.size() > k) {
                 set.remove(a[i - k]);
             }
