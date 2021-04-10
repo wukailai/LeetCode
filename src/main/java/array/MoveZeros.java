@@ -1,5 +1,6 @@
 package array;
 
+import util.CommonUtil;
 import util.PrinterUtil;
 
 /**
@@ -32,9 +33,7 @@ public class MoveZeros {
         int i = 0;
         for (int j = 0; j < a.length; j++) {
             if (a[j] != 0 && i != j) {
-                int temp = a[j];
-                a[j] = a[i];
-                a[i] = temp;
+                CommonUtil.swapIntArray(a, i, j);
                 i++;
             }
         }
