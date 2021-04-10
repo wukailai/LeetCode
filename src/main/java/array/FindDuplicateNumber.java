@@ -8,8 +8,10 @@ public class FindDuplicateNumber {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 3, 4, 2, 2};
         int[] arr1 = new int[] {4, 1, 3, 3, 2};
+        int[] arr2 = new int[] {1, 1};
         System.out.println(find(arr));
         System.out.println(find(arr1));
+        System.out.println(find(arr2));
     }
 
     private static int find(int[] a) {
