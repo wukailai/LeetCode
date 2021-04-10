@@ -13,7 +13,7 @@ public class FindDuplicateNumber {
     }
 
     private static int find(int[] a) {
-        int start = 1;
+        int start = 0;
         int end = a.length - 1;
         while (start < end) {
             int mid = (end - start) / 2 + start;
