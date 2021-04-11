@@ -18,19 +18,23 @@ public class FindAllAnagrams {
             return result;
         }
         int left = 0;
+        int right = 0;
         boolean isInit = false;
-        String cur = "" + s.charAt(left);
-        for (int right = 1; right < s.length(); right++) {
+        String cur = "";
+        while (right < s.length()) {
            if (!isInit) {
-               while (right - left + 1 != n.length()) {
+               while (right - left + 1 < n.length()) {
                    cur += s.charAt(right);
                    right++;
                }
                cur += s.charAt(right);
                isInit = true;
             } else {
-               cur = cur.substring(1) + s.charAt(right);
                left++;
+               right++;
+               if (right < s.length()) {
+                   cur = cur.substring(1) + s.charAt(right);
+               }
             }
             if (IsSameIgnoreOrder.isSame(n, cur)) {
                 result.add(left);
