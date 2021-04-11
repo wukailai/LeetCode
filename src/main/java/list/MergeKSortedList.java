@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 合并k个有序链表
+ * 归并的思想
  */
 
 public class MergeKSortedList {
