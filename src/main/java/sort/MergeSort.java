@@ -25,6 +25,7 @@ public class MergeSort {
 
     /**
      * 合并
+     * 数组1：start - mid；数组2：mid+1 - end
      */
     private static void merge(int[] a, int start, int mid, int end) {
         int[] temp = new int[a.length];
