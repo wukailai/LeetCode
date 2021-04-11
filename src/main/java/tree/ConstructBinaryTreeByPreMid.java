@@ -18,13 +18,12 @@ public class ConstructBinaryTreeByPreMid {
         if (preStart > preEnd) {
             return null;
         }
-        int preRoot = preStart;
         int midRoot = midStart;
         while (mid[midRoot] != pre[preStart]) {
             midRoot++;
         }
         int left_size = midRoot - midStart;
-        BinaryNode root = new BinaryNode(pre[preRoot]);
+        BinaryNode root = new BinaryNode(pre[preStart]);
         root.setLeft(construct(pre, preStart + 1, left_size + preStart, mid, midStart, midRoot - 1));
         root.setRight(construct(pre, left_size + preStart + 1, preEnd, mid, midRoot + 1, midEnd));
         return root;
