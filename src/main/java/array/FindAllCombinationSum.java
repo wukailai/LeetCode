@@ -13,11 +13,11 @@ public class FindAllCombinationSum {
 
     public static void main(String[] args) {
         int[] arr = new int[] {2, 5, 2, 1, 2};
-//        int[] arr = new int[] {2, 5, 1};
+//        int[] arr1 = new int[] {2, 5, 1};
         Arrays.sort(arr);
         int target = 5;
         findCombinations(arr, 0, target, new ArrayList());
-//        findCombinations2(arr, 0, target, new ArrayList());
+//        findCombinations2(arr1, 0, target, new ArrayList());
         System.out.println(result);
     }
 
@@ -40,7 +40,7 @@ public class FindAllCombinationSum {
             }
             //作出选择
             trace.add(candidates[i]);
-            findCombinations(candidates, i + 1, target - candidates[i], trace);
+            findCombinations(candidates, index + 1, target - candidates[i], trace);
             //撤销选择
             trace.remove(trace.size() - 1);
         }
@@ -61,7 +61,7 @@ public class FindAllCombinationSum {
         for (int i = index; i < candidates.length; i++) {
             //作出选择
             trace.add(candidates[i]);
-            findCombinations2(candidates, i, target - candidates[i], trace);
+            findCombinations2(candidates, index, target - candidates[i], trace);
             //撤销选择
             trace.remove(trace.size() - 1);
         }
