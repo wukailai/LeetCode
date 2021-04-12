@@ -80,10 +80,10 @@ public class SimpleSort {
      * 冒泡排序
      */
     private static void bubbleSort(int[] a) {
-        for (int j = 0; j < a.length - 1; j++) {
-            for (int i = 0; i < a.length - j - 1; i++) {
-                if (a[i] > a[i + 1]) {
-                    CommonUtil.swapIntArray(a, i , i + 1);
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = 0; j < a.length - i - 1; j++) {
+                if (a[j] > a[j + 1]) {
+                    CommonUtil.swapIntArray(a, j , j + 1);
                 }
             }
         }
