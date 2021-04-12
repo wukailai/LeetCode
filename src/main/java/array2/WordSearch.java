@@ -9,16 +9,16 @@ import util.ArrayUtil;
 public class WordSearch {
     public static void main(String[] args) {
         char[][] arr = ArrayUtil.buildCharArray();
-        boolean[][] visited = new boolean[arr.length][arr[0].length];
         String s1 = "ABCCED";
         String s2 = "SEE";
         String s3 = "ABCB";
-        System.out.println(isExist(arr, visited, s1));
-//        System.out.println(isExist(arr, visited, s2));
-//        System.out.println(isExist(arr, visited, s3));
+        System.out.println(isExist(arr, s1));
+//        System.out.println(isExist(arr, s2));
+//        System.out.println(isExist(arr, s3));
     }
 
-    private static boolean isExist(char[][] a, boolean[][] visited, String s) {
+    private static boolean isExist(char[][] a, String s) {
+        boolean[][] visited = new boolean[a.length][a[0].length];
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[0].length; j++) {
                 if (isExist(a, visited, s, i, j, 0)) {
