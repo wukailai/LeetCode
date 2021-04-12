@@ -14,19 +14,19 @@ public class FindAllPermutations {
 
     public static void main(String[] args) {
         Integer[] arr = new Integer[] {1, 2, 3, 4};
-        findAllPermutations(0, arr.length, Arrays.asList(arr));
+        findAllPermutations(0, Arrays.asList(arr));
         System.out.println(result);
     }
 
-    private static void findAllPermutations(int index, int len, List<Integer> trace) {
-        if (index == len) {
+    private static void findAllPermutations(int index, List<Integer> trace) {
+        if (index == trace.size()) {
             result.add(new ArrayList(trace));
             return;
         }
-        for (int i = index; i < len; i++) {
+        for (int i = index; i < trace.size(); i++) {
             //维护动态数组
             Collections.swap(trace, i , index);
-            findAllPermutations(index + 1, len, trace);
+            findAllPermutations(index + 1, trace);
             //撤销操作
             Collections.swap(trace, i , index);
         }
