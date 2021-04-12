@@ -61,7 +61,7 @@ public class FindAllCombinationSum {
         for (int i = index; i < candidates.length; i++) {
             //作出选择
             trace.add(candidates[i]);
-            findCombinations2(candidates, index, target - candidates[i], trace);
+            findCombinations2(candidates, i, target - candidates[i], trace);
             //撤销选择
             trace.remove(trace.size() - 1);
         }
