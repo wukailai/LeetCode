@@ -30,10 +30,10 @@ public class EqualSubset {
             for (int j = 0; j <= target; j++) {
                 if (a[i] == j) {
                     result[i][j] = true;
-                    continue;
-                }
-                if (j >= a[i]) {
-                    result[i][j] = result[i - 1][j] || result[i - 1][j - a[i]];
+                } else {
+                    if (j >= a[i]) {
+                        result[i][j] = result[i - 1][j] || result[i - 1][j - a[i]];
+                    }
                 }
             }
         }
