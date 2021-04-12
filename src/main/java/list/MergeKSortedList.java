@@ -64,8 +64,7 @@ public class MergeKSortedList {
             int val2 = head2 != null ? head2.getVal() : Integer.MAX_VALUE;
             if (val1 <= val2) {
                 if (null == head) {
-                    head = head1;
-                    tail = head1;
+                    head = tail = head1;
                 } else {
                     tail.setNext(head1);
                     tail = head1;
@@ -73,8 +72,7 @@ public class MergeKSortedList {
                 head1 = head1.getNext();
             } else {
                 if (null == head) {
-                    head = head2;
-                    tail = head2;
+                    head = tail = head2;
                 } else {
                     tail.setNext(head2);
                     tail = head2;
