@@ -16,7 +16,7 @@ public class PerfectSquare {
     private static int find(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 0;
-        for (int i = 1; i < n + 1; i++) {
+        for (int i = 1; i <= n; i++) {
             dp[i] = Integer.MAX_VALUE;
             for (int j = 1; j <= n; j++) {
                 if (i - j * j >= 0) {
