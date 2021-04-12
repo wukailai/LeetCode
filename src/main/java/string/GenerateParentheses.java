@@ -41,7 +41,8 @@ public class GenerateParentheses {
             return;
         }
         for (String s : arr) {
-            generate(n, sb.append(s));
+            sb.append(s);
+            generate(n, sb);
             // StringBuilder这里需要回溯，因为StringBuilder指向的是对象
             sb.deleteCharAt(sb.length() - 1);
         }
