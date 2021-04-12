@@ -9,9 +9,9 @@ import java.util.List;
 
 public class HasThreeNumIncrease {
     public static void main(String[] args) {
-        int[] arr = new int[] {1, 2, 5, 4, 5};
+        int[] arr = new int[] {1, 6, 1, 2, 3, 5, 4, 5};
         System.out.println(exist(arr));
-        System.out.println(exist2(arr, 3));
+        System.out.println(exist2(arr, 4));
     }
 
     private static boolean exist(int[] a) {
@@ -38,7 +38,7 @@ public class HasThreeNumIncrease {
     private static boolean exist2(int[] a, int k) {
         List<Integer> list = new ArrayList();
         for (int i = 0; i < a.length; i++) {
-            if (list.size() > 0 && a[i] <= a[i - 1]) {
+            if (i > 0 && a[i] <= a[i - 1]) {
                 list.clear();
             }
             list.add(a[i]);
