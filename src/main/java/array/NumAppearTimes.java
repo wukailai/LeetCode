@@ -34,8 +34,7 @@ public class NumAppearTimes {
             int mid = (end - start) / 2 + start;
             if (a[mid] >= target) {
                 end = mid - 1;
-            }
-            else {
+            } else {
                 start = mid + 1;
             }
         }
