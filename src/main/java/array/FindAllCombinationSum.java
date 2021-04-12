@@ -40,7 +40,7 @@ public class FindAllCombinationSum {
             }
             //作出选择
             trace.add(candidates[i]);
-            findCombinations(candidates, index + 1, target - candidates[i], trace);
+            findCombinations(candidates, i + 1, target - candidates[i], trace);
             //撤销选择
             trace.remove(trace.size() - 1);
         }
