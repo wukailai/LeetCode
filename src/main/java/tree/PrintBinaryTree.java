@@ -127,15 +127,14 @@ public class PrintBinaryTree {
     public static void layerPrint(BinaryNode root) {
         LinkedList<BinaryNode> list = new LinkedList();
         list.add(root);
-        BinaryNode cur;
         while (!list.isEmpty()) {
-            cur = list.poll();
-            System.out.print(cur.getVal() + " ");
-            if (cur.getLeft() != null) {
-                list.add(cur.getLeft());
+            BinaryNode node = list.poll();
+            System.out.print(node.getVal() + " ");
+            if (node.getLeft() != null) {
+                list.add(node.getLeft());
             }
-            if (cur.getRight() != null) {
-                list.add(cur.getRight());
+            if (node.getRight() != null) {
+                list.add(node.getRight());
             }
         }
     }
