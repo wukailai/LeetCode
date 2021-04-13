@@ -13,7 +13,7 @@ public class DecodeString {
     }
 
     private static String decode(String s) {
-        StringBuilder sb = new StringBuilder();
+        String result = "";
         int multiply = 0;
         Stack<Integer> numStack = new Stack();
         Stack<String> stringStack = new Stack();
@@ -24,21 +24,21 @@ public class DecodeString {
                 multiply = multiply * 10 + Integer.parseInt("" + chars[i]);
             } else if (chars[i] == '[') {
                 numStack.push(multiply);
-                stringStack.push(sb.toString());
-                sb = new StringBuilder();
+                stringStack.push(result);
+                result = "";
                 multiply = 0;
             } else if (chars[i] == ']') {
-                StringBuilder temp = new StringBuilder();
+                String temp = "";
                 int n = numStack.pop();
                 while (n > 0) {
-                    temp.append(sb);
+                    temp += result;
                     n--;
                 }
-                sb = new StringBuilder(stringStack.pop() + temp);
+                result = stringStack.pop() + temp;
             } else {
-                sb = sb.append(chars[i]);
+                result += chars[i];
             }
         }
-        return sb.toString();
+        return result;
     }
 }
