@@ -25,21 +25,20 @@ public class GetBinaryTreeWidth {
         int temp = 0;
         while (!list.isEmpty()) {
             BinaryNode node = list.remove(0);
+            temp++;
             if (node.getLeft() != null) {
                 list.add(node.getLeft());
                 lastNode = node.getLeft();
-                temp++;
             }
             if (node.getRight() != null) {
                 list.add(node.getRight());
                 lastNode = node.getRight();
-                temp++;
             }
             if (node == last) {
+                last = lastNode;
                 if (temp > width) {
                     width = temp;
                 }
-                last = lastNode;
                 temp = 0;
             }
         }
