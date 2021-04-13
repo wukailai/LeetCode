@@ -7,25 +7,28 @@ package string;
 public class CompressString {
     public static void main(String[] args) {
         System.out.println(compressString("aaaacffcvbb"));
+        System.out.println(compressString("a"));
     }
 
     private static String compressString(String s) {
+        if (null == s || "".equals(s)) {
+            return null;
+        }
         StringBuilder sb = new StringBuilder();
-        Character index = null;
+        char cur = s.charAt(0);
         int num = 1;
-        for (char c : s.toCharArray()) {
-            if (null == index) {
-                index = c;
-            } else if (c != index) {
-                sb.append(index);
+        for (int i = 1; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c != cur) {
+                sb.append(cur);
                 sb.append(num);
-                index = c;
+                cur = c;
                 num = 1;
             } else {
                 num++;
             }
         }
-        sb.append(index);
+        sb.append(cur);
         sb.append(num);
         return sb.toString();
     }
