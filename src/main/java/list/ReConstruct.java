@@ -23,7 +23,7 @@ public class ReConstruct {
         ListNode head = null;
         ListNode tail = null;
         boolean flag = true;
-        while (postHead != null) {
+        while (preHead != null || postHead != null) {
             if (null == head) {
                 head = tail = preHead;
                 preHead = preHead.getNext();
@@ -40,9 +40,6 @@ public class ReConstruct {
                 tail = tail.getNext();
             }
             flag = !flag;
-        }
-        if (preHead != null) {
-            tail.setNext(preHead);
         }
         return head;
     }
