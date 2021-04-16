@@ -63,7 +63,7 @@ public class TwoNumSumSearch {
         List<int[]> list = new ArrayList();
         int start = 0;
         int end = a.length - 1;
-        while (start <= end) {
+        while (start < end) {
             if (a[start] + a[end] == target) {
                 list.add(new int[] {start, end});
                 //两个while处理连续相同数的情况
