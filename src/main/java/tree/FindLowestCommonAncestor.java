@@ -18,7 +18,10 @@ public class FindLowestCommonAncestor {
     }
 
     private static BinaryNode find(BinaryNode root, BinaryNode p, BinaryNode q) {
-        if (null == root || root == p || root == q) {
+        if (null == root) {
+            return null;
+        }
+        if (root == p || root == q) {
             return root;
         }
         BinaryNode left = find(root.getLeft(), p, q);
