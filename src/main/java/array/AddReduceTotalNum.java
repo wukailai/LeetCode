@@ -21,7 +21,7 @@ public class AddReduceTotalNum {
     }
 
     /**
-     * 数组之和（可正可负）等于target
+     * 求出总次数
      */
     private static void calculate(int[] a, int index, int curTotal, int target) {
         if (index == a.length) {
@@ -35,7 +35,7 @@ public class AddReduceTotalNum {
     }
 
     /**
-     * 数组之和（可正可负）等于target
+     * 求出所有组合
      */
     private static void calculate2(int[] a, int index, int curTotal, int target, List<Character> list) {
         if (index == a.length) {
