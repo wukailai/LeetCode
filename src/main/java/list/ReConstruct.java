@@ -20,28 +20,7 @@ public class ReConstruct {
         ListNode mid = findMid(preHead);
         ListNode postHead = reverse(mid.getNext());
         mid.setNext(null);
-        ListNode head = null;
-        ListNode tail = null;
-        boolean flag = true;
-        while (preHead != null || postHead != null) {
-            if (null == head) {
-                head = tail = preHead;
-                preHead = preHead.getNext();
-            } else {
-                ListNode next;
-                if (flag) {
-                    next = preHead;
-                    preHead = preHead.getNext();
-                } else {
-                    next = postHead;
-                    postHead = postHead.getNext();
-                }
-                tail.setNext(next);
-                tail = tail.getNext();
-            }
-            flag = !flag;
-        }
-        return head;
+        return mergeTwoList(preHead, postHead);
     }
 
     private static ListNode reverse(ListNode head) {
@@ -64,5 +43,30 @@ public class ReConstruct {
             fast = fast.getNext().getNext();
         }
         return slow;
+    }
+
+    private static ListNode mergeTwoList(ListNode preHead, ListNode postHead) {
+        ListNode head = null;
+        ListNode tail = null;
+        boolean flag = true;
+        while (preHead != null || postHead != null) {
+            if (null == head) {
+                head = tail = preHead;
+                preHead = preHead.getNext();
+            } else {
+                ListNode next;
+                if (flag) {
+                    next = preHead;
+                    preHead = preHead.getNext();
+                } else {
+                    next = postHead;
+                    postHead = postHead.getNext();
+                }
+                tail.setNext(next);
+                tail = tail.getNext();
+            }
+            flag = !flag;
+        }
+        return head;
     }
 }
