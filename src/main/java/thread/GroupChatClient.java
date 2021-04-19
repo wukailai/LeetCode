@@ -22,13 +22,7 @@ public class GroupChatClient {
     public static void main(String[] args) {
         GroupChatClient groupChatClient = new GroupChatClient();
         new Thread(() -> groupChatClient.read()).start();
-        new Thread(() -> {
-            Scanner scanner = new Scanner(System.in);
-            while (scanner.hasNext()) {
-                String msg = scanner.next();
-                groupChatClient.send(msg);
-            }
-        }).start();
+        new Thread(() -> groupChatClient.send()).start();
     }
 
     public GroupChatClient() {
@@ -55,12 +49,16 @@ public class GroupChatClient {
     /**
      * 发送消息
      */
-    private void send(String msg) {
-        ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
-        try {
-            socketChannel.write(buffer);
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void send() {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String msg = scanner.next();
+            ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
+            try {
+                socketChannel.write(buffer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
