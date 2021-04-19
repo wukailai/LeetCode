@@ -66,20 +66,18 @@ public class QuickSort {
     }
 
     private static int getIndex(int[] a, int start, int end) {
-        int temp = a[start];
         int i = start;
         int j = end;
         while (i < j) {
-            while (i < j && a[j] >= temp) {
+            while (i < j && a[j] >= a[start]) {
                 j--;
             }
-            while (i < j && a[i] <= temp) {
+            while (i < j && a[i] <= a[start]) {
                 i++;
             }
             CommonUtil.swapIntArray(a, i, j);
         }
-        a[start] = a[i];
-        a[i] = temp;
+        CommonUtil.swapIntArray(a, start, i);
         return i;
     }
 }
