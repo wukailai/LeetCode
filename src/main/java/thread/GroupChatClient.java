@@ -21,11 +21,7 @@ public class GroupChatClient {
 
     public static void main(String[] args) {
         GroupChatClient groupChatClient = new GroupChatClient();
-        new Thread(() -> {
-            while (true) {
-                groupChatClient.read();
-            }
-        }).start();
+        new Thread(() -> groupChatClient.read()).start();
         new Thread(() -> {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNext()) {
