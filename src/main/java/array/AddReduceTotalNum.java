@@ -14,7 +14,8 @@ public class AddReduceTotalNum {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 1, 1, 1, 1};
         int target = 1;
-        calculate(arr, 0, 0, target, new ArrayList<>());
+        calculate(arr, 0, 0, target);
+        calculate2(arr, 0, 0, target, new ArrayList<>());
         System.out.println(count);
         System.out.println(result);
     }
@@ -22,18 +23,31 @@ public class AddReduceTotalNum {
     /**
      * 数组之和（可正可负）等于target
      */
-    private static void calculate(int[] a, int index, int curTotal, int target, List<Character> list) {
+    private static void calculate(int[] a, int index, int curTotal, int target) {
         if (index == a.length) {
             if (curTotal == target) {
                 count++;
+            }
+            return;
+        }
+        calculate(a, index + 1, curTotal + a[index], target);
+        calculate(a, index + 1, curTotal - a[index], target);
+    }
+
+    /**
+     * 数组之和（可正可负）等于target
+     */
+    private static void calculate2(int[] a, int index, int curTotal, int target, List<Character> list) {
+        if (index == a.length) {
+            if (curTotal == target) {
                 result.add(new ArrayList<>(list));
             }
             return;
         }
         List<Character> copyList = new ArrayList<>(list);
         list.add('+');
-        calculate(a, index + 1, curTotal + a[index], target, list);
+        calculate2(a, index + 1, curTotal + a[index], target, list);
         copyList.add('-');
-        calculate(a, index + 1, curTotal - a[index], target, copyList);
+        calculate2(a, index + 1, curTotal - a[index], target, copyList);
     }
 }
