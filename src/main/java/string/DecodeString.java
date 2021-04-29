@@ -20,11 +20,12 @@ public class DecodeString {
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] >= '0' && chars[i] <= '9') {
-                //连续两个数字组成多位数的情况
+                // 连续两个数字组成多位数的情况
                 multiply = multiply * 10 + Integer.parseInt("" + chars[i]);
             } else if (chars[i] == '[') {
                 numStack.push(multiply);
                 stringStack.push(result);
+                // 两个参数同时初始化
                 result = "";
                 multiply = 0;
             } else if (chars[i] == ']') {
