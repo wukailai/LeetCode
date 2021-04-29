@@ -32,7 +32,9 @@ public class ExpressionCompute {
             } else if (c == '(') { // 遇到(保存现场
                 stack.push(result);
                 stack.push(sign);
+                // 三个参数同时初始化
                 result = 0;
+                num = 0;
                 sign = 1;
             } else if (c == ')') { // 遇到)恢复现场
                 num = result;
