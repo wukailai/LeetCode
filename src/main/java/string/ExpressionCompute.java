@@ -21,8 +21,7 @@ public class ExpressionCompute {
         for (char c : s.toCharArray()) {
             if (c == ' ') {
                 continue;
-            }
-            if (c == '+') {
+            } else if (c == '+') {
                 // num置为0是为了保证+不对计算结果产生影响
                 num = 0;
                 sign = 1;
