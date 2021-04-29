@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class ExpressionCompute {
     public static void main(String[] args) {
-        String s = "(1+(14+5+2)-3)+(6+8)";
+        String s = "(1+(4+5+2)-13)+(6+8)";
         System.out.println(compute(s));
     }
 
@@ -22,20 +22,21 @@ public class ExpressionCompute {
             char c = s.charAt(i);
             if (c == ' ') {
                 continue;
+            }
+            if (c == '+') {
+                num = 0;
+                sign = 1;
+            } else if (c == '-') {
+                num = 0;
+                sign = -1;
             } else if (c >= '0' && c <= '9') {
                 // 考虑连续多位数字的情况
                 num = 10 * num + Integer.parseInt(c + "");
                 if (i + 1 < s.length() && s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9') {
-                    continue;
+
+                } else {
+                    result += num * sign;
                 }
-            } else if (c == '+') {
-                // num置为0是为了保证+不对计算结果产生影响
-                num = 0;
-                sign = 1;
-            } else if (c == '-') {
-                // num置为0是为了保证-不对计算结果产生影响
-                num = 0;
-                sign = -1;
             } else if (c == '(') { // 遇到(保存现场
                 stack.push(result);
                 stack.push(sign);
@@ -44,11 +45,9 @@ public class ExpressionCompute {
                 num = 0;
                 sign = 1;
             } else if (c == ')') { // 遇到)恢复现场
-                num = result;
                 sign = stack.pop();
-                result = stack.pop();
+                result = stack.pop() + sign * result;
             }
-            result += num * sign;
         }
         return result;
     }
