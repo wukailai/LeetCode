@@ -32,9 +32,7 @@ public class ExpressionCompute {
             } else if (c >= '0' && c <= '9') {
                 // 考虑连续多位数字的情况
                 num = 10 * num + Integer.parseInt(c + "");
-                if (i + 1 < s.length() && s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9') {
-
-                } else {
+                if (!(i + 1 < s.length() && s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9')) {
                     result += num * sign;
                 }
             } else if (c == '(') { // 遇到(保存现场
