@@ -37,7 +37,7 @@ public class FindLargestKNum {
 
     private static void adjustHeap(int[] a, int i, int len) {
         for (int j = 2 * i + 1; j < len; j = 2 * j + 1) {
-            if (a[j + 1] < a[j] && j + 1 < a.length) {
+            if (j + 1 < a.length && a[j + 1] < a[j]) {
                 j++;
             }
             if (a[i] <= a[j]) {
