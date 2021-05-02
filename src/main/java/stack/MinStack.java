@@ -7,6 +7,7 @@ import java.util.Stack;
  * @date 2020/07/05 16:09
  * @description 最小栈
  */
+
 public class MinStack<T extends Comparable> {
     private Stack<T> stack = new Stack();
     private Stack<T> min = new Stack();

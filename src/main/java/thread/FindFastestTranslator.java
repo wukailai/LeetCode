@@ -18,12 +18,12 @@ public class FindFastestTranslator {
     private ExecutorService es = Executors.newFixedThreadPool(3);
     private Map<String, Future> futureMap = new HashMap();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         FindFastestTranslator findFastestTranslator = new FindFastestTranslator();
         findFastestTranslator.translate();
     }
 
-    private String translate() {
+    private String translate() throws Exception {
         long startTime = System.currentTimeMillis();
         Future googleFuture = es.submit(() -> {
             try {
@@ -56,7 +56,7 @@ public class FindFastestTranslator {
         futureMap.put("Baidu", baiduFuture);
         futureMap.put("NetEase", netEaseFuture);
         while (null == result.get()) {
-            //TODO
+            Thread.sleep(1000);
         }
         System.out.println("Combine Translator cost time: " + (System.currentTimeMillis() - startTime));
         return result.get();
