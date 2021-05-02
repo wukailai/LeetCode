@@ -8,6 +8,7 @@ import util.GeneratorUtil;
  * @date 2020/07/05 15:08
  * @description 二叉搜索树：左子树节点的值均小于根节点的值，右子树节点的值均大于根节点的值
  */
+
 public class BinarySearchTree {
     public static void main(String[] args) {
         BinaryNode root = GeneratorUtil.newSortBinary();
