@@ -20,8 +20,7 @@ public class ConvertBST {
     private static BinaryNode convert(BinaryNode root) {
         if (root != null) {
             convert(root.getRight());
-            int val = root.getVal();
-            sum += val;
+            sum += root.getVal();
             root.setVal(sum);
             convert(root.getLeft());
         }

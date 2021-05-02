@@ -23,10 +23,8 @@ public class IsSubTree {
         if (null == s || null == t) {
             return false;
         }
-        if (s.getVal() == t.getVal()) {
-            if (isSame(s, t)) {
-                return true;
-            }
+        if (isSame(s, t)) {
+            return true;
         }
         return isSubTree(s.getLeft(), t) || isSubTree(s.getRight(), t);
     }
@@ -36,6 +34,9 @@ public class IsSubTree {
             return true;
         }
         if (null == s || null == t) {
+            return false;
+        }
+        if (s.getVal() != t.getVal()) {
             return false;
         }
         return isSame(s.getLeft(), t.getLeft()) && isSame(s.getRight(), t.getRight());

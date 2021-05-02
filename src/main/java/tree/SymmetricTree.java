@@ -20,8 +20,9 @@ public class SymmetricTree {
         if (null == root1 || null == root2) {
             return false;
         }
-        return root1.getVal() == root2.getVal()
-                && isSymmetricTree(root1.getLeft(), root2.getRight())
-                && isSymmetricTree(root1.getRight(), root2.getLeft());
+        if (root1.getVal() != root2.getVal()) {
+            return false;
+        }
+        return isSymmetricTree(root1.getLeft(), root2.getRight()) && isSymmetricTree(root1.getRight(), root2.getLeft());
     }
 }
