@@ -15,6 +15,7 @@ public class CycleList {
         node2.setNext(node3);
         node3.setNext(node2);
         System.out.println(hasCycle(node1));
+        System.out.println(calCycleLength(node1));
     }
 
     /**
@@ -54,9 +55,12 @@ public class CycleList {
         ListNode fast = head;
         int count = 0;
         int len = 0;
-        while (count < 2 && fast != null && fast.getNext() != null) {
+        while (fast != null && fast.getNext() != null) {
             if (count == 1) {
                 len++;
+            }
+            if (count == 2) {
+                return len;
             }
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -64,6 +68,6 @@ public class CycleList {
                 count++;
             }
         }
-        return len;
+        return -1;
     }
 }
