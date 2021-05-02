@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FindAllAnagrams {
     public static void main(String[] args) {
-        System.out.println(find("cbaebabacd", "abc"));
+        System.out.println(find("cbcbabacd", "abc"));
     }
 
     private static List<Integer> find(String s, String n) {
@@ -17,27 +17,18 @@ public class FindAllAnagrams {
         if (s.length() < n.length()) {
             return result;
         }
+        String cur = s.substring(0, n.length());
         int left = 0;
-        int right = 0;
-        boolean isInit = false;
-        String cur = "";
+        int right = n.length() - 1;
         while (right < s.length()) {
-           if (!isInit) {
-               while (right - left + 1 < n.length()) {
-                   cur += s.charAt(right);
-                   right++;
-               }
-               cur += s.charAt(right);
-               isInit = true;
-            } else {
-               left++;
-               right++;
-               if (right < s.length()) {
-                   cur = cur.substring(1) + s.charAt(right);
-               }
-            }
             if (IsSameIgnoreOrder.isSame(n, cur)) {
                 result.add(left);
+            }
+            // 滑动
+            right++;
+            if (right < s.length()) {
+                cur = cur.substring(1) + s.charAt(right);
+                left++;
             }
         }
         return result;
