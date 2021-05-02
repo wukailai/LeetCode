@@ -8,6 +8,7 @@ import java.util.Set;
  * @date 2020/07/05 17:44
  * @description K间距是否有重复元素
  */
+
 public class DuplicateInK {
     public static void main(String[] args) {
         int[] arr = new int[] {1 ,2, 3, 1};

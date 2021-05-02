@@ -8,6 +8,7 @@ import util.PrinterUtil;
  * @date 2020/07/05 18:03
  * @description 移动0
  */
+
 public class MoveZeros {
     public static void main(String[] args) {
         int[] arr = new int[] {0, 1, 0, 3, 12};

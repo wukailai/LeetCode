@@ -4,6 +4,7 @@ package array;
  * 非降序数组中目标数出现次数
  * 第二种解法更推荐
  */
+
 public class NumAppearTimes {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6, 6, 6, 6};

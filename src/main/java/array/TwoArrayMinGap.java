@@ -7,6 +7,7 @@ import java.util.Arrays;
  * @date 2020/07/09 18:59
  * @description 求解两个数组差值绝对值最小值
  */
+
 public class TwoArrayMinGap {
     public static void main(String[] args) {
         int[] arr1 = new int[] {10, 42, 7, 22, 90, 11};

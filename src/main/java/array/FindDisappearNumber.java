@@ -1,11 +1,11 @@
 package array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 找出1-n中所有消失的数字
  */
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FindDisappearNumber {
     public static void main(String[] args) {

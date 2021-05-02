@@ -9,6 +9,7 @@ import java.util.List;
  * @description 获得一个数组中，出现次数超过一半的数
  * 1）map实现；2）排序，取中间值；
  */
+
 public class GetMajorityNum {
     public static void main(String[] args) {
         int[] arr = new int[] {5, 3, 7, 3, 1, 3, 3, 3, 2};
