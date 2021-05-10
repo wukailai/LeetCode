@@ -9,15 +9,18 @@ import java.util.List;
 
 public class AddReduceTotalNum {
     private static int count = 0;
-    private static List<List<Character>> result = new ArrayList<>();
+    private static List<List<Character>> listResult = new ArrayList<>();
+    private static List<String> strResult = new ArrayList<>();
 
     public static void main(String[] args) {
         int[] arr = new int[] {1, 1, 1, 1, 1};
         int target = 1;
         calculate(arr, 0, 0, target);
         calculate2(arr, 0, 0, target, new ArrayList<>());
+        calculate3(arr, 0, 0, target, "");
         System.out.println(count);
-        System.out.println(result);
+        System.out.println(listResult);
+        System.out.println(strResult);
     }
 
     /**
@@ -40,7 +43,7 @@ public class AddReduceTotalNum {
     private static void calculate2(int[] a, int index, int curTotal, int target, List<Character> list) {
         if (index == a.length) {
             if (curTotal == target) {
-                result.add(new ArrayList<>(list));
+                listResult.add(new ArrayList<>(list));
             }
             return;
         }
@@ -49,5 +52,19 @@ public class AddReduceTotalNum {
         calculate2(a, index + 1, curTotal + a[index], target, list);
         copyList.add('-');
         calculate2(a, index + 1, curTotal - a[index], target, copyList);
+    }
+
+    /**
+     * 求出所有组合
+     */
+    private static void calculate3(int[] a, int index, int curTotal, int target, String s) {
+        if (index == a.length) {
+            if (curTotal == target) {
+                strResult.add(s);
+            }
+            return;
+        }
+        calculate3(a, index + 1, curTotal + a[index], target, s + '+');
+        calculate3(a, index + 1, curTotal - a[index], target, s + '-');
     }
 }
