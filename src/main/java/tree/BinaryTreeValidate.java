@@ -26,10 +26,10 @@ public class BinaryTreeValidate {
             if (root.getLeft().getVal() > root.getVal()) {
                 return false;
             }
-            if (root.getRight() != null) {
-                if (root.getRight().getVal() < root.getVal()) {
-                    return false;
-                }
+        }
+        if (root.getRight() != null) {
+            if (root.getRight().getVal() < root.getVal()) {
+                return false;
             }
         }
         return validate(root.getLeft()) && validate(root.getRight());
