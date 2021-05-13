@@ -24,6 +24,15 @@ public class ArrayUtil {
         };
     }
 
+    public static int[][] buildArray2() {
+        return new int[][] {
+                {0, 0, 1, 0, 0},
+                {1, 0, 0, 0, 1},
+                {1, 0, 1, 0, 1},
+                {1, 0, 0, 0, 0}
+        };
+    }
+
     public static char[][] buildCharArray() {
         return new char[][] {
                 {'A', 'B', 'C', 'E'},
