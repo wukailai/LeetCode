@@ -5,7 +5,7 @@ package array;
  * 找出所需硬币最小个数，典型的01背包问题
  */
 
-public class CoinChange {
+public class CoinExchange {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 2, 5};
         System.out.println(change(arr, 11));
