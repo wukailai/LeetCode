@@ -2,7 +2,7 @@ package array;
 
 /**
  * 硬币兑换（硬币可以复用）
- * 典型的01背包问题
+ * 找出所需硬币最小个数，典型的01背包问题
  */
 
 public class CoinChange {
