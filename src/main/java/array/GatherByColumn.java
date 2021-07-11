@@ -1,9 +1,7 @@
 package array;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 按列收集元素
@@ -36,18 +34,18 @@ public class GatherByColumn {
 
     private static List<Integer> gather(List<List<Integer>> listList) {
         List<Integer> result = new ArrayList<>();
-        Map<Integer, Integer> map = new HashMap<>();
+        int[] sizeArr = new int[listList.size()];
         int maxSize = Integer.MIN_VALUE;
         for (int i = 0; i < listList.size(); i++) {
             List<Integer> list = listList.get(i);
             int size = list.size();
-            map.put(i, size);
+            sizeArr[i] = size;
             maxSize = Math.max(maxSize, size);
         }
         for (int i = 0; i < maxSize; i++) {
             for (int j = 0; j < listList.size(); j++) {
                 List<Integer> list = listList.get(j);
-                int size = map.get(j);
+                int size = sizeArr[j];
                 if (i >= size) {
                     continue;
                 }
