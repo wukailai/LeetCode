@@ -19,14 +19,14 @@ public class ColorSort {
     private static void sort(int[] a) {
         int red = 0;
         for (int i = 0; i < a.length; i++) {
-            if (a[i] == 0 && i != red) {
+            if (a[i] == 0) {
                 CommonUtil.swapIntArray(a, i, red);
                 red++;
             }
         }
         int blue = a.length - 1;
         for (int i = a.length - 1; i >= 0; i--) {
-            if (a[i] == 2 && i != blue) {
+            if (a[i] == 2) {
                 CommonUtil.swapIntArray(a, i, blue);
                 blue--;
             }
