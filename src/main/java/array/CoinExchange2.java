@@ -9,7 +9,7 @@ public class CoinExchange2 {
     public static void main(String[] args) {
         int[] arr = new int[] {1, 2, 5};
         int target = 5;
-        System.out.println(exchange(arr, target));
+        System.out.println(exchange2(arr, target));
     }
 
     private static int exchange(int[] a, int target) {
@@ -21,5 +21,18 @@ public class CoinExchange2 {
             }
         }
         return dp[target];
+    }
+
+    private static int exchange2(int[] a, int target) {
+        int[][] dp = new int[a.length + 1][target + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= a.length; i++) {
+            for (int j = 0; j <= target; j++) {
+                for (int k = 0; k <= j / a[i - 1]; k++) {
+                    dp[i][j] += dp[i - 1][j - k * a[i - 1]];
+                }
+            }
+        }
+        return dp[a.length][target];
     }
 }
