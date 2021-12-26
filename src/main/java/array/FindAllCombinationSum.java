@@ -25,12 +25,15 @@ public class FindAllCombinationSum {
      * 元素不可重复使用
      */
     private static void findCombinations(int[] candidates, int index, int target, List<Integer> trace) {
+        if (target == 0) {
+            result.add(new ArrayList(trace));
+            return;
+        }
         // 剪枝
         if (target < 0) {
             return;
         }
-        if (target == 0) {
-            result.add(new ArrayList(trace));
+        if (index == candidates.length) {
             return;
         }
         for (int i = index; i < candidates.length; i++) {
@@ -50,12 +53,15 @@ public class FindAllCombinationSum {
      * 元素可以重复使用
      */
     private static void findCombinations2(int[] candidates, int index, int target, List<Integer> trace) {
+        if (target == 0) {
+            result.add(new ArrayList(trace));
+            return;
+        }
         // 剪枝
         if (target < 0) {
             return;
         }
-        if (target == 0) {
-            result.add(new ArrayList(trace));
+        if (index == candidates.length) {
             return;
         }
         for (int i = index; i < candidates.length; i++) {
