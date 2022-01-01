@@ -25,14 +25,14 @@ public class GetMajorityNum {
         int major = a[0];
         int count = 1;
         for (int i = 1; i < a.length; i++) {
-            if (count == 0) {
-                major = a[i];
-                count = 1;
-            }
             if (a[i] == major) {
                 count++;
             } else {
                 count--;
+                if (count == 0) {
+                    major = a[i];
+                    count = 1;
+                }
             }
         }
         return major;
@@ -42,42 +42,43 @@ public class GetMajorityNum {
      * 摩尔投票，查找超过三分之一的数，最多一个
      */
     private static List<Integer> getMaxNum2(int[] arr) {
+        List<Integer> result = new ArrayList<>();
+        if (null == arr || arr.length == 0) {
+            return result;
+        }
+        if (arr.length == 1) {
+            result.add(arr[0]);
+            return result;
+        }
         int a = arr[0];
-        int b = arr[0];
-        int an = 0;
-        int bn = 0;
-        for (Integer i : arr) {
-            if (a == i) {
+        int b = arr[1];
+        int an = 1;
+        int bn = 1;
+        for (int i = 2; i < arr.length; i++) {
+            if (a == arr[i]) {
                 an++;
-                continue;
-            }
-            if (b == i) {
+            } else if (b == arr[i]) {
                 bn++;
-                continue;
+            } else if (an == 0) {
+                a = arr[i];
+                an = 1;
+            } else if (bn == 0) {
+                b = arr[i];
+                bn = 1;
+            } else {
+                an--;
+                bn--;
             }
-            if (an == 0) {
-                an++;
-                a = i;
-                continue;
-            }
-            if (bn == 0) {
-                bn++;
-                b = i;
-                continue;
-            }
-            bn--;
-            an--;
         }
         an = 0;
         bn = 0;
-        for (Integer i : arr) {
+        for (int i : arr) {
             if (i == a) {
                 an++;
             } else if (i == b) {
                 bn++;
             }
         }
-        List<Integer> result = new ArrayList();
         if (an > arr.length / 3) {
             result.add(a);
         }
