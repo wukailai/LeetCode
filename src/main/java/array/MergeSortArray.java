@@ -8,8 +8,8 @@ import java.util.Arrays;
 
 public class MergeSortArray {
     public static void main(String[] args) {
-        int[] a1 = new int[] {2, 5, 8, 14 , 19};
-        int[] a2 = new int[] {1, 3, 9, 10, 17, 20 ,21};
+        int[] a1 = new int[] {2, 5, 8, 14, 19};
+        int[] a2 = new int[] {1, 3, 9, 10, 17, 20, 21};
         System.out.println(Arrays.toString(merge(a1, a2)));
     }
 
