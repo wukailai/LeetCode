@@ -1,8 +1,5 @@
 package array;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 判断数组中是否有三个升序数字
  */
@@ -36,14 +33,19 @@ public class HasThreeNumIncrease {
      * 滑动窗口解法
      */
     private static boolean exist2(int[] a, int k) {
-        List<Integer> list = new ArrayList();
-        for (int i = 0; i < a.length; i++) {
-            if (i > 0 && a[i] <= a[i - 1]) {
-                list.clear();
-            }
-            list.add(a[i]);
-            if (list.size() >= k) {
+        int start = 0;
+        int end = 0;
+        while (end < a.length) {
+            if (end - start + 1 == k) {
                 return true;
+            }
+            if (end + 1 < a.length && a[end + 1] > a[end]) {
+                end++;
+            } else if (end + 1 < a.length && a[end + 1] <= a[end]) {
+                end = end + 1;
+                start = end;
+            } else {
+                return false;
             }
         }
         return false;
