@@ -32,7 +32,7 @@ public class NextPermutation {
             // 交换位置
             CommonUtil.swapIntArray(a, i, j);
             // 倒排
-            reverse2End(a,j + 1);
+            reverse2End(a,i + 1);
         } else {
             reverse2End(a, 0);
         }
