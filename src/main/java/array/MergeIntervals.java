@@ -42,6 +42,7 @@ public class MergeIntervals {
                 cur[1] = arr[1];
             }
         }
+        // 关键
         result.add(cur);
         return result;
     }
