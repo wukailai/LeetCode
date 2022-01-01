@@ -49,12 +49,10 @@ public class GetMajorityNum {
         for (Integer i : arr) {
             if (a == i) {
                 an++;
-                a = i;
                 continue;
             }
             if (b == i) {
                 bn++;
-                b = i;
                 continue;
             }
             if (an == 0) {
