@@ -43,4 +43,27 @@ public class RemoveDuplicateArrayByK {
         }
         return list;
     }
+
+    /**
+     * 滑动窗口解法，更直观
+     */
+    private static List<Integer> remove2(int[] a, int k) {
+        List<Integer> list = new ArrayList<>();
+        int start = 0;
+        int end = 0;
+        while (end < a.length) {
+            if (end - start + 1 <= k) {
+                list.add(a[end]);
+            }
+            if (end + 1 < a.length && a[end] == a[end + 1]) {
+                end++;
+            } else if (end + 1 < a.length && a[end] != a[end + 1]) {
+                end = end + 1;
+                start = end;
+            } else {
+                break;
+            }
+        }
+        return list;
+    }
 }
