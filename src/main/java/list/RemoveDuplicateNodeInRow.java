@@ -47,8 +47,9 @@ public class RemoveDuplicateNodeInRow {
                     last = last.getNext();
                 }
                 node.setNext(last);
+            } else {
+                node = next;
             }
-            node = next;
             next = last;
         }
         return newHead;
