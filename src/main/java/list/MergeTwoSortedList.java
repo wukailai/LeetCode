@@ -25,32 +25,27 @@ public class MergeTwoSortedList {
         if (null == node2) {
             return node1;
         }
-        ListNode head = null;
-        ListNode last = null;
-        ListNode temp;
+        ListNode newHead = null;
+        ListNode node = null;
         while (node1 != null || node2 != null) {
-            if (null == node1) {
-                temp = node2;
-            } else if (null == node2) {
-                temp = node1;
-            } else if (node1.getVal() <= node2.getVal()) {
-                temp = node1;
-            } else {
-                temp = node2;
-            }
-            if (null == head) {
-                head = temp;
-                last = head;
-            } else {
-                last.setNext(temp);
-                last = temp;
-            }
-            if (temp == node1) {
+            int val1 = node1 != null ? node1.getVal() : Integer.MAX_VALUE;
+            int val2 = node2 != null ? node2.getVal() : Integer.MAX_VALUE;
+            int val;
+            if (val1 <= val2) {
+                val = val1;
                 node1 = node1.getNext();
             } else {
+                val = val2;
                 node2 = node2.getNext();
             }
+            if (null == newHead) {
+                newHead = new ListNode(val);
+                node = newHead;
+            } else {
+                node.setNext(new ListNode(val));
+                node = node.getNext();
+            }
         }
-        return head;
+        return newHead;
     }
 }
