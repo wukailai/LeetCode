@@ -54,15 +54,13 @@ public class ReConstruct {
                 head = tail = preHead;
                 preHead = preHead.getNext();
             } else {
-                ListNode next;
                 if (flag) {
-                    next = preHead;
+                    tail.setNext(preHead);
                     preHead = preHead.getNext();
                 } else {
-                    next = postHead;
+                    tail.setNext(postHead);
                     postHead = postHead.getNext();
                 }
-                tail.setNext(next);
                 tail = tail.getNext();
             }
             flag = !flag;
