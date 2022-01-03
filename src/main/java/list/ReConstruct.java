@@ -69,4 +69,31 @@ public class ReConstruct {
         }
         return head;
     }
+
+    private static ListNode mergeTwoList2(ListNode preHead, ListNode postHead) {
+        ListNode head = null;
+        ListNode node = null;
+        boolean isFlag = true;
+        while (postHead != null) {
+            if (null == head) {
+                head = preHead;
+                node = head;
+                preHead = preHead.getNext();
+            } else {
+                if (isFlag) {
+                    node.setNext(preHead);
+                    preHead = preHead.getNext();
+                } else {
+                    node.setNext(postHead);
+                    postHead = postHead.getNext();
+                }
+                node = node.getNext();
+            }
+            isFlag = !isFlag;
+        }
+        if (preHead != null) {
+            node.setNext(preHead);
+        }
+        return head;
+    }
 }
