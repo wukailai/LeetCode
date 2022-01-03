@@ -11,6 +11,7 @@ import util.PrinterUtil;
 public class RemoveDuplicateNodeInRow {
     public static void main(String[] args) {
         ListNode head = GeneratorUtil.newList6();
+        PrinterUtil.printList(head);
         ListNode newHead = remove(head);
         if (null == newHead) {
             System.out.println("newHead is null");
