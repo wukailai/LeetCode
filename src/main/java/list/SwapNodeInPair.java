@@ -35,6 +35,7 @@ public class SwapNodeInPair {
 
     /**
      * 更容易理解的一种方式
+     * 投机取巧的做法，不建议
      */
     private static ListNode swap2(ListNode head) {
         if (null == head || null == head.getNext()) {
