@@ -40,12 +40,13 @@ public class MergeKSortedList {
         }
         int mid = (list.size() - 1) / 2;
         List<ListNode> preList = new ArrayList();
-        for (int i = 0; i <= mid; i++) {
-            preList.add(list.get(i));
-        }
         List<ListNode> postList = new ArrayList();
-        for (int i = mid + 1; i < list.size(); i++) {
-            postList.add(list.get(i));
+        for (int i = 0; i < list.size(); i++) {
+            if (i <= mid) {
+                preList.add(list.get(i));
+            } else {
+                postList.add(list.get(i));
+            }
         }
         return mergeTwoList(merge(preList), merge(postList));
     }
