@@ -49,22 +49,20 @@ public class SortList {
         while (head1 != null || head2 != null) {
             int val1 = head1 != null ? head1.getVal() : Integer.MAX_VALUE;
             int val2 = head2 != null ? head2.getVal() : Integer.MAX_VALUE;
+            int val;
             if (val1 <= val2) {
-                if (null == head) {
-                    head = tail = new ListNode(val1);
-                } else {
-                    tail.setNext(new ListNode(val1));
-                    tail = tail.getNext();
-                }
+                val = val1;
                 head1 = head1.getNext();
             } else {
-                if (null == head) {
-                    head = tail = new ListNode(val2);
-                } else {
-                    tail.setNext(new ListNode(val2));
-                    tail = tail.getNext();
-                }
+                val = val2;
                 head2 = head2.getNext();
+            }
+            if (null == head) {
+               head = new ListNode(val);
+               tail = head;
+            } else {
+                tail.setNext(new ListNode(val));
+                tail = tail.getNext();
             }
         }
         return head;
