@@ -122,7 +122,7 @@ public class PrintBinaryTree {
     }
 
     /**
-     * 按层打印，简单好理解
+     * 按层打印，简单好理解，但是不能换行
      */
     public static void layerPrint(BinaryNode root) {
         LinkedList<BinaryNode> list = new LinkedList();
@@ -131,10 +131,10 @@ public class PrintBinaryTree {
             BinaryNode node = list.poll();
             System.out.print(node.getVal() + " ");
             if (node.getLeft() != null) {
-                list.add(node.getLeft());
+                list.offer(node.getLeft());
             }
             if (node.getRight() != null) {
-                list.add(node.getRight());
+                list.offer(node.getRight());
             }
         }
     }
