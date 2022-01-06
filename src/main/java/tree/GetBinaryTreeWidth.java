@@ -3,8 +3,8 @@ package tree;
 import util.BinaryNode;
 import util.GeneratorUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 获取二叉树宽度
@@ -17,29 +17,27 @@ public class GetBinaryTreeWidth {
     }
 
     private static int getWidth(BinaryNode root) {
-        List<BinaryNode> list = new ArrayList();
-        list.add(root);
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.offer(root);
         BinaryNode lastNode = root;
         BinaryNode last = root;
         int width = Integer.MIN_VALUE;
-        int temp = 0;
-        while (!list.isEmpty()) {
-            BinaryNode node = list.remove(0);
-            temp++;
+        int layerWidth = 0;
+        while (!queue.isEmpty()) {
+            BinaryNode node = queue.poll();
+            layerWidth++;
             if (node.getLeft() != null) {
-                list.add(node.getLeft());
+                queue.offer(node.getLeft());
                 lastNode = node.getLeft();
             }
             if (node.getRight() != null) {
-                list.add(node.getRight());
+                queue.offer(node.getRight());
                 lastNode = node.getRight();
             }
             if (node == last) {
                 last = lastNode;
-                if (temp > width) {
-                    width = temp;
-                }
-                temp = 0;
+                width = Math.max(width, layerWidth);
+                layerWidth = 0;
             }
         }
         return width;
