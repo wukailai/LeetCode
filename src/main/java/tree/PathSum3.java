@@ -23,19 +23,7 @@ public class PathSum3 {
         if (null == root) {
             return 0;
         }
-        return calculateSum(root, sum) + calculateSum(root.getLeft(), sum) + calculateSum(root.getRight(), sum);
-    }
-
-    private static int calculateSum(BinaryNode root, int sum) {
-        if (null == root) {
-            return 0;
-        }
-        int result = 0;
-        sum -= root.getVal();
-        if (sum == 0) {
-            result++;
-        }
-        return result + calculateSum(root.getLeft(), sum) + calculateSum(root.getRight(), sum);
+        return sum2(root, sum) + sum2(root.getLeft(), sum) + sum2(root.getRight(), sum);
     }
 
     /**
