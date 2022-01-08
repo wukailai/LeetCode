@@ -26,12 +26,15 @@ public class FindLowestCommonAncestor {
         }
         BinaryNode left = find(root.getLeft(), p, q);
         BinaryNode right = find(root.getRight(), p, q);
-        if (null == left) {
+        // 说明p、q分列root节点左右子树
+        if (left != null && right != null) {
+            return root;
+        } else if (null == left && right != null) { // 说明p、q不在root节点左子树
             return right;
-        }
-        if (null == right) {
+        } else if (null == right && left != null) { // 说明p、q不在root节点右子树
             return left;
+        } else { // 说明p、q均不在root节点左右子树
+            return null;
         }
-        return null;
     }
 }
