@@ -4,7 +4,7 @@ import util.BinaryNode;
 import util.GeneratorUtil;
 
 /**
- * Convert BST to Greater Tree
+ * Convert BST to Greater Tree（累加树）
  */
 
 public class ConvertBST {
