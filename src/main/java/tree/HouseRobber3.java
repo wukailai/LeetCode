@@ -1,6 +1,7 @@
 package tree;
 
 import util.BinaryNode;
+import util.GeneratorUtil;
 
 /**
  * house robber III
@@ -8,6 +9,9 @@ import util.BinaryNode;
 
 public class HouseRobber3 {
     public static void main(String[] args) {
+        BinaryNode root = GeneratorUtil.newBinary4();
+        PrintBinaryTree.layerPrint2(root);
+        System.out.println(get(root));
     }
 
     private static int get(BinaryNode root) {
