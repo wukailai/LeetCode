@@ -32,6 +32,6 @@ public class FindLowestCommonAncestor {
         if (null == right) {
             return left;
         }
-        return root;
+        return null;
     }
 }
