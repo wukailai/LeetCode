@@ -12,9 +12,9 @@ import util.GeneratorUtil;
 public class ReverseBinaryTree {
     public static void main(String[] args) {
         BinaryNode root = GeneratorUtil.newBinary();
-        PrintBinaryTree.layerPrint(root);
+        PrintBinaryTree.layerPrint2(root);
         root = reverse(root);
-        PrintBinaryTree.layerPrint(root);
+        PrintBinaryTree.layerPrint2(root);
     }
 
     private static BinaryNode reverse(BinaryNode root) {
