@@ -10,6 +10,7 @@ import util.GeneratorUtil;
 public class PathSum3 {
     public static void main(String[] args) {
         BinaryNode root = GeneratorUtil.newBinary7();
+        PrintBinaryTree.layerPrint2(root);
         System.out.println(sum(root, 8));
         System.out.println(sum2(root, 15));
         System.out.println(sum3(root, 15));
