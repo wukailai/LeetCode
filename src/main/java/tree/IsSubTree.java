@@ -5,6 +5,7 @@ import util.GeneratorUtil;
 
 /**
  * 是否为子树
+ * 子树的定义：从原树节点把树砍断得到的树跟子树一模一样
  */
 
 public class IsSubTree {
