@@ -1,7 +1,7 @@
 package tree;
 
 /**
- * 二叉搜索树总颗树
+ * 不同的二叉搜索树总颗数
  */
 
 public class BSTNum {
