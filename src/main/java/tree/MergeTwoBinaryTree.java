@@ -12,9 +12,9 @@ public class MergeTwoBinaryTree {
         BinaryNode root1 = GeneratorUtil.newBinary();
         BinaryNode root2 = GeneratorUtil.newBinary();
         BinaryNode root = merge(root1, root2);
-        PrintBinaryTree.layerPrint(root1);
-        PrintBinaryTree.layerPrint(root2);
-        PrintBinaryTree.layerPrint(root);
+        PrintBinaryTree.layerPrint2(root1);
+        PrintBinaryTree.layerPrint2(root2);
+        PrintBinaryTree.layerPrint2(root);
     }
 
     private static BinaryNode merge(BinaryNode root1, BinaryNode root2) {
