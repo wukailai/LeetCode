@@ -10,12 +10,11 @@ import util.GeneratorUtil;
 public class BinaryTreeValidate {
     public static void main(String[] args) {
         BinaryNode root = GeneratorUtil.newBinary();
-        PrintBinaryTree.layerPrint(root);
+        PrintBinaryTree.layerPrint2(root);
         System.out.println(validate(root));
         BinaryNode root1 = GeneratorUtil.newSortBinary();
-        PrintBinaryTree.layerPrint(root1);
+        PrintBinaryTree.layerPrint2(root1);
         System.out.println(validate(root1));
-
     }
 
     private static boolean validate(BinaryNode root) {
