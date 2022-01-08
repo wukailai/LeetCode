@@ -9,8 +9,9 @@ import util.GeneratorUtil;
 
 public class SymmetricTree {
     public static void main(String[] args) {
-        System.out.println(isSymmetricTree(GeneratorUtil.newBinary2(), GeneratorUtil.newBinary3()));
-        System.out.println(isSymmetricTree(GeneratorUtil.newBinary(), GeneratorUtil.newBinary2()));
+        BinaryNode root = GeneratorUtil.newBinary9();
+        PrintBinaryTree.layerPrint2(root);
+        System.out.println(isSymmetricTree(root, root));
     }
 
     private static boolean isSymmetricTree(BinaryNode root1, BinaryNode root2) {

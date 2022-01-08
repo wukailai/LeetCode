@@ -216,6 +216,20 @@ public class GeneratorUtil {
     }
 
     /**
+     * 创建一颗二叉树
+     */
+    public static BinaryNode newBinary9() {
+        BinaryNode root = new BinaryNode(2);
+        root.setLeft(new BinaryNode(1));
+        root.setRight(new BinaryNode(1));
+        root.getLeft().setLeft(new BinaryNode(3));
+        root.getLeft().setRight(new BinaryNode(4));
+        root.getRight().setLeft(new BinaryNode(4));
+        root.getRight().setRight(new BinaryNode(3));
+        return root;
+    }
+
+    /**
      * 创建一颗二叉搜索树
      */
     public static BinaryNode newSortBinary() {
