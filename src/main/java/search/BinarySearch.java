@@ -19,15 +19,17 @@ public class BinarySearch {
      * 递归实现
      */
     private static int search(int[] a, int start, int end, int target) {
+        if (start > end) {
+            return -1;
+        }
         int mid = (end - start) / 2 + start;
         if (a[mid] == target) {
             return mid;
-        } else if (a[mid] > target && start <= mid - 1) {
+        } else if (a[mid] > target) {
             return search(a, start, mid - 1, target);
-        } else if (a[mid] < target && mid + 1 <= end) {
+        } else {
             return search(a, mid + 1, end, target);
         }
-        return -1;
     }
 
     /**
