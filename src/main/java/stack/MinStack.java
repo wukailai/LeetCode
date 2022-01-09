@@ -25,6 +25,7 @@ public class MinStack<T extends Comparable> {
     }
 
     private void push(T t) {
+        // 注意这里要小于等于
         if (min.isEmpty() || t.compareTo(min.peek()) <= 0) {
             min.push(t);
         }
