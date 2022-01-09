@@ -72,7 +72,7 @@ public class ReConstruct {
         ListNode head = null;
         ListNode node = null;
         boolean isFlag = true;
-        while (postHead != null || preHead != null) {
+        while (postHead != null && preHead != null) {
             if (null == head) {
                 head = preHead;
                 node = head;
