@@ -13,7 +13,7 @@ public class PowerOperation {
         System.out.println(power(2, 8));
         System.out.println(power2(2, 8));
         System.out.println(get(13));
-        System.out.println(Decimal2Binary(8));
+        System.out.println(decimal2Binary(8));
     }
 
     private static int power(int base, int power) {
@@ -51,7 +51,7 @@ public class PowerOperation {
     /**
      * 十进制转二进制
      */
-    private static String Decimal2Binary(int n) {
+    private static String decimal2Binary(int n) {
         String result = "";
         while (n != 0) {
             //注意连接顺序
