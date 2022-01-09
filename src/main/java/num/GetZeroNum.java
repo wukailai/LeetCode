@@ -17,7 +17,7 @@ public class GetZeroNum {
      */
     private static int getZeroNum(int n) {
         int result = 0;
-        while (n != 0) {
+        while (n >= 5) {
             n = n / 5;
             result += n;
         }
