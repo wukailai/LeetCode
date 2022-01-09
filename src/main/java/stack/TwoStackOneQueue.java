@@ -27,10 +27,14 @@ class Queue<T> {
     private Stack<T> out = new Stack();
 
     public T take() {
-        if (out.isEmpty()) {
-            while (!in.isEmpty()) {
-                out.push(in.pop());
-            }
+        if (isEmpty()) {
+            return null;
+        }
+        if (!out.isEmpty()) {
+            return out.pop();
+        }
+        while (!in.isEmpty()) {
+            out.push(in.pop());
         }
         return out.pop();
     }
