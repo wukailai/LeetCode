@@ -25,4 +25,13 @@ public class Singleton {
             }
         }
     }
+
+    private static Singleton getInstance2() {
+        while (null == INSTANCE.get()) {
+            if (INSTANCE.compareAndSet(null, new Singleton())) {
+                return INSTANCE.get();
+            }
+        }
+        return INSTANCE.get();
+    }
 }

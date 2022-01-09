@@ -14,3 +14,14 @@ Task Scheduler
 *Burst Balloons
 *Edit Distance
 *Minimum Window Substring
+
+不是很熟悉的算法题：
+FindDuplicateNumber
+SubArraySumMinLen
+LRUCache
+RemoveDuplicateNodeInRow
+ReverseListByK
+ConstructBinaryTreeByPreMid
+ConvertBST
+PathSum3
+PrefixTree
